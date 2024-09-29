@@ -1,0 +1,36 @@
+html {
+    --everglow-gray-4: #bcc8d4;
+  
+    --everglow-blue-2: #80ccff;
+    --everglow-blue-3: #54aeff;
+  
+    --everglow-green-4: #2da44e;
+  
+    --everglow-yellow-2: #fcd554;
+    --everglow-yellow-3: #d4a72c;
+  
+    --everglow-red-2: #ffaba8;
+    --everglow-red-3: #ff8182;
+    --everglow-red-4: #fa4549;
+    --everglow-red-5: #cf222e;
+  
+    --everglow-purple-4: #a475f9;
+  
+    --everglow-pink-0: #ffeff7;
+    --everglow-pink-3: #ff80c8;
+    --everglow-pink-4: #e85aad;
+  
+    --everglow-trans-white-9: #ffffff00;
+  
+    --everglow-trans-blue-3: #54aeff77;
+    --everglow-trans-blue-4: #218bff77;
+  
+    --everglow-trans-pink-2: #ffadda77;
+  
+    --everglow-shadow-color: hsla(0, 0%, 0%, 0.05);
+    --everglow-mask-color-0: #00000077;
+    --shadow: 0 1px 2px var(--everglow-shadow-color),
+      0 1px 4px var(--everglow-shadow-color), 0 2px 8px var(--everglow-shadow-color);
+    --everglow-shadow-0: 0px 0px 12px rgba(0, 0, 0, 0.2);
+    --everglow-shadow-1: 0px 0px 17px var(--everglow-trans-blue-3);
+  }
