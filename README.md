@@ -14,6 +14,7 @@ Development in progress ✿✿ヽ(°▽°)ノ✿
         <img src="https://img.shields.io/discord/957529364499689482?color=5865F2&label=Everglow&logo=discord&logoColor=white" alt="Discord"/>
     </a>
 </div>
+</div>
 
 ## Introduction
 
