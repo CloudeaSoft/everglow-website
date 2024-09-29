@@ -1,75 +1,43 @@
-# Nuxt 3 Minimal Starter
+<div align="center">
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<img src="https://github.com/Solaestas/Everglow/blob/master/Sources/Everglow/icon.png" alt="Everglow" width="200">
 
-## Setup
+# Everglow
 
-Make sure to install the dependencies:
+Everglow is a *freaking awesome* mod for Terraria!.
 
+Development in progress ✿✿ヽ(°▽°)ノ✿
+<br>
+
+<div align="center">
+    <a href="https://discord.gg/pdXvp89Dbp">
+        <img src="https://img.shields.io/discord/957529364499689482?color=5865F2&label=Everglow&logo=discord&logoColor=white" alt="Discord"/>
+    </a>
+</div>
+
+## Introduction
+
+This is the website repository of [Everglow](https://github.com/Solaestas/Everglow).
+
+## Get-Started
 ```bash
-# npm
-npm install
+# This project is forced to use pnpm
 
-# pnpm
+# Make sure to install the dependencies:
 pnpm install
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
+# Start the development server on `http://localhost:3000`
 pnpm run dev
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
+# Build the application for production:
 pnpm run build
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
+# Locally preview production build:
 pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Contact Us
+
+ - [Bilibili](https://space.bilibili.com/1079503056)
+ - [Discord Server For Fans](https://discord.gg/pdXvp89Dbp)
+ - QQ Group For Developer Audit: 710341368
