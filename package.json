@@ -14,5 +14,10 @@
     "vue": "latest",
     "vue-router": "latest"
   },
-  "packageManager": "pnpm@latest"
+  "packageManager": "pnpm@latest",
+  "devDependencies": {
+    "@nuxt/icon": "^1.5.2",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "sass-embedded": "^1.79.4"
+  }
 }
