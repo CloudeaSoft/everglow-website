@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            scroll-timeline: --scrollcontainer inline;
+            flex-direction: column;
+            padding-top: 100vh;
+            z-index: 100;
+        }
+
+        span {
+            position: fixed;
+            height: 7px;
+            left: 0;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            height: 10px;
+            background: #ffc107;
+            animation: auto grow-progress linear forwards;
+            animation-timeline: scroll(root);
+            transform-origin: 0 50%;
+        }
+
+        header {
+            height: 100dvh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blue;
+            position: fixed;
+            top: 0;
+
+            animation: header 1s linear forwards;
+            animation-timeline: scroll();
+            animation-range: 0 calc(100vh - 60px);
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 100%;
+            padding: 10px;
+            background-color: beige;
+            color: coral;
+            font-size: 80px;
+
+            animation: appear 1s linear both;
+            animation-timeline: view();
+            animation-range: entry, exit;
+            z-index: -1;
+        }
+
+        div:nth-child(odd) {
+            background-color: wheat
+        }
+
+        @keyframes header {
+            to {
+                height: 60px;
+                font-size: 30px;
+            }
+        }
+
+        @keyframes grow-progress {
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes appear {
+            entry 0% {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            entry 100% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+
+            exit 100% {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            exit 0% {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+        main div.back {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            background-color: royalblue;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+
+            animation: back-progress 1s linear forwards;
+            animation-timeline: scroll();
+            animation-range: 0 1000px;
+        }
+
+        @keyframes back-progress {
+            from {
+                transform: translateY(300%);
+            }
+
+            to {
+                transform: translateY(-150%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <span></span>
+        <header>😀</header>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div>X</div>
+        <div class="back" href="#"></div>
+    </main>
+
+</body>
+
+</html>
