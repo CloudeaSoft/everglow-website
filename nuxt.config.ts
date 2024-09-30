@@ -30,7 +30,12 @@ export default defineNuxtConfig({
     },
     keepalive: true,
   },
-  colorMode:{
+  runtimeConfig: {
+    public: {
+      colorModeStorageKey: process.env.COLOR_MODE_STORAGE_KEY
+    }
+  },
+  colorMode: {
     preference: 'light',
     fallback: 'light',
     hid: 'nuxt-color-mode-script',
@@ -38,6 +43,7 @@ export default defineNuxtConfig({
     componentName: 'ColorScheme',
     classPrefix: 'everglow-',
     classSuffix: '-mode',
-    storageKey: 'everglow-color-mode'
+    storage: 'cookie',
+    storageKey: process.env.COLOR_MODE_STORAGE_KEY,
   }
 })
