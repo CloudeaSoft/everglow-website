@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const colorModeCookie = useCookie(config.public.colorModeStorageKey)
+const colorModeCookie = useCookie(config.public.colorModeStorageKey ?? 'everglow-color-mode')
 const bg = ref<string>(colorModeCookie.value === 'light' ? '/images/light-sky.jpg' : '/images/star-sky.jpg');
 
 watch(useColorMode(), (newIns, oldIns) => {
