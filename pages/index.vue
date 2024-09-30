@@ -2,8 +2,11 @@
 
 <template>
     <div>
-        This website is still work in progress.
-        <NuxtLink class="" href="https://github.com/Solaestas/Everglow" target="_blank">Go to everglow github page</NuxtLink>
+        <HomeWelcome/>
+        <HomeDivider1/>
+        <HomeBG1/>
+        <HomeDivider2/>
+        <HomeBG2/>
     </div>
 </template>
 

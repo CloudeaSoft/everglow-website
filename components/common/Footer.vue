@@ -1,15 +1,17 @@
 <template>
     <footer class="common-footer-container">
         <div class="content">footer</div>
+        <div class="copyright">copyright</div>
     </footer>
 </template>
 
 <style lang="scss">
 .common-footer-container {
-    background-color: blue;
+    background-color: var(--everglow-white);
 
-    .content {
-        height: 5rem;
+    .content,
+    .copyright{
+        padding: 3rem 2rem;
     }
 }
 </style>
