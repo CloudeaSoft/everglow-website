@@ -24,17 +24,17 @@ watch(useColorMode(), (newIns, oldIns) => {
 </template>
 
 <style lang="scss" scoped>
-.git-link{
+.git-link {
     margin-top: 10px;
-    font-size: 1.2rem;
-    border: 1px solid var(--everglow-black);
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: 2px solid var(--everglow-black);
     border-radius: 3px;
     padding: 5px;
 
-    &:hover{
+    &:hover {
         border-color: var(--everglow-blue-5);
         color: var(--everglow-blue-5);
     }
 }
 </style>
-
