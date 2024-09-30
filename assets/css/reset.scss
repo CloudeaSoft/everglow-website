@@ -49,7 +49,7 @@ li {
 
 /* Compatibility for Firefox to hide scrollbars */
 * {
-    scrollbar-width: none;
+    scrollbar-width: thin;
     scrollbar-color: var(--everglow-blue-5) var(--everglow-trans-white-9);
 }
 
