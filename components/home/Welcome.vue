@@ -13,7 +13,7 @@ watch(useColorMode(), (newIns, oldIns) => {
         <div class="home-welcome">
             <section class="parallex-scroll">
                 <div>This website is still work in progress.</div>
-                <NuxtLink href="https://github.com/Solaestas/Everglow" target="_blank">
+                <NuxtLink to="https://github.com/Solaestas/Everglow" target="_blank">
                     <div class="git-link">
                         Go to everglow github page
                     </div>

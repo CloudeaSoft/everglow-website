@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/icon',
     '@nuxtjs/color-mode',
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    '@nuxtjs/i18n',
   ],
   ssr: true,
   router: {
@@ -73,5 +74,20 @@ export default defineNuxtConfig({
     classSuffix: '-mode',
     storage: 'cookie',
     storageKey: process.env.COLOR_MODE_STORAGE_KEY,
+  },
+  i18n: {
+    langDir:'./lang',
+    locales: [
+      { code: 'zh-cn', iso: 'zh-CN', file: 'zh-CN.json' },
+      { code: 'zh-tw', iso: 'zh-TW', file: 'zh-TW.json' },
+      { code: 'en-us', iso: 'en-US', file: 'en-US.json' },
+    ],
+    defaultLocale: 'zh-cn',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'everglow-language',
+      redirectOn: 'root'
+    }
   }
 })

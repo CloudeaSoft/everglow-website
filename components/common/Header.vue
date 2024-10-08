@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const blurMaskVisible = true;
+const localePath = useLocalePath()
 
 const mainMenuItemList = [{
     name: 'home',
@@ -40,14 +41,14 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
         blurMaskVisible ? 'blur-mask' : '']">
         <div class="container">
             <div class="logo">
-                <NuxtLink to="/">
-                    <CommonLogo :size="30" />
+                <NuxtLink :to="localePath('/')">
+                    <EverglowLogo :size="30" />
                     <div class="logo-text">Everglow</div>
                 </NuxtLink>
             </div>
             <div class="main-menu-wrap">
                 <div v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
-                    <NuxtLink :to="item.link">
+                    <NuxtLink :to="localePath(item.link)">
                         {{ item.text }}
                     </NuxtLink>
                 </div>
