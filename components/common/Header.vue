@@ -8,19 +8,19 @@ const mainMenuItemList = [{
 }, {
     name: 'news',
     text: 'News',
-    link: '/'
+    link: '/news'
 }, {
     name: 'wiki',
     text: 'Wiki',
-    link: '/'
+    link: '/wiki'
 }, {
     name: 'documentation',
     text: 'Documentation',
-    link: '/'
+    link: '/docs'
 }, {
     name: 'about',
     text: 'About Us',
-    link: '/'
+    link: '/about'
 }]
 
 const colorMode = useColorMode()
@@ -47,7 +47,9 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
             </div>
             <div class="main-menu-wrap">
                 <div v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
-                    {{ item.text }}
+                    <NuxtLink :to="item.link">
+                        {{ item.text }}
+                    </NuxtLink>
                 </div>
             </div>
             <div class="user-actions">
