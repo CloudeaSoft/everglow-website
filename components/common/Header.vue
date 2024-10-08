@@ -38,7 +38,7 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
             <div class="logo">
                 <NuxtLink :to="localePath('/')">
                     <EverglowLogo :size="30" />
-                    <div class="logo-text">{{$t('body.header.name')}}</div>
+                    <div class="logo-text">{{ $t('body.header.name') }}</div>
                 </NuxtLink>
             </div>
             <div class="main-menu-wrap">
@@ -50,7 +50,7 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
             </div>
             <div class="user-actions">
                 <div class="user-actions-item language">
-                    <CommonHeaderLanguage/>
+                    <CommonHeaderLanguage />
                 </div>
                 <div class="user-actions-item mode">
                     <div class="icon-button">
@@ -76,7 +76,7 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .common-header {
     position: fixed;
     top: 0;
@@ -182,7 +182,10 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
 
                 &:hover {
                     cursor: pointer;
-                    color: var(--everglow-blue-5);
+
+                    &>* {
+                        color: var(--everglow-blue-5) !important;
+                    }
                 }
             }
         }
@@ -205,7 +208,7 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
                     padding: 0.5rem;
                     border-radius: 8px;
                     overflow: hidden;
-                    transition: background-color 0.2s ease-in;
+                    transition: background-color 0.15s ease-in;
 
                     &>* {
                         width: 20px;
