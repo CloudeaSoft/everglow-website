@@ -76,11 +76,11 @@ export default defineNuxtConfig({
     storageKey: process.env.COLOR_MODE_STORAGE_KEY,
   },
   i18n: {
-    langDir:'./lang',
+    langDir: './lang',
     locales: [
-      { code: 'zh-cn', iso: 'zh-CN', file: 'zh-CN.json' },
-      { code: 'zh-tw', iso: 'zh-TW', file: 'zh-TW.json' },
-      { code: 'en-us', iso: 'en-US', file: 'en-US.json' },
+      { code: 'zh-cn', iso: 'zh-CN', file: 'zh-CN.ts' },
+      { code: 'zh-hk', iso: 'zh-HK', file: 'zh-HK.ts' },
+      { code: 'en-us', iso: 'en-US', file: 'en-US.ts' },
     ],
     defaultLocale: 'zh-cn',
     strategy: 'prefix_except_default',

@@ -4,23 +4,18 @@ const localePath = useLocalePath()
 
 const mainMenuItemList = [{
     name: 'home',
-    text: 'Home',
     link: '/'
 }, {
     name: 'news',
-    text: 'News',
     link: '/news'
 }, {
     name: 'wiki',
-    text: 'Wiki',
     link: '/wiki'
 }, {
     name: 'documentation',
-    text: 'Documentation',
     link: '/docs'
 }, {
     name: 'about',
-    text: 'About Us',
     link: '/about'
 }]
 
@@ -43,17 +38,20 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
             <div class="logo">
                 <NuxtLink :to="localePath('/')">
                     <EverglowLogo :size="30" />
-                    <div class="logo-text">Everglow</div>
+                    <div class="logo-text">{{$t('body.header.name')}}</div>
                 </NuxtLink>
             </div>
             <div class="main-menu-wrap">
                 <div v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
                     <NuxtLink :to="localePath(item.link)">
-                        {{ item.text }}
+                        {{ $t(`body.header.${item.name}`) }}
                     </NuxtLink>
                 </div>
             </div>
             <div class="user-actions">
+                <div class="user-actions-item language">
+                    <CommonHeaderLanguage/>
+                </div>
                 <div class="user-actions-item mode">
                     <div class="icon-button">
                         <span class="light" v-show="$colorMode.value === 'light'">
