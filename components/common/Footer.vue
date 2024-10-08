@@ -7,12 +7,12 @@
                 <div class="links">
                     <ul class="link-list">
                         <li class="link-list-item discord">
-                            <NuxtLink to="https://discord.gg/pdXvp89Dbp">
+                            <NuxtLink to="https://discord.gg/pdXvp89Dbp" target="blank">
                                 <Icon name="line-md:discord" />
                             </NuxtLink>
                         </li>
                         <li class="link-list-item github">
-                            <NuxtLink to="https://github.com/Solaestas/Everglow">
+                            <NuxtLink to="https://github.com/Solaestas/Everglow" target="blank">
                                 <Icon name="line-md:github" />
                             </NuxtLink>
                         </li>

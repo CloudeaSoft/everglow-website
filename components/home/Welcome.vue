@@ -27,7 +27,7 @@ watch(useColorMode(), (newIns, oldIns) => {
 .git-link {
     margin-top: 10px;
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: var(--font-weight--bold);
     border: 2px solid var(--everglow-black);
     border-radius: 3px;
     padding: 5px;

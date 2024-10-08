@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxt/icon',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxt/fonts'
   ],
   ssr: true,
   router: {
@@ -35,9 +36,36 @@ export default defineNuxtConfig({
       colorModeStorageKey: process.env.COLOR_MODE_STORAGE_KEY
     }
   },
+  fonts: {
+    providers: {
+    },
+    families: [
+      { name: 'Abel', provider: 'bunny' },
+      { name: 'Satoshi', provider: 'fontshare' },
+      { name: 'Kode Mono', provider: 'none' },
+      { name: 'Oswald', fallbacks: ['Times New Roman'] },
+      { name: 'Aleo', provider: 'adobe' },
+      { name: 'Barlow Semi Condensed', provider: 'adobe' },
+      { name: 'Barlow', preload: true },
+      { name: 'Roboto Mono', provider: 'fontsource' },
+      { name: 'Roboto Flex', provider: 'fontsource' },
+      { name: 'Custom1', src: '/fonts/a.woff' },
+      { name: 'Custom2', src: '/fonts/b.woff' },
+      { name: 'Public Sans', src: '/fonts/public-sans.woff' },
+      { name: 'Custom4', src: '/fonts/d.woff2' },
+    ],
+    adobe: {
+      id: ['sij5ufr', 'grx7wdj'],
+    },
+    defaults: {
+      fallbacks: {
+        monospace: ['Tahoma'],
+      },
+    },
+  },
   colorMode: {
-    preference: 'light',
-    fallback: 'light',
+    preference: 'dark',
+    fallback: 'dark',
     hid: 'nuxt-color-mode-script',
     globalName: '__EVERGLOW_COLOR_MODE__',
     componentName: 'ColorScheme',

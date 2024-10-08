@@ -2,17 +2,25 @@
 const blurMaskVisible = true;
 
 const mainMenuItemList = [{
-    name: 'index',
-    text: 'Index',
-    link: ''
-},{
-    name: 'docs',
-    text: 'Docs',
-    link: ''
-},{
+    name: 'home',
+    text: 'Home',
+    link: '/'
+}, {
+    name: 'news',
+    text: 'News',
+    link: '/'
+}, {
+    name: 'wiki',
+    text: 'Wiki',
+    link: '/'
+}, {
+    name: 'documentation',
+    text: 'Documentation',
+    link: '/'
+}, {
     name: 'about',
     text: 'About Us',
-    link: ''
+    link: '/'
 }]
 
 const colorMode = useColorMode()
@@ -38,24 +46,29 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
                 </NuxtLink>
             </div>
             <div class="main-menu-wrap">
-                <div v-for="(item, index) in mainMenuItemList" class="main-menu-wrap-item" :key="index">
+                <div v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
                     {{ item.text }}
                 </div>
             </div>
             <div class="user-actions">
                 <div class="user-actions-item mode">
-                    <span class="light" v-show="$colorMode.value === 'light'">
-                        <Icon name="line-md:moon-filled-alt-to-sunny-filled-loop-transition"
-                            @click="changeColorMode('dark')" />
-                    </span>
-                    <span class="dark" v-show="$colorMode.value === 'dark'">
-                        <Icon name="line-md:sunny-outline-to-moon-loop-transition" @click="changeColorMode('light')" />
-                    </span>
+                    <div class="icon-button">
+                        <span class="light" v-show="$colorMode.value === 'light'">
+                            <Icon name="line-md:moon-filled-alt-to-sunny-filled-loop-transition"
+                                @click="changeColorMode('dark')" />
+                        </span>
+                        <span class="dark" v-show="$colorMode.value === 'dark'">
+                            <Icon name="line-md:sunny-outline-to-moon-loop-transition"
+                                @click="changeColorMode('light')" />
+                        </span>
+                    </div>
                 </div>
                 <div class="user-actions-item github">
-                    <NuxtLink :to="githubLink" target="_blank">
-                        <Icon name="uil:github" />
-                    </NuxtLink>
+                    <div class="icon-button">
+                        <NuxtLink :to="githubLink" target="_blank">
+                            <Icon name="uil:github" />
+                        </NuxtLink>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,23 +164,32 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
                 padding-left: 10px;
                 font-size: 20px;
                 font-family: 'Courier New', Courier, monospace;
-                font-weight: 700;
+                font-weight: var(--font-weight--bold);
             }
         }
 
         .main-menu-wrap {
             display: flex;
             align-items: center;
-            font-family: inherit;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-family: Public Sans;
+            font-weight: var(--font-weight--bold);
+            font-size: 1.125rem;
             column-gap: 3rem;
+
+            .main-menu-item {
+                line-height: 1.5rem;
+
+                &:hover {
+                    cursor: pointer;
+                    color: var(--everglow-blue-5);
+                }
+            }
         }
 
         .user-actions {
             display: flex;
 
-            column-gap: 1rem;
+            column-gap: 0.5rem;
 
             .user-actions-item {
                 font-size: 20px;
@@ -176,6 +198,23 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
                 align-items: center;
 
                 cursor: pointer;
+
+                .icon-button {
+                    display: inline-flex;
+                    padding: 0.5rem;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    transition: background-color 0.2s ease-in;
+
+                    &>* {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:hover {
+                        background-color: var(--everglow-trans-black-3);
+                    }
+                }
             }
 
             .mode {
