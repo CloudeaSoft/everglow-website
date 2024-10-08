@@ -6,7 +6,6 @@
 
 <style lang="scss">
 .common-main-container {
-    background: url('@/public/bg.jpg');
     background-size: cover;
 }
 </style>
