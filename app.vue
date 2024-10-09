@@ -8,6 +8,22 @@ useHead({
     return titleChunk ? `${titleChunk} - ${i18n.t('head.title')}` : `${i18n.t('head.title')}`;
   }
 })
+
+useSeoMeta({
+  title: 'Everglow',
+  ogTitle: 'Everglow Website',
+  description: 'Welcome to Everglow no Sekai!',
+  ogDescription: 'Welcome to Everglow no Sekai!',
+  ogImage: '/icon.png',
+  twitterCard: 'summary_large_image',
+})
+
+defineOgImageComponent('BlogPost', {
+    title: 'Everglow',
+    description: 'Welcome to Everglow no Sekai!',
+    theme: '#1025ff',
+    colorMode: 'dark',
+})
 </script>
 
 <template>

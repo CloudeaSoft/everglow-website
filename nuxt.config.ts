@@ -7,18 +7,31 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/fonts',
     '@nuxtjs/i18n',
+    '@nuxtjs/seo'
   ],
   ssr: true,
-  router: {
-    options: {
-      hashMode: false
+  devServer: {
+    port: 3000
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern'
+        }
+      }
+    }
+  },
+  runtimeConfig: {
+    public: {
+      colorModeStorageKey: process.env.COLOR_MODE_STORAGE_KEY
     }
   },
   app: {
     baseURL: '',
-
     head: {
       charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'author', content: 'everglow team' },
@@ -31,10 +44,31 @@ export default defineNuxtConfig({
       ]
     },
     keepalive: true,
+    layoutTransition: false,
+    pageTransition: false,
+    rootAttrs: {
+      id: '__nuxt'
+    }
   },
-  runtimeConfig: {
-    public: {
-      colorModeStorageKey: process.env.COLOR_MODE_STORAGE_KEY
+  router: {
+    options: {
+      hashMode: false
+    }
+  },
+  robots: {
+    allow: '/'
+  },
+  site: {
+    url: 'https://everglow.cloudea.work',
+    name: 'Everglow',
+    description: 'Welcome to Everglow no Sekai!',
+  },
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'Everglow Team',
+      url: 'https://everglow.cloudea.work',
+      logo: 'https://everglow.cloudea.work/logo.png'
     }
   },
   fonts: {

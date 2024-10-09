@@ -26,7 +26,6 @@ const changeColorMode = (mode: 'light' | 'dark') => {
     colorMode.preference = mode
 }
 
-const githubLink = 'https://github.com/Solaestas/Everglow'
 </script>
 
 <template>
@@ -66,7 +65,8 @@ const githubLink = 'https://github.com/Solaestas/Everglow'
                 </div>
                 <div class="user-actions-item github">
                     <div class="icon-button">
-                        <NuxtLink :to="githubLink" target="_blank">
+                        <NuxtLink href="https://github.com/Solaestas/Everglow" title="Github" aria-label="Everglow on Github"
+                            target="_blank">
                             <Icon name="uil:github" />
                         </NuxtLink>
                     </div>

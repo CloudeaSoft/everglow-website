@@ -5,5 +5,5 @@ const { size = 30 } = defineProps<{
 </script>
 
 <template>
-    <img src="/icon.png" :width="size" :height="size">
+    <img src="/icon.png" :width="size" :height="size" alt="Everglow Logo">
 </template>
