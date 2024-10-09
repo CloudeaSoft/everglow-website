@@ -208,7 +208,7 @@ const changeColorMode = (mode: 'light' | 'dark') => {
                 }
 
                 .chevron {
-                    display: flex;
+                    display: none;
                     align-items: center;
                     opacity: 0;
                     transform-origin: center;
@@ -309,6 +309,9 @@ const changeColorMode = (mode: 'light' | 'dark') => {
                     display: flex;
                     justify-content: space-between;
 
+                    .chevron {
+                        display: flex;
+                    }
 
                     &:hover {
                         .chevron {
