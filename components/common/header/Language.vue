@@ -2,13 +2,17 @@
 const { availableLocales, locale, setLocale } = useI18n()
 
 const isShowOptions = ref(false)
+
+const setLanguage = (code: string) => {
+  setLocale(code)
+  isShowOptions.value = false
+}
 </script>
 
 <template>
   <div class="setting-language">
     <div class="everglow-select" @mouseleave="isShowOptions = false">
-      <div ref="container" tabindex="-1" class="everglow-chooser"
-        @mouseenter="isShowOptions = true">
+      <div ref="container" tabindex="-1" class="everglow-chooser" @mouseenter="isShowOptions = true">
         <Icon name="dashicons:translation" />
         <Icon class="icon" name="lucide:chevron-down" />
       </div>
@@ -16,7 +20,7 @@ const isShowOptions = ref(false)
         <div v-show="isShowOptions" class="options bottom">
           <div class="options-content">
             <span v-for="(option, index) in availableLocales" :key="index"
-              @click.stop.prevent="setLocale(availableLocales[index])" v-once>
+              @click.stop.prevent="setLanguage(availableLocales[index])" v-once>
               {{ $t(`body.header.settings.languages.${option}`) }}
             </span>
           </div>
@@ -62,7 +66,7 @@ const isShowOptions = ref(false)
   .options {
     min-width: 8rem;
     position: absolute;
-    
+
     padding-top: 1rem;
     right: 0;
 
