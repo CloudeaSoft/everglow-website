@@ -1,6 +1,17 @@
 <script setup lang="ts">
-const blurMaskVisible = true;
+const blurMaskVisible = () => true;
+const menuListVisible = ref<boolean>(false);
 const localePath = useLocalePath()
+
+const openMenu = () => {
+    menuListVisible.value = true;
+    document.body.style.overflow = 'hidden'
+}
+
+const closeMenu = () => {
+    menuListVisible.value = false;
+    document.body.style.overflow = 'auto'
+}
 
 const mainMenuItemList = [{
     name: 'home',
@@ -25,33 +36,32 @@ const changeColorMode = (mode: 'light' | 'dark') => {
     colorMode.value = mode
     colorMode.preference = mode
 }
-
 </script>
 
 <template>
     <header :class="[
         'common-header',
         'transparent',
-        blurMaskVisible ? 'blur-mask' : '']">
-        <div class="container">
+        blurMaskVisible() ? 'blur-mask' : '']">
+        <div class="common-header-nav">
             <div class="logo">
                 <NuxtLink :to="localePath('/')">
                     <EverglowLogo :size="30" />
                     <div class="logo-text">{{ $t('body.header.name') }}</div>
                 </NuxtLink>
             </div>
-            <div class="main-menu-wrap">
-                <div v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
-                    <NuxtLink :to="localePath(item.link)">
+            <ul :class="['main-menu', menuListVisible ? 'active' : '']">
+                <li v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
+                    <NuxtLink :to="localePath(item.link)" @click="closeMenu()">
                         {{ $t(`body.header.${item.name}`) }}
                     </NuxtLink>
-                </div>
-            </div>
-            <div class="user-actions">
-                <div class="user-actions-item language">
+                </li>
+            </ul>
+            <ul class="user-actions">
+                <li class="user-actions-item language">
                     <CommonHeaderLanguage />
-                </div>
-                <div class="user-actions-item mode">
+                </li>
+                <li class="user-actions-item mode">
                     <div class="icon-button">
                         <span class="light" v-show="$colorMode.value === 'light'">
                             <Icon name="line-md:moon-filled-alt-to-sunny-filled-loop-transition"
@@ -62,16 +72,24 @@ const changeColorMode = (mode: 'light' | 'dark') => {
                                 @click="changeColorMode('light')" />
                         </span>
                     </div>
-                </div>
-                <div class="user-actions-item github">
+                </li>
+                <li class="user-actions-item github">
                     <div class="icon-button">
-                        <NuxtLink href="https://github.com/Solaestas/Everglow" title="Github" aria-label="Everglow on Github"
-                            target="_blank">
+                        <NuxtLink href="https://github.com/Solaestas/Everglow" title="Github"
+                            aria-label="Everglow on Github" target="_blank">
                             <Icon name="uil:github" />
                         </NuxtLink>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li class="user-actions-item main-menu-trigger">
+                    <div class="icon-button" @click="openMenu()" v-show="!menuListVisible">
+                        <Icon name="line-md:menu-fold-left" />
+                    </div>
+                    <div class="icon-button" @click="closeMenu()" v-show="menuListVisible">
+                        <Icon name="line-md:close" />
+                    </div>
+                </li>
+            </ul>
         </div>
     </header>
 </template>
@@ -106,6 +124,8 @@ const changeColorMode = (mode: 'light' | 'dark') => {
     -moz-transition: all ease-in-out 220ms;
     transition: all ease-in-out 220ms;
 
+    user-select: none;
+
     &.transparent {
         background: unset;
         -webkit-backdrop-filter: unset;
@@ -125,13 +145,12 @@ const changeColorMode = (mode: 'light' | 'dark') => {
         backdrop-filter: blur(50px);
     }
 
-    .container {
+    .common-header-nav {
         position: relative;
-        height: 64px;
+        height: 5rem;
         max-width: 1920px;
         width: 100%;
         margin: 0 auto;
-        padding: 0 40px;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
@@ -153,6 +172,7 @@ const changeColorMode = (mode: 'light' | 'dark') => {
         .logo {
             display: flex;
             align-items: center;
+            padding-left: 40px;
 
             a {
                 display: flex;
@@ -169,7 +189,7 @@ const changeColorMode = (mode: 'light' | 'dark') => {
             }
         }
 
-        .main-menu-wrap {
+        .main-menu {
             display: flex;
             align-items: center;
             font-family: Public Sans;
@@ -192,7 +212,7 @@ const changeColorMode = (mode: 'light' | 'dark') => {
 
         .user-actions {
             display: flex;
-
+            margin-right: 40px;
             column-gap: 0.5rem;
 
             .user-actions-item {
@@ -228,6 +248,55 @@ const changeColorMode = (mode: 'light' | 'dark') => {
 
                 .dark {
                     color: var(--everglow-blue-5);
+                }
+            }
+
+            .main-menu-trigger {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 833px) {
+    .common-header {
+        .common-header-nav {
+            .main-menu {
+                position: absolute;
+                top: 5rem;
+                flex-direction: column;
+
+                width: 100%;
+
+                background-color: var(--everglow-white);
+
+                align-items: baseline;
+                padding: 2rem 40px 0;
+
+                height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+
+                .main-menu-item {
+                    height: 5rem;
+                    line-height: 5rem;
+                    font-size: 2rem;
+                }
+
+                &.active {
+                    display: flex;
+                    opacity: 1;
+                    height: calc(100dvh - 5rem);
+                }
+            }
+
+            .user-actions {
+                margin-right: 0;
+
+                .main-menu-trigger {
+                    width: 40px;
+                    display: flex;
                 }
             }
         }

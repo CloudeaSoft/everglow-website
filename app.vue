@@ -10,7 +10,7 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Everglow',
+  title: '',
   ogTitle: 'Everglow Website',
   description: 'Welcome to Everglow no Sekai!',
   ogDescription: 'Welcome to Everglow no Sekai!',
