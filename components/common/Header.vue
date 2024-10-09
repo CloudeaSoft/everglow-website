@@ -53,8 +53,11 @@ const changeColorMode = (mode: 'light' | 'dark') => {
             <ul :class="['main-menu', menuListVisible ? 'active' : '']">
                 <li v-for="(item, index) in mainMenuItemList" class="main-menu-item" :key="index">
                     <NuxtLink :to="localePath(item.link)" @click="closeMenu()">
-                        {{ $t(`body.header.${item.name}`) }}
+                        <div class="text">{{ $t(`body.header.${item.name}`) }}</div>
                     </NuxtLink>
+                    <div class="chevron">
+                        <Icon name="line-md:chevron-small-right" />
+                    </div>
                 </li>
             </ul>
             <ul class="user-actions">
@@ -200,10 +203,22 @@ const changeColorMode = (mode: 'light' | 'dark') => {
             .main-menu-item {
                 line-height: 1.5rem;
 
+                .text {
+                    transition: color 0.3s;
+                }
+
+                .chevron {
+                    display: flex;
+                    align-items: center;
+                    opacity: 0;
+                    transform-origin: center;
+                    animation: globalnav-chevron-hover-off .24s cubic-bezier(.4, 0, .6, 1) both;
+                }
+
                 &:hover {
                     cursor: pointer;
 
-                    &>* {
+                    .text {
                         color: var(--everglow-blue-5) !important;
                     }
                 }
@@ -271,23 +286,36 @@ const changeColorMode = (mode: 'light' | 'dark') => {
                 background-color: var(--everglow-white);
 
                 align-items: baseline;
-                padding: 2rem 40px 0;
+                justify-content: center;
+                padding: 0 40px;
 
                 height: 0;
                 opacity: 0;
                 overflow: hidden;
                 transition: all 0.3s ease-in-out;
 
-                .main-menu-item {
-                    height: 5rem;
-                    line-height: 5rem;
-                    font-size: 2rem;
-                }
-
                 &.active {
                     display: flex;
                     opacity: 1;
                     height: calc(100dvh - 5rem);
+                }
+
+                .main-menu-item {
+                    width: 100%;
+                    height: 5rem;
+                    line-height: 5rem;
+                    font-size: 2rem;
+
+                    display: flex;
+                    justify-content: space-between;
+
+
+                    &:hover {
+                        .chevron {
+                            opacity: 1;
+                            animation: globalnav-chevron-slide-in-hover .24s cubic-bezier(.4, 0, .6, 1) both
+                        }
+                    }
                 }
             }
 
@@ -299,6 +327,30 @@ const changeColorMode = (mode: 'light' | 'dark') => {
                     display: flex;
                 }
             }
+        }
+    }
+
+    @keyframes globalnav-chevron-slide-in-hover {
+        0% {
+            opacity: 0;
+            transform: translate(-4px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
+    }
+
+    @keyframes globalnav-chevron-hover-off {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(.8);
         }
     }
 }

@@ -60,8 +60,6 @@ export default defineNuxtConfig({
   },
   site: {
     url: 'https://everglow.cloudea.work',
-    name: 'Everglow',
-    description: 'Welcome to Everglow no Sekai!',
   },
   schemaOrg: {
     identity: {

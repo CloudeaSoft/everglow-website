@@ -1,4 +1,8 @@
 export default {
+    nuxtSiteConfig: {
+        name: '流光无际',
+        description: '欢迎来到流光无际的世界!',
+    },
     "head": {
         "title": "流光无际",
         "subtitles": {

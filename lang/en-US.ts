@@ -1,23 +1,27 @@
 export default {
-    "head": {
-        "title": "Everglow",
-        "subtitles": {
-            "news": "News",
-            "wiki": "Wiki",
-            "documentation": "Documentation",
-            "about": "About"
+    nuxtSiteConfig: {
+        name: 'Everglow',
+        description: 'Welcome to Everglow no Sekai!',
+    },
+    head: {
+        title: "Everglow",
+        subtitles: {
+            news: "News",
+            wiki: "Wiki",
+            documentation: "Documentation",
+            about: "About"
         }
     },
-    "body": {
-        "header": {
-            "name": "Everglow",
-            "home": "Home",
-            "news": "News",
-            "wiki": "Wiki",
-            "documentation": "Documentation",
-            "about": "About Us",
-            "settings": {
-                "languages": {
+    body: {
+        header: {
+            name: "Everglow",
+            home: "Home",
+            news: "News",
+            wiki: "Wiki",
+            documentation: "Documentation",
+            about: "About Us",
+            settings: {
+                languages: {
                     "zh-cn": "简体中文",
                     "en-us": "English",
                     "zh-hk": "繁体中文"

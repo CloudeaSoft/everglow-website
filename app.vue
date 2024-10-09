@@ -12,17 +12,19 @@ useHead({
 useSeoMeta({
   title: '',
   ogTitle: 'Everglow Website',
-  description: 'Welcome to Everglow no Sekai!',
   ogDescription: 'Welcome to Everglow no Sekai!',
   ogImage: '/icon.png',
   twitterCard: 'summary_large_image',
 })
 
 defineOgImageComponent('BlogPost', {
-    title: 'Everglow',
-    description: 'Welcome to Everglow no Sekai!',
-    theme: '#1025ff',
-    colorMode: 'dark',
+  title: 'Everglow',
+  description: 'Welcome to Everglow no Sekai!',
+  colorMode: 'dark',
+  icon:'/icon.png',
+  siteName: 'Everglow',
+  siteLogo: '/icon.png',
+  theme: '#1025ff',
 })
 </script>
 
