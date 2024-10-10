@@ -11,7 +11,7 @@ const setLanguage = (code: string) => {
 
 <template>
   <div class="setting-language">
-    <div class="everglow-select" @mouseleave="isShowOptions = false">
+    <div class="everglow-select" @mouseleave="isShowOptions = false" @blur="isShowOptions = false">
       <div ref="container" tabindex="-1" class="everglow-chooser" @mouseenter="isShowOptions = true">
         <Icon name="dashicons:translation" />
         <Icon class="icon" name="lucide:chevron-down" />
