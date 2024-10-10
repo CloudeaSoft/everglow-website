@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/fonts',
     '@nuxtjs/i18n',
-    '@nuxtjs/seo'
+    '@nuxtjs/seo',
+    '@nuxt/content',
   ],
   ssr: true,
   devServer: {
@@ -71,6 +72,31 @@ export default defineNuxtConfig({
       url: 'https://everglow.cloudea.work',
       logo: 'https://everglow.cloudea.work/logo.png'
     }
+  },
+  content: {
+    highlight: {
+      theme: {
+        default: 'github-dark',
+        light: 'github-light',
+        dark: 'github-dark'
+      },
+      langs: [
+        'json',
+        'js',
+        'ts',
+        'html',
+        'css',
+        'vue',
+        'shell',
+        'mdc',
+        'md',
+        'yaml',
+        'c',
+        'cpp',
+        'java',
+        'csharp'
+      ]
+    },
   },
   fonts: {
     providers: {

@@ -10,3 +10,21 @@ html,
 body {
     background-color: var(--everglow-white);
 }
+
+.everglow-dark-mode .shiki {
+    background: #2E3440;
+}
+
+.everglow-dark-mode .shiki,
+.everglow-dark-mode .shiki span {
+    color: var(--shiki-dark) !important;
+}
+
+.everglow-light-mode .shiki {
+    background-color: #f8f8f2;
+}
+
+.everglow-light-mode .shiki,
+.everglow-light-mode .shiki span {
+    color: var(--shiki-light) !important;
+}

@@ -1,9 +1,16 @@
-<script setup lang="ts">
-const { size = 30 } = defineProps<{
-    size: number
-}>()
+<script lang="ts">
+export default defineComponent({
+    inheritAttrs: false,
+    props: {
+        size: {
+            type: Number,
+            default: 30
+        }
+    },
+    setup(props) { }
+})
 </script>
 
 <template>
-    <img src="/icon.png" :width="size" :height="size" alt="Everglow Logo">
+    <img src="/icon.png" :width="size" :height="size" alt="Everglow Logo" aria-label="Everglow">
 </template>
