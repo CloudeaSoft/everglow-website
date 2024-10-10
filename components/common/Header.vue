@@ -23,7 +23,7 @@ const mainMenuItemList = [{
     name: 'wiki',
     link: '/wiki'
 }, {
-    name: 'documentation',
+    name: 'docs',
     link: '/docs'
 }, {
     name: 'about',

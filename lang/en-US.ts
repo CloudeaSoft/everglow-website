@@ -8,7 +8,7 @@ export default {
         subtitles: {
             news: "News",
             wiki: "Wiki",
-            documentation: "Documentation",
+            docs: "Docs",
             about: "About"
         }
     },
@@ -18,7 +18,7 @@ export default {
             home: "Home",
             news: "News",
             wiki: "Wiki",
-            documentation: "Documentation",
+            docs: "Docs",
             about: "About Us",
             settings: {
                 languages: {
