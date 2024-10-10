@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     enabled: true,
     componentInspector: false
   },
+  typescript: {
+    typeCheck: true,
+    strict: false
+  },
   modules: [
     '@nuxt/icon',
     '@nuxtjs/color-mode',
