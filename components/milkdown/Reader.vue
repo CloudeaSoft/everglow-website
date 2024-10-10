@@ -36,15 +36,7 @@ import markdown from 'refractor/lang/markdown'
 
 const tootip = tooltipFactory('Tooltip')
 
-const defaultValue = `# Hello Milkdown
-> abc\n
-> abc\n
-> abc\n
-> abc\n
- \`\`\`javascript
- const a = 1;
- \`\`\`
- `
+const defaultValue: string = 'data.data.value'
 
 useEditor((root) =>
     Editor

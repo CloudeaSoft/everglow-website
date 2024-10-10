@@ -4,25 +4,18 @@ useHead({
     title: i18n.t('head.subtitles.news'),
 })
 
-import { MilkdownProvider } from '@milkdown/vue'
-import { ProsemirrorAdapterProvider } from '@prosemirror-adapter/vue'
+
 </script>
 
 <template>
     <div class="news">
-        <div class="milkdown-wrapper">
-            <MilkdownProvider>
-                <ProsemirrorAdapterProvider>
-                    <MilkdownEditor></MilkdownEditor>
-                </ProsemirrorAdapterProvider>
-            </MilkdownProvider>
-        </div>
+        <MilkdownReaderWrapper />
     </div>
 </template>
 
 <style lang="scss" scoped>
 .news {
     height: 500px;
-    padding-top: 200px;
+    padding: 200px 100px;
 }
 </style>
