@@ -38,7 +38,7 @@ const tootip = tooltipFactory('Tooltip')
 
 const defaultValue: string = 'data.data.value'
 
-useEditor((root) =>
+useEditor((root: HTMLElement) =>
     Editor
         .make()
         .config((ctx) => {
