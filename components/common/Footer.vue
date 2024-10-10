@@ -3,7 +3,7 @@
         <div class="footer-container">
             <div class="content">footer</div>
             <div class="info">
-                <div class="copyright">Copyright © 2024 Everglow Team Inc. All rights reserved.</div>
+                <div class="copyright">Copyright © 2024 Everglow Team All rights reserved.</div>
                 <div class="links">
                     <ul class="link-list">
                         <li class="link-list-item discord">
