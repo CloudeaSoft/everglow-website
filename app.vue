@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const layout = "desktop-default";
-
 const i18n = useI18n()
 
 useHead({
@@ -21,7 +19,7 @@ defineOgImageComponent('BlogPost', {
   title: 'Everglow',
   description: 'Welcome to Everglow no Sekai!',
   colorMode: 'dark',
-  icon:'/icon.png',
+  icon: '/icon.png',
   siteName: 'Everglow',
   siteLogo: '/icon.png',
   theme: '#1025ff',
@@ -29,9 +27,13 @@ defineOgImageComponent('BlogPost', {
 </script>
 
 <template>
-  <NuxtLayout :name="layout">
-    <NuxtPage></NuxtPage>
-  </NuxtLayout>
+  <div id="everglow">
+    <CommonHeader />
+    <CommonMain>
+      <NuxtPage></NuxtPage>
+    </CommonMain>
+    <CommonFooter />
+  </div>
 </template>
 
 <style lang="scss">
