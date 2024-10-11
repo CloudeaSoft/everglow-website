@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import type { NewsProps } from '~/types/news';
 
+const route = useRoute()
+
 const { title = 'Title', abstract = 'abstract' } = defineProps<NewsProps>()
+
+const handleClickNews = (path: string) => {
+    const localePath = useLocalePath()
+    navigateTo(localePath(`/news/${path}`))
+}
 </script>
 
 <template>
-    <li class="news-item">
+    <li class="news-item" @click="">
         <div class="news-item-content">
             <h1 class="news-item-header">{{ title }}</h1>
             <div class="news-item-body">
@@ -65,24 +72,24 @@ const { title = 'Title', abstract = 'abstract' } = defineProps<NewsProps>()
 @keyframes appear {
     from {
         opacity: 0;
-        transform: scaleX(0.6);
+        transform: matrix(0.8, 0, 0, 0.8, 0, 0);
     }
 
     to {
         opacity: 1;
-        transform: scaleX(1);
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
 }
 
 @keyframes disappear {
     to {
         opacity: 0;
-        transform: scaleX(0.6);
+        transform: matrix(0.8, 0, 0, 0.8, 0, 0);
     }
 
     from {
         opacity: 1;
-        transform: scaleX(1);
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
 }
 </style>
