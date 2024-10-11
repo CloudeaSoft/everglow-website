@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
     '@nuxt/content',
+    '@nuxt/image'
   ],
   ssr: true,
   devServer: {
@@ -143,9 +144,9 @@ export default defineNuxtConfig({
   i18n: {
     langDir: './lang',
     locales: [
-      { code: 'zh-cn', iso: 'zh-CN', file: 'zh-CN.ts' },
-      { code: 'zh-hk', iso: 'zh-HK', file: 'zh-HK.ts' },
-      { code: 'en-us', iso: 'en-US', file: 'en-US.ts' },
+      { code: 'zh-cn', language: 'zh-CN', file: 'zh-CN.ts' },
+      { code: 'zh-hk', language: 'zh-HK', file: 'zh-HK.ts' },
+      { code: 'en-us', language: 'en-US', file: 'en-US.ts' },
     ],
     defaultLocale: 'zh-cn',
     strategy: 'prefix_except_default',

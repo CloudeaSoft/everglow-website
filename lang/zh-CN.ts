@@ -8,7 +8,7 @@ export default {
         "subtitles": {
             "news": "新闻",
             "wiki": "百科",
-            "documentation": "文档",
+            "docs": "文档",
             "about": "关于"
         }
     },
@@ -18,7 +18,7 @@ export default {
             "home": "主页",
             "news": "新闻",
             "wiki": "百科",
-            "documentation": "文档",
+            "docs": "文档",
             "about": "关于",
             "settings": {
                 "languages": {
