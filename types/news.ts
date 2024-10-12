@@ -1,7 +1,8 @@
 interface NewsProps {
-    title: string,
-    abstract: string,
-    date: Date
+	title: string;
+	description: string;
+	date: Date;
+	path: string;
 }
 
-export { type NewsProps }
+export { type NewsProps };

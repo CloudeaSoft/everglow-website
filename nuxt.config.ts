@@ -42,21 +42,18 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		public: {
-			colorModeStorageKey:
-				process.env.COLOR_MODE_STORAGE_KEY,
+			colorModeStorageKey: process.env.COLOR_MODE_STORAGE_KEY,
 		},
 	},
 	app: {
 		baseURL: '',
 		head: {
 			charset: 'utf-8',
-			viewport:
-				'width=device-width, initial-scale=1',
+			viewport: 'width=device-width, initial-scale=1',
 			meta: [
 				{
 					name: 'viewport',
-					content:
-						'width=device-width, initial-scale=1',
+					content: 'width=device-width, initial-scale=1',
 				},
 				{
 					name: 'author',
@@ -133,7 +130,6 @@ export default defineNuxtConfig({
 		},
 	},
 	fonts: {
-		providers: {},
 		families: [
 			{
 				name: 'Abel',
@@ -172,29 +168,41 @@ export default defineNuxtConfig({
 				provider: 'fontsource',
 			},
 			{
-				name: 'Custom1',
-				src: '/fonts/a.woff',
-			},
-			{
-				name: 'Custom2',
-				src: '/fonts/b.woff',
-			},
-			{
 				name: 'Public Sans',
-				src: '/fonts/public-sans.woff',
+				src: '/fonts/Public-Sans.woff',
 			},
 			{
-				name: 'Custom4',
-				src: '/fonts/d.woff2',
+				name: 'JetBrains Mono',
+				src: '/fonts/JetBrains-Mono.woff2',
 			},
 		],
+		defaults: {
+			weights: [400],
+			styles: ['normal', 'italic'],
+			subsets: [
+				'cyrillic-ext',
+				'cyrillic',
+				'greek-ext',
+				'greek',
+				'vietnamese',
+				'latin-ext',
+				'latin',
+			],
+		},
+		fallbacks: {
+			'serif': ['Times New Roman'],
+			'sans-serif': ['Arial'],
+			'monospace': ['Courier New'],
+		},
+		providers: {
+			google: false,
+			googleicons: false,
+		},
 		adobe: {
 			id: ['sij5ufr', 'grx7wdj'],
 		},
-		defaults: {
-			fallbacks: {
-				monospace: ['Tahoma'],
-			},
+		experimental: {
+			processCSSVariables: true,
 		},
 	},
 	colorMode: {
@@ -206,8 +214,7 @@ export default defineNuxtConfig({
 		classPrefix: 'everglow-',
 		classSuffix: '-mode',
 		storage: 'cookie',
-		storageKey:
-			process.env.COLOR_MODE_STORAGE_KEY,
+		storageKey: process.env.COLOR_MODE_STORAGE_KEY,
 	},
 	i18n: {
 		langDir: './lang',

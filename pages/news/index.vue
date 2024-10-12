@@ -1,71 +1,31 @@
 <script setup lang="ts">
-import type { NewsProps } from '~/types/news';
+import type { ParsedContent } from '@nuxt/content';
 
 const i18n = useI18n();
 useHead({
 	title: i18n.t('head.subtitles.news'),
 });
 
-const newsList: NewsProps[] = [
-	{
-		title: 'Title1',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title2',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title3',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title4',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title5',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title6',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title7',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title8',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-	{
-		title: 'Title9',
-		abstract: 'Content...........',
-		date: new Date(1728552377570),
-	},
-];
-
 const list = await queryContent('/news').find();
+
+const compareDate = (a: ParsedContent, b: ParsedContent) => {
+	if (a.date < b.date) return 1;
+	else if (a.date > b.date) return -1;
+	else return 0;
+};
+list.sort(compareDate);
 </script>
 
 <template>
 	<div class="news">
 		<NewsList>
 			<NewsItem
-				v-for="(item, index) in newsList"
+				v-for="(item, index) in list"
 				:key="index"
 				:title="item.title"
-				:abstract="item.abstract"
-				:date="item.date"
+				:description="item.description"
+				:date="new Date(item.date)"
+				:path="`${item._path}`"
 			/>
 		</NewsList>
 	</div>

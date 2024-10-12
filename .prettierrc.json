@@ -7,5 +7,6 @@
 	"quoteProps": "preserve",
 	"bracketSpacing": true,
 	"arrowParens": "always",
-	"htmlWhitespaceSensitivity": "css"
+	"htmlWhitespaceSensitivity": "css",
+	"bracketSameLine": false
 }

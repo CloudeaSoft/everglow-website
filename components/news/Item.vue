@@ -1,95 +1,99 @@
 <script setup lang="ts">
 import type { NewsProps } from '~/types/news';
 
-const route = useRoute()
-
-const { title = 'Title', abstract = 'abstract' } = defineProps<NewsProps>()
+const { title, description, date, path } = defineProps<NewsProps>();
 
 const handleClickNews = (path: string) => {
-    const localePath = useLocalePath()
-    navigateTo(localePath(`/news/${path}`))
-}
+	const localePath = useLocalePath();
+	navigateTo(localePath(path));
+};
 </script>
 
 <template>
-    <li class="news-item" @click="">
-        <div class="news-item-content">
-            <h1 class="news-item-header">{{ title }}</h1>
-            <div class="news-item-body">
-                {{ abstract }}
-            </div>
-            <div class="news-item-footer">
-                {{ date.toLocaleString('zh-CN') }}
-            </div>
-        </div>
-    </li>
+	<li class="news-item" @click="handleClickNews(path)">
+		<div class="news-item-content">
+			<h1 class="news-item-header">{{ title }}</h1>
+			<div class="news-item-body">
+				{{ description }}
+			</div>
+			<div class="news-item-footer">
+				{{ date.toLocaleString('zh-CN') }}
+			</div>
+		</div>
+	</li>
 </template>
 
 <style lang="scss" scoped>
 .news-item {
-    display: flex;
-    width: 100%;
-    max-width: 800px;
-    height: 200px;
-    margin-top: 40px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: var(--everglow-white);
-    border: 1px solid var(--everglow-black);
+	display: flex;
+	width: 100%;
+	max-width: 800px;
+	height: 200px;
+	margin-top: 40px;
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: var(--everglow-white);
+	border: 2px solid var(--everglow-black);
+	transition: border-color 0.3s ease-out;
+	cursor: pointer;
 
-    animation: appear 1s linear forwards,
-        disappear 1s linear forwards;
-    animation-timeline: view();
-    animation-range: entry, exit;
+	animation:
+		appear 1s linear forwards,
+		disappear 1s linear forwards;
+	animation-timeline: view();
+	animation-range: entry, exit;
 
-    &:first-child {
-        margin-top: 0;
-    }
+	&:first-child {
+		margin-top: 0;
+	}
 
-    .news-item-content {
-        display: flex;
-        flex-direction: column;
+	.news-item-content {
+		display: flex;
+		flex-direction: column;
 
-        width: 100%;
+		width: 100%;
 
-        padding: 20px 30px;
+		padding: 20px 30px;
 
-        .news-item-header {
-            height: 40px;
-        }
+		.news-item-header {
+			height: 40px;
+		}
 
-        .news-item-body {
-            flex: 1;
-        }
+		.news-item-body {
+			flex: 1;
+		}
 
-        .news-item-footer {
-            height: 40px;
-        }
-    }
+		.news-item-footer {
+			height: 40px;
+		}
+	}
+
+	&:hover {
+		border-color: var(--everglow-blue-5);
+	}
 }
 
-
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: matrix(0.8, 0, 0, 0.8, 0, 0);
-    }
+	from {
+		opacity: 0;
+		transform: matrix(0.8, 0, 0, 0.8, 0, 0);
+	}
 
-    to {
-        opacity: 1;
-        transform: matrix(1, 0, 0, 1, 0, 0);
-    }
+	to {
+		opacity: 1;
+		transform: matrix(1, 0, 0, 1, 0, 0);
+	}
 }
 
 @keyframes disappear {
-    to {
-        opacity: 0;
-        transform: matrix(0.8, 0, 0, 0.8, 0, 0);
-    }
+	to {
+		opacity: 0;
+		transform: matrix(0.8, 0, 0, 0.8, 0, 0);
+	}
 
-    from {
-        opacity: 1;
-        transform: matrix(1, 0, 0, 1, 0, 0);
-    }
+	from {
+		opacity: 1;
+		transform: matrix(1, 0, 0, 1, 0, 0);
+	}
 }
 </style>
