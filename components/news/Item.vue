@@ -71,7 +71,6 @@
 		overflow: hidden;
 		background-color: var(--everglow-white);
 		box-shadow: var(--shadow);
-		transition: border-color 0.3s ease-out;
 
 		// animation:
 		// 	appear 1s linear forwards,
