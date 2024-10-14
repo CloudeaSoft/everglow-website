@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import type { ParsedContent } from '@nuxt/content';
+	import type { ParsedContent } from '@nuxt/content';
+	const route = useRoute();
+	const i18n = useI18n();
+	useHead({
+		title: i18n.t('head.subtitles.news'),
+	});
 
-const i18n = useI18n();
-useHead({
-	title: i18n.t('head.subtitles.news'),
-});
+	const list = await queryContent(route.path).find();
 
-const list = await queryContent('/news').find();
-
-const compareDate = (a: ParsedContent, b: ParsedContent) => {
-	if (a.date < b.date) return 1;
-	else if (a.date > b.date) return -1;
-	else return 0;
-};
-list.sort(compareDate);
+	const compareDate = (a: ParsedContent, b: ParsedContent) => {
+		if (a.date < b.date) return 1;
+		else if (a.date > b.date) return -1;
+		else return 0;
+	};
+	list.sort(compareDate);
 </script>
 
 <template>
@@ -32,7 +32,7 @@ list.sort(compareDate);
 </template>
 
 <style lang="scss" scoped>
-.news {
-	padding: 100px 100px;
-}
+	.news {
+		padding: 100px 100px;
+	}
 </style>
