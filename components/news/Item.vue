@@ -22,17 +22,17 @@
 </script>
 
 <template>
-	<li
-		class="news-item"
-		@click="handleClickNews()"
-	>
+	<li class="news-item">
 		<div
 			class="news-item-img"
 			:style="`background-image: url('${img}')`"
+			@click="handleClickNews()"
 			v-if="img"
 		></div>
 		<div class="news-item-content">
-			<h1 class="news-item-header">{{ title }}</h1>
+			<h1 class="news-item-header">
+				<a @click="handleClickNews()">{{ title }}</a>
+			</h1>
 			<div class="news-item-body">
 				{{ description }}
 			</div>
@@ -45,9 +45,14 @@
 						<div class="text">{{ date }}</div>
 					</div>
 				</div>
-				<div class="btn">
+				<div
+					class="btn"
+					@click="handleClickNews()"
+				>
 					<div class="btn-text">{{ $t('Read More') }}</div>
-					<div class="btn-chevron"><Icon name="lucide:chevron-right" /></div>
+					<div class="btn-chevron">
+						<Icon name="lucide:chevron-right" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -67,7 +72,6 @@
 		background-color: var(--everglow-white);
 		box-shadow: var(--shadow);
 		transition: border-color 0.3s ease-out;
-		cursor: pointer;
 
 		// animation:
 		// 	appear 1s linear forwards,
@@ -84,6 +88,7 @@
 			width: 100%;
 			background-size: cover;
 			background-position: center;
+			cursor: pointer;
 		}
 
 		.news-item-content {
@@ -98,10 +103,25 @@
 
 			.news-item-header {
 				line-height: 1.5;
+
+				a {
+					cursor: pointer;
+					transition: color 0.2s ease-in-out;
+					&:hover {
+						color: var(--everglow-blue-5) !important;
+					}
+				}
 			}
 
 			.news-item-body {
 				font-size: 1.125rem;
+				text-overflow: -o-ellipsis-lastline;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				line-clamp: 3;
+				-webkit-box-orient: vertical;
 			}
 
 			.news-item-footer {
@@ -131,6 +151,7 @@
 				.btn {
 					display: flex;
 					align-items: center;
+					cursor: pointer;
 					transition:
 						color 0.2s ease-in-out,
 						transform 0.2s;
@@ -140,8 +161,26 @@
 					}
 
 					&:hover {
-						color: var(--everglow-blue-5) !important;
-						transform: scale(1.1);
+						color: var(--everglow-blue-5);
+						transform: scale(1.2);
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 833px) {
+		.news-item {
+			.news-item-content {
+				.news-item-footer {
+					.info {
+						.author {
+							display: none;
+						}
+
+						.divider {
+							display: none;
+						}
 					}
 				}
 			}

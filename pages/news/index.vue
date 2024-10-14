@@ -33,4 +33,10 @@
 	.news {
 		padding: 100px 100px;
 	}
+
+	@media only screen and (max-width: 833px) {
+		.news {
+			padding: 100px 30px;
+		}
+	}
 </style>
