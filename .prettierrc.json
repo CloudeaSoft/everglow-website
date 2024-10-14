@@ -1,5 +1,5 @@
 {
-	"printWidth": 70,
+	"printWidth": 80,
 	"tabWidth": 2,
 	"useTabs": true,
 	"semi": true,
@@ -8,5 +8,7 @@
 	"bracketSpacing": true,
 	"arrowParens": "always",
 	"htmlWhitespaceSensitivity": "css",
-	"bracketSameLine": false
+	"bracketSameLine": false,
+	"singleAttributePerLine": true,
+	"vueIndentScriptAndStyle": true
 }

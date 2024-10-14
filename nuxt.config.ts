@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	compatibilityDate: '2024-07-03',
+	compatibilityDate: '2024-07-11',
 	devtools: {
 		enabled: true,
 		componentInspector: false,
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
 	],
 	ssr: true,
 	nitro: {
-		preset: 'node-server',
+		// preset: 'node-server',
 	},
 	vite: {
 		css: {
@@ -95,6 +95,9 @@ export default defineNuxtConfig({
 	},
 	site: {
 		url: 'https://everglow.cloudea.work',
+	},
+	sitemap: {
+		strictNuxtContentPaths: true,
 	},
 	schemaOrg: {
 		identity: {
