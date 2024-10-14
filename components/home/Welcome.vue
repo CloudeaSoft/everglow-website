@@ -1,20 +1,20 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
-const colorModeCookie = useCookie(
-	config.public.colorModeStorageKey ?? 'nuxt-color-mode',
-);
-const bg = ref<string>(
-	colorModeCookie.value === 'light'
-		? '/images/light-sky.jpg'
-		: '/images/star-sky.jpg',
-);
-
-watch(useColorMode(), () => {
-	bg.value =
-		useColorMode().value === 'light'
+	const config = useRuntimeConfig();
+	const colorModeCookie = useCookie(
+		config.public.colorModeStorageKey ?? 'nuxt-color-mode',
+	);
+	const bg = ref<string>(
+		colorModeCookie.value === 'light'
 			? '/images/light-sky.jpg'
-			: '/images/star-sky.jpg';
-});
+			: '/images/star-sky.jpg',
+	);
+
+	watch(useColorMode(), () => {
+		bg.value =
+			useColorMode().value === 'light'
+				? '/images/light-sky.jpg'
+				: '/images/star-sky.jpg';
+	});
 </script>
 
 <template>
@@ -34,17 +34,18 @@ watch(useColorMode(), () => {
 </template>
 
 <style lang="scss" scoped>
-.git-link {
-	margin-top: 10px;
-	font-size: 1.125rem;
-	font-weight: var(--font-weight--bold);
-	border: 2px solid var(--everglow-black);
-	border-radius: 3px;
-	padding: 5px;
+	.git-link {
+		margin-top: 10px;
+		font-size: 1.125rem;
+		font-weight: var(--font-weight--bold);
+		border: 2px solid var(--everglow-black);
+		border-radius: 8px;
+		padding: 5px;
+		text-align: center;
 
-	&:hover {
-		border-color: var(--everglow-blue-5);
-		color: var(--everglow-blue-5);
+		&:hover {
+			border-color: var(--everglow-blue-5);
+			color: var(--everglow-blue-5);
+		}
 	}
-}
 </style>

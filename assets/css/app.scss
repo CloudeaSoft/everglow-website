@@ -1,30 +1,32 @@
 :root {
-    --font-family: Public Sans, "Public Sans Fallback: Arial", ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+	--font-family: Public Sans, 'Public Sans Fallback: Arial', ui-sans-serif,
+		system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+		Noto Color Emoji;
 
-    --font-weight--light: 300;
-    --font-weight--regular: 400;
-    --font-weight--bold: 600;
+	--font-weight--light: 300;
+	--font-weight--regular: 400;
+	--font-weight--bold: 600;
 }
 
 html,
 body {
-    background-color: var(--everglow-white);
+	background-color: var(--everglow-background-color);
 }
 
 .everglow-dark-mode .shiki {
-    background: #2E3440;
+	background: #2e3440;
 }
 
 .everglow-dark-mode .shiki,
 .everglow-dark-mode .shiki span {
-    color: var(--shiki-dark) !important;
+	color: var(--shiki-dark) !important;
 }
 
 .everglow-light-mode .shiki {
-    background-color: #f8f8f2;
+	background-color: #f8f8f2;
 }
 
 .everglow-light-mode .shiki,
 .everglow-light-mode .shiki span {
-    color: var(--shiki-light) !important;
+	color: var(--shiki-light) !important;
 }

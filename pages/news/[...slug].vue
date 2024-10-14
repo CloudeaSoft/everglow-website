@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import type { News } from '~/types/news';
+
 	const i18n = useI18n();
 	const route = useRoute();
 	useHead({
@@ -6,7 +8,7 @@
 	});
 
 	const { data: page } = await useAsyncData('content', () =>
-		queryContent(route.path).findOne(),
+		queryContent<News>(route.path).findOne(),
 	);
 	if (!page.value) {
 		throw createError({
@@ -19,16 +21,27 @@
 
 <template>
 	<div class="news">
-		<ContentRenderer
-			class="markdown"
-			:value="page"
-		/>
+		<div class="news-head">
+			{{ page.title }}
+		</div>
+		<div class="news-body">
+			<ContentRenderer
+				class="markdown"
+				:value="page"
+			/>
+		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 	.news {
 		min-height: 800px;
-		padding: 200px 100px;
+		margin: 200px 100px;
+
+		.news-head {
+		}
+
+		.news-body {
+		}
 	}
 </style>

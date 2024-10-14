@@ -1,19 +1,20 @@
 <script setup lang="ts">
-	import type { ParsedContent } from '@nuxt/content';
+	import type { News } from '~/types/news';
+
 	const route = useRoute();
 	const i18n = useI18n();
 	useHead({
 		title: i18n.t('head.subtitles.news'),
 	});
 
-	const list = await queryContent(route.path).find();
-
-	const compareDate = (a: ParsedContent, b: ParsedContent) => {
-		if (a.date < b.date) return 1;
-		else if (a.date > b.date) return -1;
-		else return 0;
-	};
-	list.sort(compareDate);
+	const { data: list } = await useAsyncData('', () =>
+		queryContent<News>(route.path)
+			.sort({
+				date: -1,
+				$numeric: true,
+			})
+			.find(),
+	);
 </script>
 
 <template>
@@ -22,10 +23,7 @@
 			<NewsItem
 				v-for="(item, index) in list"
 				:key="index"
-				:title="item.title"
-				:description="item.description"
-				:date="new Date(item.date)"
-				:path="`${item._path}`"
+				:news-item="item"
 			/>
 		</NewsList>
 	</div>

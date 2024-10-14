@@ -1,8 +1,9 @@
-interface NewsProps {
-	title: string;
-	description: string;
+import type { MarkdownParsedContent } from '@nuxt/content';
+
+interface NewsItemProps extends MarkdownParsedContent {
+	author?: String;
 	date: Date;
-	path: string;
+	image?: String;
 }
 
-export { type NewsProps };
+export { type NewsItemProps as News };
