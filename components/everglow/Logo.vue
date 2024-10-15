@@ -1,14 +1,14 @@
 <script lang="ts">
-export default defineComponent({
-	inheritAttrs: false,
-	props: {
-		size: {
-			type: Number,
-			default: 30,
+	export default defineComponent({
+		inheritAttrs: false,
+		props: {
+			size: {
+				type: Number,
+				default: 30,
+			},
 		},
-	},
-	setup() {},
-});
+		setup() {},
+	});
 </script>
 
 <template>

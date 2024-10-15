@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { availableLocales, setLocale } = useI18n();
+	const { availableLocales, setLocale } = useI18n();
 
-const isShowOptions = ref(false);
+	const isShowOptions = ref(false);
 
-const setLanguage = (code: string) => {
-	setLocale(code);
-	isShowOptions.value = false;
-};
+	const setLanguage = (code: string) => {
+		setLocale(code);
+		isShowOptions.value = false;
+	};
 </script>
 
 <template>
@@ -23,18 +23,22 @@ const setLanguage = (code: string) => {
 				@mouseenter="isShowOptions = true"
 			>
 				<Icon name="dashicons:translation" />
-				<Icon class="icon" name="lucide:chevron-down" />
+				<Icon
+					class="icon"
+					name="lucide:chevron-down"
+				/>
 			</div>
 			<Transition name="bottom">
-				<div v-show="isShowOptions" class="options bottom">
+				<div
+					v-show="isShowOptions"
+					class="options bottom"
+				>
 					<div class="options-content">
 						<span
 							v-for="(option, index) in availableLocales"
 							v-once
 							:key="index"
-							@click.stop.prevent="
-								setLanguage(availableLocales[index])
-							"
+							@click.stop.prevent="setLanguage(availableLocales[index])"
 						>
 							{{ $t(`body.header.settings.languages.${option}`) }}
 						</span>
@@ -46,75 +50,75 @@ const setLanguage = (code: string) => {
 </template>
 
 <style lang="scss" scoped>
-.setting-language {
-	display: flex;
-	justify-content: space-between;
-}
-
-.everglow-select {
-	span {
-		padding-right: 10px;
-	}
-}
-
-.everglow-select {
-	position: relative;
-	cursor: pointer;
-
-	&:hover {
-		.everglow-chooser {
-			color: var(--everglow-blue-5);
-		}
-	}
-
-	.everglow-chooser {
-		width: 100%;
+	.setting-language {
 		display: flex;
-		justify-content: space-around;
-		align-items: center;
+		justify-content: space-between;
+	}
 
-		.icon {
-			font-size: 18px;
+	.everglow-select {
+		span {
+			padding-right: 10px;
 		}
 	}
 
-	.options {
-		min-width: 8rem;
-		position: absolute;
+	.everglow-select {
+		position: relative;
+		cursor: pointer;
 
-		padding-top: 1rem;
-		right: 0;
-
-		.options-content {
-			padding: 7px;
-			border: 1px solid var(--everglow-trans-blue-1);
-			background-color: var(--everglow-trans-white-5);
-			backdrop-filter: blur(10px);
-			border-radius: 5px;
-			box-shadow: var(--shadow);
+		&:hover {
+			.everglow-chooser {
+				color: var(--everglow-blue-5);
+			}
 		}
 
-		span {
-			font-size: 15px;
+		.everglow-chooser {
+			width: 100%;
 			display: flex;
-			padding: 5px;
-			border-radius: 5px;
+			justify-content: space-around;
+			align-items: center;
 
-			&:hover {
-				background-color: var(--everglow-blue-0);
+			.icon {
+				font-size: 18px;
+			}
+		}
+
+		.options {
+			min-width: 8rem;
+			position: absolute;
+
+			padding-top: 1rem;
+			right: 0;
+
+			.options-content {
+				padding: 7px;
+				border: 1px solid var(--everglow-trans-blue-1);
+				background-color: var(--everglow-trans-white-5);
+				backdrop-filter: blur(10px);
+				border-radius: 5px;
+				box-shadow: var(--shadow);
+			}
+
+			span {
+				font-size: 15px;
+				display: flex;
+				padding: 5px;
+				border-radius: 5px;
+
+				&:hover {
+					background-color: var(--everglow-blue-0);
+				}
 			}
 		}
 	}
-}
 
-.bottom-enter-active,
-.bottom-leave-active {
-	transition: all 0.2s ease-in-out;
-}
+	.bottom-enter-active,
+	.bottom-leave-active {
+		transition: all 0.2s ease-in-out;
+	}
 
-.bottom-enter-from,
-.bottom-leave-to {
-	transform: translateY(-10px);
-	opacity: 0;
-}
+	.bottom-enter-from,
+	.bottom-leave-to {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
 </style>

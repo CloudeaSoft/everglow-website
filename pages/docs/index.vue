@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const i18n = useI18n();
-useHead({
-	title: i18n.t('head.subtitles.docs'),
-});
+	const i18n = useI18n();
+	useHead({
+		title: i18n.t('head.subtitles.docs'),
+	});
 </script>
 
 <template>
@@ -10,8 +10,8 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-.docs {
-	height: 500px;
-	padding-top: 100px;
-}
+	.docs {
+		height: 500px;
+		padding-top: 100px;
+	}
 </style>

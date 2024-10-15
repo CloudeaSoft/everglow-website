@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const i18n = useI18n();
-useHead({
-	title: i18n.t('head.subtitles.about'),
-});
+	const i18n = useI18n();
+	useHead({
+		title: i18n.t('head.subtitles.about'),
+	});
 </script>
 
 <template>
@@ -10,7 +10,7 @@ useHead({
 </template>
 
 <style lang="scss" scoped>
-.about {
-	height: 500px;
-}
+	.about {
+		height: 500px;
+	}
 </style>

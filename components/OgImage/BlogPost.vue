@@ -1,96 +1,96 @@
 <script setup lang="ts">
-/**
- * @credits Nuxt SEO <https://nuxtseo.com/>
- */
+	/**
+	 * @credits Nuxt SEO <https://nuxtseo.com/>
+	 */
 
-import { useSiteConfig } from '#imports';
-import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils';
-import { computed, defineComponent, h, resolveComponent } from 'vue';
+	import { useSiteConfig } from '#imports';
+	import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils';
+	import { computed, defineComponent, h, resolveComponent } from 'vue';
 
-// convert to typescript props
-const props = withDefaults(
-	defineProps<{
-		colorMode: 'dark' | 'light';
-		title: string;
-		description: string;
-		icon: string | boolean;
-		siteName: string;
-		siteLogo: string;
-		theme?: string;
-	}>(),
-	{
-		theme: '#00dc82',
-	},
-);
-
-const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i;
-
-const runtimeConfig = useOgImageRuntimeConfig();
-
-const colorMode = computed(() => {
-	return props.colorMode || runtimeConfig.colorPreference || 'light';
-});
-
-const themeHex = computed(() => {
-	// regex test if valid hex
-	if (HexRegex.test(props.theme)) return props.theme;
-
-	// if it's hex without the hash, just add the hash
-	if (HexRegex.test(`#${props.theme}`)) return `#${props.theme}`;
-
-	// if it's rgb or rgba, we convert it to hex
-	if (props.theme.startsWith('rgb')) {
-		const rgb = props.theme
-			.replace('rgb(', '')
-			.replace('rgba(', '')
-			.replace(')', '')
-			.split(',')
-			.map((v) => Number.parseInt(v.trim(), 10));
-		const hex = rgb
-			.map((v) => {
-				const hex = v.toString(16);
-				return hex.length === 1 ? `0${hex}` : hex;
-			})
-			.join('');
-		return `#${hex}`;
-	}
-	return '#FFFFFF';
-});
-
-const themeRgb = computed(() => {
-	// we want to convert it so it's just `<red>, <green>, <blue>` (255, 255, 255)
-	return themeHex.value
-		.replace('#', '')
-		.match(/.{1,2}/g)
-		?.map((v) => Number.parseInt(v, 16))
-		.join(', ');
-});
-
-const siteConfig = useSiteConfig();
-const siteName = computed(() => {
-	return props.siteName || siteConfig.name;
-});
-const siteLogo = computed(() => {
-	return props.siteLogo || siteConfig.logo;
-});
-
-const IconComponent = runtimeConfig.hasNuxtIcon
-	? resolveComponent('Icon')
-	: defineComponent({
-			render() {
-				return h('div', 'missing @nuxt/icon');
-			},
-		});
-if (
-	typeof props.icon === 'string' &&
-	!runtimeConfig.hasNuxtIcon &&
-	import.meta.dev
-) {
-	console.warn(
-		'Please install `@nuxt/icon` to use icons with the fallback OG Image component.',
+	// convert to typescript props
+	const props = withDefaults(
+		defineProps<{
+			colorMode: 'dark' | 'light';
+			title: string;
+			description: string;
+			icon: string | boolean;
+			siteName: string;
+			siteLogo: string;
+			theme?: string;
+		}>(),
+		{
+			theme: '#00dc82',
+		},
 	);
-	console.log('\nnpx nuxi module add icon\n');
-}
+
+	const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i;
+
+	const runtimeConfig = useOgImageRuntimeConfig();
+
+	const colorMode = computed(() => {
+		return props.colorMode || runtimeConfig.colorPreference || 'light';
+	});
+
+	const themeHex = computed(() => {
+		// regex test if valid hex
+		if (HexRegex.test(props.theme)) return props.theme;
+
+		// if it's hex without the hash, just add the hash
+		if (HexRegex.test(`#${props.theme}`)) return `#${props.theme}`;
+
+		// if it's rgb or rgba, we convert it to hex
+		if (props.theme.startsWith('rgb')) {
+			const rgb = props.theme
+				.replace('rgb(', '')
+				.replace('rgba(', '')
+				.replace(')', '')
+				.split(',')
+				.map((v) => Number.parseInt(v.trim(), 10));
+			const hex = rgb
+				.map((v) => {
+					const hex = v.toString(16);
+					return hex.length === 1 ? `0${hex}` : hex;
+				})
+				.join('');
+			return `#${hex}`;
+		}
+		return '#FFFFFF';
+	});
+
+	const themeRgb = computed(() => {
+		// we want to convert it so it's just `<red>, <green>, <blue>` (255, 255, 255)
+		return themeHex.value
+			.replace('#', '')
+			.match(/.{1,2}/g)
+			?.map((v) => Number.parseInt(v, 16))
+			.join(', ');
+	});
+
+	const siteConfig = useSiteConfig();
+	const siteName = computed(() => {
+		return props.siteName || siteConfig.name;
+	});
+	const siteLogo = computed(() => {
+		return props.siteLogo || siteConfig.logo;
+	});
+
+	const IconComponent = runtimeConfig.hasNuxtIcon
+		? resolveComponent('Icon')
+		: defineComponent({
+				render() {
+					return h('div', 'missing @nuxt/icon');
+				},
+			});
+	if (
+		typeof props.icon === 'string' &&
+		!runtimeConfig.hasNuxtIcon &&
+		import.meta.dev
+	) {
+		console.warn(
+			'Please install `@nuxt/icon` to use icons with the fallback OG Image component.',
+		);
+		console.log('\nnpx nuxi module add icon\n');
+	}
 </script>
 
 <template>
@@ -120,9 +120,7 @@ if (
 						v-if="description"
 						class="text-[35px]"
 						:class="[
-							colorMode === 'light'
-								? ['text-gray-700']
-								: ['text-gray-300'],
+							colorMode === 'light' ? ['text-gray-700'] : ['text-gray-300'],
 						]"
 					>
 						{{ description }}
@@ -140,10 +138,12 @@ if (
 					/>
 				</div>
 			</div>
-			<div
-				class="flex flex-row justify-center items-center text-left w-full"
-			>
-				<img v-if="siteLogo" :src="siteLogo" height="100" />
+			<div class="flex flex-row justify-center items-center text-left w-full">
+				<img
+					v-if="siteLogo"
+					:src="siteLogo"
+					height="100"
+				/>
 				<template v-else>
 					<svg
 						height="50"

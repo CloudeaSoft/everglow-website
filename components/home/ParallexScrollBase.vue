@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { src = null } = defineProps<{
-	src: string;
-}>();
+	const { src = null } = defineProps<{
+		src: string;
+	}>();
 </script>
 
 <template>
@@ -14,14 +14,14 @@ const { src = null } = defineProps<{
 </template>
 
 <style>
-.parallex-scroll-base {
-	height: 100dvh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	.parallex-scroll-base {
+		height: 100dvh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-	background-attachment: fixed;
-	background-size: cover;
-	background-position: center center;
-}
+		background-attachment: fixed;
+		background-size: cover;
+		background-position: center center;
+	}
 </style>
