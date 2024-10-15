@@ -81,6 +81,8 @@
 	font-weight: 400;
 	padding: 2px 0;
 
+	scroll-margin-top: calc(48px + var(--header-height));
+
 	* {
 		text-decoration: none !important;
 	}
@@ -278,8 +280,8 @@
 	--crepe-color-inline-area: #d8dae0;
 	--crepe-font-title: Rubik, Cambria, 'Times New Roman', Times, serif;
 	--crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-	--crepe-font-code: 'JetBrains Mono', Menlo, Monaco, 'Courier New',
-		Courier, monospace;
+	--crepe-font-code: 'JetBrains Mono', Menlo, Monaco, 'Courier New', Courier,
+		monospace;
 	--crepe-shadow-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
 		0px 1px 2px 0px rgba(0, 0, 0, 0.3);
 	--crepe-shadow-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
@@ -306,8 +308,8 @@
 	--crepe-color-inline-area: #111418;
 	--crepe-font-title: Rubik, Cambria, 'Times New Roman', Times, serif;
 	--crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-	--crepe-font-code: 'JetBrains Mono', Menlo, Monaco, 'Courier New',
-		Courier, monospace;
+	--crepe-font-code: 'JetBrains Mono', Menlo, Monaco, 'Courier New', Courier,
+		monospace;
 	--crepe-shadow-1: 0px 1px 2px 0px hsla(0, 0%, 100%, 0.3),
 		0px 1px 3px 1px hsla(0, 0%, 100%, 0.15);
 	--crepe-shadow-2: 0px 1px 2px 0px hsla(0, 0%, 100%, 0.3),
@@ -318,9 +320,15 @@
 	padding: 0 0.75rem !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 833px) {
 	.markdown {
-		padding: 60px 120px !important;
+		padding: 30px 60px !important;
+	}
+}
+
+@media (min-width: 1000px) {
+	.markdown {
+		padding: 60px 90px !important;
 	}
 }
 
@@ -351,8 +359,7 @@
 	--tw-text-opacity: 1;
 	color: rgb(73 78 89 / var(--tw-text-opacity));
 	text-decoration-line: none !important;
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-		0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 	--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
 		0 1px 2px -1px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
@@ -370,8 +377,8 @@
 		filter,
 		-webkit-backdrop-filter;
 	transition-property: color, background-color, border-color,
-		text-decoration-color, fill, stroke, opacity, box-shadow,
-		transform, filter, backdrop-filter;
+		text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+		backdrop-filter;
 	transition-property:
 		color,
 		background-color,
@@ -422,8 +429,7 @@
 	border-top-right-radius: 0.25rem;
 	border-width: 0 1px 1px;
 	border-color: rgba(73, 78, 89, 0.1);
-	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-		0 1px 2px -1px rgba(0, 0, 0, 0.1);
+	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
 	--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
 		0 1px 2px -1px var(--tw-shadow-color);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
@@ -587,11 +593,7 @@ img.ProseMirror-separator {
 	line-height: 20px;
 	padding: 14px 10px;
 	text-transform: uppercase;
-	color: color-mix(
-		in srgb,
-		var(--crepe-color-on-surface),
-		transparent 40%
-	);
+	color: color-mix(in srgb, var(--crepe-color-on-surface), transparent 40%);
 }
 
 .milkdown milkdown-slash-menu .menu-groups .menu-group li {
@@ -625,19 +627,11 @@ img.ProseMirror-separator {
 	line-height: 20px;
 }
 
-.milkdown
-	milkdown-slash-menu
-	.menu-groups
-	.menu-group
-	+ .menu-group:before {
+.milkdown milkdown-slash-menu .menu-groups .menu-group + .menu-group:before {
 	content: '';
 	display: block;
 	height: 1px;
-	background: color-mix(
-		in srgb,
-		var(--crepe-color-outline),
-		transparent 80%
-	);
+	background: color-mix(in srgb, var(--crepe-color-outline), transparent 80%);
 	margin: 0 10px;
 }
 
@@ -725,10 +719,7 @@ img.ProseMirror-separator {
 }
 
 .milkdown milkdown-code-block .language-button .expand-icon svg:focus,
-.milkdown
-	milkdown-code-block
-	.language-button
-	.expand-icon:focus-visible {
+.milkdown milkdown-code-block .language-button .expand-icon:focus-visible {
 	outline: none;
 }
 
@@ -1003,11 +994,7 @@ img.ProseMirror-separator {
 	.empty-image-inline
 	.link-importer
 	.placeholder {
-	color: color-mix(
-		in srgb,
-		var(--crepe-color-on-background),
-		transparent 60%
-	);
+	color: color-mix(in srgb, var(--crepe-color-on-background), transparent 60%);
 }
 
 .milkdown
@@ -1112,11 +1099,7 @@ img.ProseMirror-separator {
 	display: flex;
 }
 
-.milkdown
-	milkdown-image-block
-	> .image-wrapper
-	.operation
-	> .operation-item {
+.milkdown milkdown-image-block > .image-wrapper .operation > .operation-item {
 	cursor: pointer;
 }
 
@@ -1128,19 +1111,13 @@ img.ProseMirror-separator {
 	object-fit: cover;
 }
 
-.milkdown
-	milkdown-image-block
-	> .image-wrapper
-	> .image-resize-handle {
+.milkdown milkdown-image-block > .image-wrapper > .image-resize-handle {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-.milkdown
-	milkdown-image-block
-	> .image-wrapper
-	> .image-resize-handle:hover {
+.milkdown milkdown-image-block > .image-wrapper > .image-resize-handle:hover {
 	cursor: row-resize;
 }
 
@@ -1170,19 +1147,11 @@ img.ProseMirror-separator {
 	flex: 1;
 }
 
-.milkdown
-	milkdown-image-block
-	> .image-edit
-	.link-importer
-	> .link-input-area {
+.milkdown milkdown-image-block > .image-edit .link-importer > .link-input-area {
 	width: 100%;
 }
 
-.milkdown
-	milkdown-image-block
-	> .image-edit
-	.link-importer
-	.placeholder {
+.milkdown milkdown-image-block > .image-edit .link-importer .placeholder {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1206,9 +1175,7 @@ img.ProseMirror-separator {
 	display: none !important;
 }
 
-.milkdown
-	milkdown-image-block.selected
-	> .image-edit:not(:has(input:focus)) {
+.milkdown milkdown-image-block.selected > .image-edit:not(:has(input:focus)) {
 	position: relative;
 }
 
@@ -1221,11 +1188,7 @@ img.ProseMirror-separator {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: color-mix(
-		in srgb,
-		var(--crepe-color-selected),
-		transparent 60%
-	);
+	background: color-mix(in srgb, var(--crepe-color-selected), transparent 60%);
 	pointer-events: none;
 }
 
@@ -1240,11 +1203,7 @@ img.ProseMirror-separator {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: color-mix(
-		in srgb,
-		var(--crepe-color-selected),
-		transparent 60%
-	);
+	background: color-mix(in srgb, var(--crepe-color-selected), transparent 60%);
 }
 
 .milkdown milkdown-image-block.selected :not(input)::-moz-selection {
@@ -1273,11 +1232,7 @@ img.ProseMirror-separator {
 	opacity: 1;
 }
 
-.milkdown
-	milkdown-image-block
-	.image-wrapper
-	.operation
-	> .operation-item {
+.milkdown milkdown-image-block .image-wrapper .operation > .operation-item {
 	color: var(--crepe-color-on-inverse);
 	padding: 4px;
 	background: var(--crepe-color-inverse);
@@ -1287,12 +1242,7 @@ img.ProseMirror-separator {
 	height: 32px;
 }
 
-.milkdown
-	milkdown-image-block
-	.image-wrapper
-	.operation
-	> .operation-item
-	svg {
+.milkdown milkdown-image-block .image-wrapper .operation > .operation-item svg {
 	width: 24px;
 	height: 24px;
 }
@@ -1308,10 +1258,7 @@ img.ProseMirror-separator {
 	border-radius: 4px;
 }
 
-.milkdown
-	milkdown-image-block:hover
-	> .image-wrapper
-	.image-resize-handle {
+.milkdown milkdown-image-block:hover > .image-wrapper .image-resize-handle {
 	opacity: 1;
 }
 
@@ -1341,16 +1288,8 @@ img.ProseMirror-separator {
 	fill: var(--crepe-color-outline);
 }
 
-.milkdown
-	milkdown-image-block
-	.image-edit
-	.link-importer
-	.placeholder {
-	color: color-mix(
-		in srgb,
-		var(--crepe-color-on-background),
-		transparent 60%
-	);
+.milkdown milkdown-image-block .image-edit .link-importer .placeholder {
+	color: color-mix(in srgb, var(--crepe-color-on-background), transparent 60%);
 }
 
 .milkdown
@@ -1371,11 +1310,7 @@ img.ProseMirror-separator {
 	background: transparent;
 }
 
-.milkdown
-	milkdown-image-block
-	.image-edit
-	.link-importer
-	.link-input-area {
+.milkdown milkdown-image-block .image-edit .link-importer .link-input-area {
 	line-height: 24px;
 	color: var(--crepe-color-on-background);
 }
@@ -1411,12 +1346,7 @@ img.ProseMirror-separator {
 	color: var(--crepe-color-primary);
 }
 
-.milkdown
-	milkdown-image-block
-	.image-edit
-	.link-importer
-	.placeholder
-	.text {
+.milkdown milkdown-image-block .image-edit .link-importer .placeholder .text {
 	margin-left: 8px;
 }
 
@@ -1465,10 +1395,7 @@ img.ProseMirror-separator {
 	color: unset;
 }
 
-.milkdown
-	milkdown-link-preview
-	> .link-preview
-	> .link-display:hover:before {
+.milkdown milkdown-link-preview > .link-preview > .link-display:hover:before {
 	display: block;
 }
 
@@ -1497,10 +1424,7 @@ img.ProseMirror-separator {
 	font-size: 14px;
 }
 
-.milkdown
-	milkdown-link-preview
-	> .link-preview
-	> .link-display:hover {
+.milkdown milkdown-link-preview > .link-preview > .link-display:hover {
 	text-decoration: underline;
 }
 
@@ -1624,11 +1548,7 @@ img.ProseMirror-separator {
 
 .milkdown .crepe-placeholder:before {
 	position: absolute;
-	color: color-mix(
-		in srgb,
-		var(--crepe-color-on-background),
-		transparent 60%
-	);
+	color: color-mix(in srgb, var(--crepe-color-on-background), transparent 60%);
 	pointer-events: none;
 	height: 0;
 	content: attr(data-placeholder);
@@ -1649,11 +1569,7 @@ img.ProseMirror-separator {
 
 .milkdown milkdown-toolbar .divider {
 	width: 1px;
-	background: color-mix(
-		in srgb,
-		var(--crepe-color-outline),
-		transparent 80%
-	);
+	background: color-mix(in srgb, var(--crepe-color-outline), transparent 80%);
 	height: 24px;
 	margin: 10px;
 }
@@ -1884,10 +1800,7 @@ img.ProseMirror-separator {
 	z-index: 2;
 }
 
-.markdown
-	table
-	.line-handle[data-role='x-line-drag-handle']
-	.add-button {
+.markdown table .line-handle[data-role='x-line-drag-handle'] .add-button {
 	position: absolute;
 	transform: translateX(-50%) translateY(-50%);
 	padding: 6px 0;
@@ -1900,10 +1813,7 @@ img.ProseMirror-separator {
 	z-index: 1;
 }
 
-.markdown
-	table
-	.line-handle[data-role='y-line-drag-handle']
-	.add-button {
+.markdown table .line-handle[data-role='y-line-drag-handle'] .add-button {
 	position: absolute;
 	transform: translateY(-50%) translateX(-50%);
 	padding: 0 6px;
@@ -1911,10 +1821,7 @@ img.ProseMirror-separator {
 	height: 16px;
 }
 
-.markdown
-	table
-	.line-handle[data-display-type='indicator']
-	.add-button,
+.markdown table .line-handle[data-display-type='indicator'] .add-button,
 .markdown table.readonly .handle {
 	display: none;
 }

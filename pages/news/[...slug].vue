@@ -10,7 +10,7 @@
 	const { data: page } = await useAsyncData('content', () =>
 		queryContent<News>(route.path).findOne(),
 	);
-	console.log(page.value.body);
+
 	if (!page.value) {
 		throw createError({
 			statusCode: 404,
@@ -25,37 +25,49 @@
 		<div class="news-container">
 			<div class="news-content">
 				<div class="article">
-					<div class="article-title">
-						<img :src="page.image.toString()" />
-						<div class="title-container">
-							<h1 class="text">{{ page.title }}</h1>
+					<div class="article-content">
+						<div class="article-title">
+							<NuxtLink to="#">
+								<img :src="page.image.toString()" />
+								<div
+									class="title-container"
+									@click.prevent
+								>
+									<h1 class="text">{{ page.title }}</h1>
+								</div>
+							</NuxtLink>
 						</div>
-					</div>
-					<div class="article-head">
-						<div class="avatar">
-							<img
-								src="/icon.png"
-								alt=""
-							/>
-						</div>
-						<div class="info">
-							<h2 class="author">Everglow Team</h2>
-							<div class="meta-info">
-								<div class="date">
-									<Icon name="line-md:pencil" />
-									<span class="text">{{ page.date }}</span>
+						<div class="article-head">
+							<div class="avatar">
+								<img
+									src="/icon.png"
+									alt=""
+								/>
+							</div>
+							<div class="info">
+								<h2 class="author">Everglow Team</h2>
+								<div class="meta-info">
+									<div class="date">
+										<Icon name="line-md:pencil" />
+										<span class="text">{{ page.date }}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="article-body">
-						<ContentRenderer
-							class="markdown"
-							:value="page"
-						/>
+						<div class="article-body">
+							<ContentRenderer
+								class="markdown"
+								:value="page"
+							/>
+						</div>
 					</div>
 				</div>
-				<div class="toc">{{ page.body.toc?.links }}</div>
+				<div class="toc">
+					<CommonPageContentToc
+						title="Table of Content"
+						:links="page.body.toc?.links"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -63,11 +75,11 @@
 
 <style lang="scss" scoped>
 	.news {
-		margin-top: 5rem;
+		margin-top: var(--header-height);
 
 		.news-container {
 			min-height: 800px;
-			padding: 3rem 0;
+			padding-bottom: 3rem;
 			display: flex;
 			justify-content: center;
 
@@ -80,113 +92,117 @@
 				gap: 30px;
 
 				.article {
+					padding-top: 3rem;
 					width: calc(100% - 210px);
-					display: flex;
-					flex-direction: column;
 
-					overflow: hidden;
-					border: 1px solid var(--everglow-trans-blue-1);
-					border-radius: 15px;
-
-					.article-title {
-						height: 25rem;
-						width: 100%;
-						position: relative;
-
-						img {
-							height: 100%;
-							width: 100%;
-							object-fit: cover;
-							object-position: center;
-						}
-
-						.title-container {
-							position: absolute;
-							display: flex;
-							width: 100%;
-							bottom: 0;
-
-							h1 {
-								padding: 30px;
-								font-size: 3rem;
-
-								margin: 1.5rem;
-								padding: 0.75rem 1rem;
-
-								border: 1px solid var(--everglow-trans-blue-1);
-								border-radius: 1rem;
-								backdrop-filter: blur(16px);
-								background-color: var(--everglow-trans-white-3);
-							}
-						}
-					}
-
-					.article-head {
-						padding: 2rem 3rem 0;
-						background-color: var(--crepe-color-background);
-						height: 7rem;
+					.article-content {
+						overflow: hidden;
+						border: 1px solid var(--everglow-trans-blue-1);
+						border-radius: 15px;
 
 						display: flex;
-						align-items: center;
+						flex-direction: column;
 
-						.avatar {
-							width: 46px;
-							height: 46px;
+						.article-title {
+							height: 25rem;
+							width: 100%;
+							position: relative;
 
 							img {
-								width: 100%;
 								height: 100%;
+								width: 100%;
+								object-fit: cover;
+								object-position: center;
+							}
+
+							.title-container {
+								position: absolute;
+								display: flex;
+								width: 100%;
+								bottom: 0;
+
+								h1 {
+									font-size: 3rem;
+									user-select: all;
+									margin: 1.5rem;
+									padding: 0.75rem 1rem;
+
+									border: 1px solid var(--everglow-trans-blue-1);
+									border-radius: 1rem;
+									backdrop-filter: blur(16px);
+									background-color: var(--everglow-trans-white-3);
+								}
 							}
 						}
 
-						.info {
-							height: 100%;
-							margin-left: 20px;
-							padding: 5px 0;
+						.article-head {
+							padding: 2rem 3rem 0;
+							background-color: var(--crepe-color-background);
+							height: 7rem;
 
 							display: flex;
-							flex-direction: column;
-							justify-content: space-between;
+							align-items: center;
 
-							font-family:
-								Satoshi-Variable,
-								Noto Sans SC,
-								-apple-system,
-								system-ui,
-								Segoe UI,
-								Roboto,
-								Ubuntu,
-								Cantarell,
-								Noto Sans,
-								sans-serif,
-								BlinkMacSystemFont,
-								Helvetica Neue,
-								PingFang SC,
-								Hiragino Sans GB,
-								Microsoft YaHei,
-								Arial;
+							.avatar {
+								width: 46px;
+								height: 46px;
 
-							.author {
-								font-family: Georgia, 'Times New Roman', Times, serif;
-								font-weight: var(--font-weight--normal);
+								img {
+									width: 100%;
+									height: 100%;
+								}
 							}
 
-							.meta-info {
+							.info {
+								height: 100%;
+								margin-left: 20px;
+								padding: 5px 0;
+
 								display: flex;
+								flex-direction: column;
+								justify-content: space-between;
 
-								.date {
+								font-family:
+									Satoshi-Variable,
+									Noto Sans SC,
+									-apple-system,
+									system-ui,
+									Segoe UI,
+									Roboto,
+									Ubuntu,
+									Cantarell,
+									Noto Sans,
+									sans-serif,
+									BlinkMacSystemFont,
+									Helvetica Neue,
+									PingFang SC,
+									Hiragino Sans GB,
+									Microsoft YaHei,
+									Arial;
+
+								.author {
+									font-family: Georgia, 'Times New Roman', Times, serif;
+									font-weight: var(--font-weight--normal);
+								}
+
+								.meta-info {
 									display: flex;
-									align-items: center;
 
-									.text {
-										margin-left: 5px;
+									.date {
+										display: flex;
+										align-items: center;
+
+										.text {
+											margin-left: 5px;
+										}
 									}
 								}
 							}
 						}
-					}
 
-					.article-body {
+						.article-body {
+							background-color: var(--crepe-color-background);
+						}
 					}
 				}
 
@@ -194,14 +210,46 @@
 					width: 210px;
 					height: 500px;
 					// background-color: #fff;
+					top: var(--header-height);
+					position: sticky;
+					padding-top: 3rem;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 1000px) {
+		.news {
+			.news-container {
+				.news-content {
+					.article {
+						width: 100%;
+					}
+					.toc {
+						display: none;
+					}
 				}
 			}
 		}
 	}
 
 	@media only screen and (max-width: 833px) {
-	}
+		.news {
+			.news-container {
+				background-color: var(--crepe-color-background);
 
-	@media only screen and (max-width: 640px) {
+				.news-content {
+					width: 90%;
+
+					.article {
+						.article-content {
+							overflow: auto;
+							border: none;
+							border-radius: 0;
+						}
+					}
+				}
+			}
+		}
 	}
 </style>

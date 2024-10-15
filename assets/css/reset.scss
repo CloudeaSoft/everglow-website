@@ -48,8 +48,7 @@ li {
 
 * {
 	scrollbar-width: thin;
-	scrollbar-color: var(--everglow-blue-5)
-		var(--everglow-trans-white-9);
+	scrollbar-color: var(--everglow-blue-5) var(--everglow-trans-white-9);
 }
 
 button,
@@ -61,6 +60,11 @@ select {
 button {
 	padding: 0;
 	margin: 0;
+	appearance: button;
+	-webkit-appearance: button;
+	background-color: initial;
+	background-image: none;
+	border: none;
 }
 
 *::selection {
