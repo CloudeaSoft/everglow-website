@@ -24,7 +24,7 @@
 		},
 		{
 			name: 'wiki',
-			link: '/wiki',
+			link: 'https://terraria.fandom.com/',
 		},
 		{
 			name: 'docs',
@@ -67,6 +67,7 @@
 				>
 					<NuxtLink
 						:to="localePath(item.link)"
+						:target="item.link[0] !== '/' && '_blank'"
 						@click="closeMenu()"
 					>
 						<div class="text">
