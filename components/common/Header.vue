@@ -28,7 +28,7 @@
 		},
 		{
 			name: 'docs',
-			link: '/docs',
+			link: '/docs/getting-started/introduction',
 		},
 		{
 			name: 'about',

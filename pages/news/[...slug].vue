@@ -7,7 +7,6 @@
 		title: i18n.t('head.subtitles.news'),
 	});
 
-	console.log(route.path, 'zh-CN' + route.path);
 	const { data: page } = await useAsyncData(route.path, () =>
 		queryContent<News>(route.path).findOne(),
 	);

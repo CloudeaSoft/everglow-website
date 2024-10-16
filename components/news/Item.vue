@@ -24,10 +24,10 @@
 <template>
 	<li class="news-item">
 		<div
+			v-if="img"
 			class="news-item-img"
 			:style="`background-image: url('${img}')`"
 			@click="handleClickNews()"
-			v-if="img"
 		></div>
 		<div class="news-item-content">
 			<h1 class="news-item-header">

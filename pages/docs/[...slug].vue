@@ -11,7 +11,10 @@
 	const { data: page } = await useAsyncData(route.path, () =>
 		queryContent<Docs>(route.path).findOne(),
 	);
+
 	if (!page.value) {
+		const localePath = useLocalePath();
+		navigateTo(localePath('/docs/getting-started/introduction'));
 		throw createError({
 			statusCode: 404,
 			statusMessage: 'Page not found',

@@ -26,8 +26,8 @@
 		class="content-toc-links-wrapper"
 	>
 		<li
-			v-for="link in links"
-			:key="link.text"
+			v-for="(link, index) in links"
+			:key="index"
 			:class="['content-toc-link-wrapper', link.depth === 3 && 'children']"
 		>
 			<a

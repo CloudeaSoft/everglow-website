@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	const { color = 'var(--everglow-blue-5)' } = defineProps<{
-		color?: String;
+		color?: string;
 	}>();
 </script>
 

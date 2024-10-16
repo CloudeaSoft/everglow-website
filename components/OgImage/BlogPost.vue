@@ -1,13 +1,8 @@
 <script setup lang="ts">
-	/**
-	 * @credits Nuxt SEO <https://nuxtseo.com/>
-	 */
-
 	import { useSiteConfig } from '#imports';
 	import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils';
 	import { computed, defineComponent, h, resolveComponent } from 'vue';
 
-	// convert to typescript props
 	const props = withDefaults(
 		defineProps<{
 			colorMode: 'dark' | 'light';
@@ -32,13 +27,10 @@
 	});
 
 	const themeHex = computed(() => {
-		// regex test if valid hex
 		if (HexRegex.test(props.theme)) return props.theme;
 
-		// if it's hex without the hash, just add the hash
 		if (HexRegex.test(`#${props.theme}`)) return `#${props.theme}`;
 
-		// if it's rgb or rgba, we convert it to hex
 		if (props.theme.startsWith('rgb')) {
 			const rgb = props.theme
 				.replace('rgb(', '')
@@ -58,7 +50,6 @@
 	});
 
 	const themeRgb = computed(() => {
-		// we want to convert it so it's just `<red>, <green>, <blue>` (255, 255, 255)
 		return themeHex.value
 			.replace('#', '')
 			.match(/.{1,2}/g)
@@ -81,16 +72,6 @@
 					return h('div', 'missing @nuxt/icon');
 				},
 			});
-	if (
-		typeof props.icon === 'string' &&
-		!runtimeConfig.hasNuxtIcon &&
-		import.meta.dev
-	) {
-		console.warn(
-			'Please install `@nuxt/icon` to use icons with the fallback OG Image component.',
-		);
-		console.log('\nnpx nuxi module add icon\n');
-	}
 </script>
 
 <template>
