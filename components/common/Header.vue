@@ -67,7 +67,7 @@
 				>
 					<NuxtLink
 						:to="localePath(item.link)"
-						:target="item.link[0] !== '/' && '_blank'"
+						:target="item.link[0] !== '/' ? '_blank' : '_self'"
 						@click="closeMenu()"
 					>
 						<div class="text">

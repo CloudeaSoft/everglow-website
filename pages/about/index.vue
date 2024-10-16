@@ -6,11 +6,12 @@
 </script>
 
 <template>
-	<div class="about" />
+	<div class="about">about page</div>
 </template>
 
 <style lang="scss" scoped>
 	.about {
-		height: 500px;
+		height: 1000px;
+		margin-top: var(--header-height);
 	}
 </style>

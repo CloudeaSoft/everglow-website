@@ -38,7 +38,7 @@
 				{{ link.text }}
 			</a>
 
-			<CommonPageContentTocLinks
+			<CommonContentTocLinks
 				v-if="link.children"
 				:links="link.children"
 			/>
@@ -58,6 +58,8 @@
 			}
 
 			.content-toc-link {
+				display: block;
+
 				font-size: 1.125rem;
 				line-height: 2rem;
 

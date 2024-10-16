@@ -27,10 +27,14 @@
 				tabindex="-1"
 				@click="open = !open"
 			>
-				<span class="content-toc-button-label">{{ title }}</span>
+				<span class="label">{{ title }}</span>
+				<Icon
+					:class="['chevron', open ? 'active' : '']"
+					name="lucide:chevron-right"
+				/>
 			</button>
 
-			<CommonPageContentTocLinks
+			<CommonContentTocLinks
 				:links="links"
 				:class="['lg:block', open ? '' : 'hidden']"
 			/>
@@ -42,26 +46,21 @@
 
 <style lang="scss" scoped>
 	.content-toc-wrapper {
-		position: sticky;
-		backdrop-filter: blur(8px);
-		padding: 0 1rem;
-		max-height: calc(100vh - var(--header-height));
-
 		.content-toc-container {
-			padding-bottom: 2rem;
+			padding: 0.75rem 0;
+			border-bottom: 1px dashed var(--everglow-trans-black-3);
 
 			.content-toc-button {
-				user-select: text;
-				cursor: text;
 				align-items: center;
 				width: 100%;
+				cursor: pointer;
 
 				display: flex;
-				text-transform: none;
+				justify-content: space-between;
 
 				color: var(--everglow-font-color-3);
 
-				.content-toc-button-label {
+				.label {
 					font-weight: 600;
 					font-size: 1.33rem;
 					line-height: 2rem;
@@ -69,6 +68,40 @@
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
+				}
+
+				.chevron {
+					font-size: 1.33rem;
+					transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+					&.active {
+						transform: rotate(90deg);
+					}
+				}
+			}
+		}
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.hidden {
+			display: block;
+		}
+
+		.content-toc-wrapper {
+			.content-toc-container {
+				padding: 3rem 0 2rem;
+
+				.content-toc-button {
+					user-select: text;
+					cursor: text;
+
+					.chevron {
+						display: none;
+					}
 				}
 			}
 		}

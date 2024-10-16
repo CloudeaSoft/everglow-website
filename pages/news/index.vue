@@ -7,7 +7,7 @@
 		title: i18n.t('head.subtitles.news'),
 	});
 
-	const { data: list } = await useAsyncData('', () =>
+	const { data: list } = await useAsyncData('content', () =>
 		queryContent<News>(route.path)
 			.sort({
 				date: -1,

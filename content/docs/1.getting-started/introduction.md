@@ -1,13 +1,9 @@
 ---
-title: 'Title ABCD'
+title: 'Introduction'
 description: 'Milkdown treats every feature as a plugin. With this pattern, developers can choose what they need in an editor instead of bundling all features even they won''t need. Developers can extend their plugins to satisfy their habits such as defining a vim keymap via a custom plugin.'
-image: 'https://ts1.cn.mm.bing.net/th/id/R-C.22d547793b63d82045af8994d0452e62?rik=gtK8btqjaPhxvQ&riu=http%3a%2f%2fwww.pc354.com%2fxupl0ad%2fnews%2f201506%2f2015060315314767907.jpg&ehk=mmyNnseiB1SirbhqvljGVxR9aVLLGgeO08Ee8lwr5CU%3d&risl=&pid=ImgRaw&r=0'
-date: '2024-10-12 09:51:15'
+image: 'https://ts1.cn.mm.bing.net/th/id/R-C.12de8b3a8061a8e3851a8e18fe401124?rik=6j83F65gDsPMHg&riu=http%3a%2f%2fdimg06.c-ctrip.com%2fimages%2ftg%2f291%2f194%2f404%2f23e013988586496dbaa7486f48eb92b5.jpg&ehk=0DZ%2fl8uBmrE0jIlMFYUIsKu%2bKIka8qMWRhaRVPqvN1I%3d&risl=&pid=ImgRaw&r=0'
+date: '2024-10-12 09:51:11'
 ---
-
-# Milkdown Plugins (Level 1)
-
-## Title 1 (Level 2)
 
 ### Plugins provided by `@milkdown/kit`:
 
@@ -52,9 +48,3 @@ date: '2024-10-12 09:51:15'
 - [@milkdown/plugin-diagram]()
 
   Add [mermaid](https://mermaid-js.github.io/mermaid/#/) diagram support.
-
-#### Title (Level 4)
-
-## Title 2 (Level 2)
-
-## Title 3 (Level 2)

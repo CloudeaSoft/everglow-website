@@ -1,1 +1,3 @@
-import type { NuxtLinkProps } from '#app';
+export * from './common';
+export * from './news';
+export * from './docs';

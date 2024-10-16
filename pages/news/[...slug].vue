@@ -7,7 +7,8 @@
 		title: i18n.t('head.subtitles.news'),
 	});
 
-	const { data: page } = await useAsyncData('content', () =>
+	console.log(route.path, 'zh-CN' + route.path);
+	const { data: page } = await useAsyncData(route.path, () =>
 		queryContent<News>(route.path).findOne(),
 	);
 
@@ -63,7 +64,7 @@
 					</div>
 				</div>
 				<div class="toc">
-					<CommonPageContentToc
+					<CommonContentToc
 						title="Table of Content"
 						:links="page.body.toc?.links"
 					/>
@@ -89,7 +90,6 @@
 
 				display: flex;
 				justify-content: space-between;
-				gap: 30px;
 
 				.article {
 					padding-top: 3rem;
@@ -99,6 +99,7 @@
 						overflow: hidden;
 						border: 1px solid var(--everglow-trans-blue-1);
 						border-radius: 15px;
+						box-shadow: var(--shadow);
 
 						display: flex;
 						flex-direction: column;
@@ -208,26 +209,13 @@
 
 				.toc {
 					width: 210px;
-					height: 500px;
-					// background-color: #fff;
 					top: var(--header-height);
 					position: sticky;
-					padding-top: 3rem;
-				}
-			}
-		}
-	}
-
-	@media only screen and (max-width: 1000px) {
-		.news {
-			.news-container {
-				.news-content {
-					.article {
-						width: 100%;
-					}
-					.toc {
-						display: none;
-					}
+					backdrop-filter: blur(8px);
+					max-height: calc(100vh - var(--header-height));
+					padding: 0 1rem;
+					margin-left: 30px;
+					order: 9999;
 				}
 			}
 		}
@@ -247,6 +235,27 @@
 							border: none;
 							border-radius: 0;
 						}
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 1024px) {
+		.news {
+			.news-container {
+				.news-content {
+					flex-direction: column;
+
+					.article {
+						width: 100%;
+					}
+					.toc {
+						margin: 0;
+						padding: 0;
+						width: 100%;
+						order: -9999;
+						z-index: 9999;
 					}
 				}
 			}
