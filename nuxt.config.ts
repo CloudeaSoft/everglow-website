@@ -204,6 +204,9 @@ export default defineNuxtConfig({
 		adobe: {
 			id: ['sij5ufr', 'grx7wdj'],
 		},
+		experimental: {
+			processCSSVariables: true,
+		},
 	},
 	colorMode: {
 		preference: 'dark',
