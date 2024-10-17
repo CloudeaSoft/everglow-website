@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import type { NavItem } from '@nuxt/content';
-	import type { NavigationTree, Docs } from '~/types';
+	import type { Docs } from '~/types';
+	import { mapContentNavigation } from '~/utils';
 
 	const i18n = useI18n();
 	useHead({
@@ -34,29 +35,6 @@
 					(item) => item._path === '/' + i18n.locale.value + '/docs',
 				).children;
 		}
-	};
-
-	const mapContentNavigation = (navigation: NavItem[]): NavigationTree[] => {
-		const navMap = {
-			'title': 'label',
-			'_path': 'to',
-		};
-
-		return navigation.map((navLink: NavItem) => {
-			const link = {} as NavigationTree;
-			for (const key in navLink) {
-				if (key === 'children') {
-					link.children = navLink.children?.length
-						? mapContentNavigation(navLink.children)
-						: undefined;
-					continue;
-				}
-				if (navLink[key]) {
-					link[navMap[key] || key] = navLink[key];
-				}
-			}
-			return link;
-		});
 	};
 
 	const navLinks = computed(() => {

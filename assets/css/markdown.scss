@@ -67,8 +67,11 @@
 }
 
 .markdown img {
-	vertical-align: bottom;
 	max-width: 100%;
+}
+
+.markdown p > img {
+	margin: 28px auto;
 }
 
 .markdown h1,
@@ -80,6 +83,9 @@
 	font-family: var(--crepe-font-title);
 	font-weight: 400;
 	padding: 2px 0;
+	position: relative;
+	line-height: 1.5;
+	outline: none;
 
 	scroll-margin-top: calc(48px + var(--header-height));
 
@@ -89,46 +95,51 @@
 }
 
 .markdown h1 {
-	font-size: 42px;
-	line-height: 50px;
-	margin-top: 32px;
+	margin: 0 0 3rem;
+	font-size: 36px;
+	line-height: 1.4;
+	letter-spacing: -0.02em;
 }
 
 .markdown h2 {
-	font-size: 36px;
-	line-height: 44px;
-	margin-top: 28px;
+	margin: 4rem 0 1.8rem;
+	border-top: 1px solid var(--everglow-trans-black-3);
+	padding-top: 1.8rem;
+	font-size: 30px;
+	letter-spacing: -0.02em;
 }
 
 .markdown h3 {
-	font-size: 32px;
-	line-height: 40px;
-	margin-top: 24px;
+	font-size: 26px;
+	letter-spacing: -0.01em;
+	margin: 3rem 0 1.25rem;
 }
 
 .markdown h4 {
-	font-size: 28px;
-	line-height: 36px;
-	margin-top: 20px;
+	font-size: 22px;
+	margin: 1.8rem 0 1rem;
 }
 
 .markdown h5 {
-	font-size: 24px;
-	line-height: 32px;
-	margin-top: 16px;
+	font-size: 18px;
 }
 
 .markdown h6 {
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 28px;
 	margin-top: 16px;
+	font-size: 14px;
 }
 
 .markdown p {
 	font-size: 16px;
 	line-height: 24px;
 	padding: 4px 0;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown summary {
+	margin-bottom: 1.2rem;
 }
 
 .markdown code {
@@ -317,28 +328,7 @@
 }
 
 .markdown {
-	padding: 0 0.75rem !important;
-}
-
-@media (min-width: 833px) {
-	.markdown {
-		padding: 30px 60px !important;
-	}
-}
-
-@media (min-width: 1000px) {
-	.markdown {
-		padding: 60px 90px !important;
-	}
-}
-
-.crepe-doc .milkdown .markdown {
-	padding: 0 0.75rem !important;
-}
-
-.crepe-doc .iframe-plugin-container {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	padding: 0 0.75rem;
 }
 
 .crepe-doc .iframe-plugin-container > a {

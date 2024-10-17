@@ -19,7 +19,9 @@
 		});
 	}
 
-	const clearPageAnchor = () => {};
+	const clearPageAnchor = () => {
+		navigateTo('#');
+	};
 </script>
 
 <template>
@@ -34,11 +36,13 @@
 							@click="clearPageAnchor"
 						>
 							<img :src="page.image.toString()" />
-							<div
-								class="title-container"
-								@click.prevent
-							>
-								<h1 class="text">{{ page.title }}</h1>
+							<div class="title-container">
+								<h1
+									class="text"
+									@click.prevent.stop
+								>
+									{{ page.title }}
+								</h1>
 							</div>
 						</div>
 						<div
@@ -94,22 +98,18 @@
 			justify-content: center;
 
 			.news-content {
-				max-width: 1200px;
-				width: 80%;
+				width: 90%;
 
+				max-width: 1200px;
 				display: flex;
 				justify-content: space-between;
+				flex-direction: column;
 
 				.article {
 					padding-top: 3rem;
-					width: calc(100% - 210px);
+					width: 100%;
 
 					.article-content {
-						overflow: hidden;
-						border: 1px solid var(--everglow-trans-blue-1);
-						border-radius: 15px;
-						box-shadow: var(--shadow);
-
 						display: flex;
 						flex-direction: column;
 
@@ -117,6 +117,7 @@
 							height: 25rem;
 							width: 100%;
 							position: relative;
+							cursor: pointer;
 
 							img {
 								height: 100%;
@@ -132,6 +133,7 @@
 								bottom: 0;
 
 								h1 {
+									cursor: default;
 									font-size: 3rem;
 									user-select: all;
 									margin: 1.5rem;
@@ -216,34 +218,48 @@
 								}
 							}
 						}
+
+						.article-body {
+							.markdown {
+							}
+						}
 					}
 				}
 
 				.toc {
-					width: 210px;
 					top: var(--header-height);
 					position: sticky;
 					backdrop-filter: blur(8px);
 					max-height: calc(100vh - var(--header-height));
-					padding: 0 1rem;
-					margin-left: 30px;
-					order: 5000;
+
+					margin: 0;
+					padding: 0;
+					width: 100%;
+					order: -9999;
+					z-index: 1000;
 				}
 			}
 		}
 	}
 
-	@media only screen and (max-width: 833px) {
+	@media only screen and (min-width: 833px) {
 		.news {
 			.news-container {
 				.news-content {
-					width: 90%;
+					width: 80%;
 
 					.article {
 						.article-content {
-							overflow: auto;
-							border: none;
-							border-radius: 0;
+							overflow: hidden;
+							border: 1px solid var(--everglow-trans-blue-1);
+							border-radius: 15px;
+							box-shadow: var(--shadow);
+
+							.article-body {
+								.markdown {
+									padding: 30px 60px;
+								}
+							}
 						}
 					}
 				}
@@ -251,21 +267,28 @@
 		}
 	}
 
-	@media only screen and (max-width: 1024px) {
+	@media only screen and (min-width: 1024px) {
 		.news {
 			.news-container {
 				.news-content {
-					flex-direction: column;
-
+					flex-direction: row;
 					.article {
-						width: 100%;
+						width: calc(100% - 210px);
+
+						.article-content {
+							.article-body {
+								.markdown {
+									padding: 60px 90px;
+								}
+							}
+						}
 					}
 					.toc {
-						margin: 0;
-						padding: 0;
-						width: 100%;
-						order: -9999;
-						z-index: 1000;
+						display: block;
+						margin-left: 30px;
+						padding: 0 1rem;
+						width: 210px;
+						order: 9999;
 					}
 				}
 			}

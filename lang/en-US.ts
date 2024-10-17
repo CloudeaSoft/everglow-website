@@ -19,7 +19,7 @@ export default {
 			news: 'News',
 			wiki: 'Wiki',
 			docs: 'Docs',
-			about: 'About Us',
+			about: 'About',
 			settings: {
 				languages: {
 					'zh-cn': '简体中文',
