@@ -18,6 +18,8 @@
 			fatal: true,
 		});
 	}
+
+	const clearPageAnchor = () => {};
 </script>
 
 <template>
@@ -26,16 +28,24 @@
 			<div class="news-content">
 				<div class="article">
 					<div class="article-content">
-						<div class="article-title">
-							<NuxtLink to="#">
-								<img :src="page.image.toString()" />
-								<div
-									class="title-container"
-									@click.prevent
-								>
-									<h1 class="text">{{ page.title }}</h1>
-								</div>
-							</NuxtLink>
+						<div
+							v-if="page.image"
+							class="article-title"
+							@click="clearPageAnchor"
+						>
+							<img :src="page.image.toString()" />
+							<div
+								class="title-container"
+								@click.prevent
+							>
+								<h1 class="text">{{ page.title }}</h1>
+							</div>
+						</div>
+						<div
+							v-else
+							class="article-title-noimage"
+						>
+							{{ page.title }}
 						</div>
 						<div class="article-head">
 							<div class="avatar">
@@ -135,9 +145,16 @@
 							}
 						}
 
+						.article-title-noimage {
+							font-size: 4rem;
+							user-select: all;
+							margin: 2rem 2rem 0;
+							padding: 0.75rem 1rem 0;
+						}
+
 						.article-head {
-							padding: 2rem 3rem 0;
-							background-color: var(--crepe-color-background);
+							padding: 1.5rem 3rem 0;
+
 							height: 7rem;
 
 							display: flex;
@@ -199,10 +216,6 @@
 								}
 							}
 						}
-
-						.article-body {
-							background-color: var(--crepe-color-background);
-						}
 					}
 				}
 
@@ -223,8 +236,6 @@
 	@media only screen and (max-width: 833px) {
 		.news {
 			.news-container {
-				background-color: var(--crepe-color-background);
-
 				.news-content {
 					width: 90%;
 

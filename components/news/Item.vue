@@ -13,9 +13,9 @@
 	const author =
 		props.author && props.author.trim() ? props.author : 'Everglow Team';
 	const date = props.date.toLocaleString('zh-CN');
-	const img = props.image;
+	const img = props.image ?? undefined;
 
-	const handleClickNews = () => {
+	const handleClickLink = () => {
 		const localePath = useLocalePath();
 		navigateTo(localePath(props._path));
 	};
@@ -27,11 +27,16 @@
 			v-if="img"
 			class="news-item-img"
 			:style="`background-image: url('${img}')`"
-			@click="handleClickNews()"
+			@click="handleClickLink"
 		></div>
 		<div class="news-item-content">
-			<h1 class="news-item-header">
-				<a @click="handleClickNews()">{{ title }}</a>
+			<h1
+				class="news-item-header"
+				@click="handleClickLink"
+			>
+				<NuxtLink :to="props._path">
+					<span>{{ title }}</span>
+				</NuxtLink>
 			</h1>
 			<div class="news-item-body">
 				{{ description }}
@@ -45,15 +50,13 @@
 						<div class="text">{{ date }}</div>
 					</div>
 				</div>
-				<div
+				<NuxtLink
 					class="btn"
-					@click="handleClickNews()"
+					:to="props._path"
 				>
-					<div class="btn-text">{{ $t('Read More') }}</div>
-					<div class="btn-chevron">
-						<Icon name="lucide:chevron-right" />
-					</div>
-				</div>
+					<span class="btn-text">{{ $t('news.chevron-text') }}</span>
+					<Icon name="lucide:chevron-right" />
+				</NuxtLink>
 			</div>
 		</div>
 	</li>

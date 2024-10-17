@@ -1,7 +1,6 @@
 <script setup lang="ts">
 	const blurMaskVisible = () => true;
 	const menuListVisible = ref<boolean>(false);
-	const localePath = useLocalePath();
 
 	const openMenu = () => {
 		menuListVisible.value = true;
@@ -54,10 +53,10 @@
 	>
 		<div class="common-header-nav">
 			<div class="logo">
-				<NuxtLink :to="localePath('/')">
+				<NuxtLinkLocale to="/">
 					<EverglowLogo :size="30" />
 					<div class="logo-text">{{ $t('body.header.name') }}</div>
-				</NuxtLink>
+				</NuxtLinkLocale>
 			</div>
 			<ul :class="['main-menu', menuListVisible ? 'active' : '']">
 				<li
@@ -65,15 +64,15 @@
 					:key="index"
 					class="main-menu-item"
 				>
-					<NuxtLink
-						:to="localePath(item.link)"
+					<NuxtLinkLocale
+						:to="item.link"
 						:target="item.link[0] !== '/' ? '_blank' : '_self'"
 						@click="closeMenu()"
 					>
 						<div class="text">
 							{{ $t(`body.header.${item.name}`) }}
 						</div>
-					</NuxtLink>
+					</NuxtLinkLocale>
 					<div class="chevron">
 						<Icon name="line-md:chevron-small-right" />
 					</div>

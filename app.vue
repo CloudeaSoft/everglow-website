@@ -1,29 +1,28 @@
 <script setup lang="ts">
-const i18n = useI18n();
+	const i18n = useI18n();
 
-useHead({
-	titleTemplate: (titleChunk) => {
-		return titleChunk ? `${titleChunk} - ${i18n.t('head.title')}` : `${i18n.t('head.title')}`;
-	},
-});
+	useHead({
+		titleTemplate: (titleChunk) => {
+			return titleChunk
+				? `${titleChunk} - ${i18n.t('head.title')}`
+				: `${i18n.t('head.title')}`;
+		},
+	});
 
-useSeoMeta({
-	title: '',
-	ogTitle: 'Everglow Website',
-	ogDescription: 'Welcome to Everglow no Sekai!',
-	ogImage: '/icon.png',
-	twitterCard: 'summary_large_image',
-});
+	useSeoMeta({
+		title: '',
+		twitterCard: 'summary_large_image',
+	});
 
-defineOgImageComponent('BlogPost', {
-	title: 'Everglow',
-	description: 'Welcome to Everglow no Sekai!',
-	colorMode: 'dark',
-	icon: '/icon.png',
-	siteName: 'Everglow',
-	siteLogo: '/icon.png',
-	theme: '#1025ff',
-});
+	defineOgImageComponent('BlogPost', {
+		title: 'Everglow',
+		description: 'Welcome to Everglow no Sekai!',
+		colorMode: 'dark',
+		icon: 'lucide:waves',
+		siteName: 'Everglow',
+		siteLogo: '/icon.png',
+		theme: '#1025ff',
+	});
 </script>
 
 <template>
@@ -37,5 +36,5 @@ defineOgImageComponent('BlogPost', {
 </template>
 
 <style lang="scss">
-@import url('@/assets/css/index.scss');
+	@import url('@/assets/css/index.scss');
 </style>

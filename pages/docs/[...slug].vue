@@ -13,8 +13,6 @@
 	);
 
 	if (!page.value) {
-		const localePath = useLocalePath();
-		navigateTo(localePath('/docs/getting-started/introduction'));
 		throw createError({
 			statusCode: 404,
 			statusMessage: 'Page not found',

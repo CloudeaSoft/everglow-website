@@ -29,4 +29,7 @@ export default {
 			},
 		},
 	},
+	news: {
+		'chevron-text': '更多',
+	},
 };
