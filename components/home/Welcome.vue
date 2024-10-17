@@ -37,7 +37,7 @@
 	.git-link {
 		margin-top: 10px;
 		font-size: 1.125rem;
-		font-weight: var(--font-weight--bold);
+		font-weight: var(--font-weight--normal);
 		border: 2px solid var(--everglow-black);
 		border-radius: 8px;
 		padding: 5px;

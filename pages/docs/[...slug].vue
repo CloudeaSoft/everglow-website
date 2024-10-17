@@ -136,7 +136,7 @@
 								line-height: 2rem;
 								align-items: center;
 								margin-bottom: 1rem;
-								font-weight: var(--font-weight--bold);
+								font-weight: var(--font-weight--normal);
 								color: var(--everglow-blue-5);
 							}
 							.info {
@@ -146,7 +146,7 @@
 								.title {
 									font-size: 3rem;
 									line-height: 4rem;
-									font-weight: var(--font-weight--bold);
+									font-weight: var(--font-weight--normal);
 								}
 
 								.description {

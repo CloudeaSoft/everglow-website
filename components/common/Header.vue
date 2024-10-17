@@ -238,7 +238,7 @@
 				display: flex;
 				align-items: center;
 				font-family: Public Sans;
-				font-weight: var(--font-weight--bold);
+				font-weight: var(--font-weight--normal);
 				font-size: 1.125rem;
 				column-gap: 3rem;
 
