@@ -40,12 +40,12 @@
 <style lang="scss" scoped>
 	.about {
 		margin-top: var(--header-height);
-		padding-top: 2rem;
 
 		.about-content {
 			display: flex;
+			flex-direction: column;
 			justify-content: space-between;
-			width: 80%;
+			width: 90%;
 			max-width: 1200px;
 			margin: 0 auto;
 
@@ -55,12 +55,9 @@
 				display: flex;
 				flex-direction: column;
 
-				width: calc(100% - 210px - 40px);
-
 				.article-title {
 					font-size: 3.5rem;
 					height: 25rem;
-					width: 100%;
 					position: relative;
 
 					border: 1px solid var(--everglow-trans-blue-1);
@@ -98,8 +95,40 @@
 			}
 
 			.toc {
-				width: 210px;
-				padding-left: 40px;
+				position: sticky;
+				top: var(--header-height);
+				backdrop-filter: blur(8px);
+				overflow-y: auto;
+				max-height: calc(100dvh - var(--header-height));
+
+				width: 100%;
+				order: -9999;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 833px) {
+		.about {
+			.about-content {
+				width: 80%;
+			}
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		.about {
+			.about-content {
+				flex-direction: row;
+
+				.article {
+					width: calc(100% - 210px - 40px);
+				}
+
+				.toc {
+					width: 210px;
+					padding-left: 40px;
+					order: 9999;
+				}
 			}
 		}
 	}

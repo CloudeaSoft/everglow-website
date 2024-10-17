@@ -26,8 +26,8 @@
 
 - About
 
-  - [ ] dom frame
-  - [ ] mobile friendliness optimization
+  - [x] dom frame
+  - [x] mobile friendliness optimization
 
 3. Styles
 
