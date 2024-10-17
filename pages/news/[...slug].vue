@@ -265,7 +265,7 @@
 						padding: 0;
 						width: 100%;
 						order: -9999;
-						z-index: 9999;
+						z-index: 5000;
 					}
 				}
 			}
