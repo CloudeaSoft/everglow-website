@@ -26,6 +26,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/seo',
 		'@nuxt/content',
 		'@nuxt/image',
+		'@tresjs/nuxt',
 	],
 	ssr: true,
 	nitro: {
@@ -245,5 +246,9 @@ export default defineNuxtConfig({
 			cookieKey: 'everglow-language',
 			redirectOn: 'root',
 		},
+	},
+	tres: {
+		devtools: true,
+		glsl: true,
 	},
 });
