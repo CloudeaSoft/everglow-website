@@ -46,6 +46,8 @@
 
 <style lang="scss" scoped>
 	.content-toc-wrapper {
+		overflow-x: hidden;
+
 		.content-toc-container {
 			padding: 0.75rem 0;
 			border-bottom: 1px dashed var(--everglow-trans-black-3);

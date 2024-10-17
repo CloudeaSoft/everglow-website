@@ -227,7 +227,7 @@
 					max-height: calc(100vh - var(--header-height));
 					padding: 0 1rem;
 					margin-left: 30px;
-					order: 9999;
+					order: 5000;
 				}
 			}
 		}
