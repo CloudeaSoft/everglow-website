@@ -21,6 +21,7 @@ html {
 		Segoe UI Symbol,
 		Noto Color Emoji;
 	font-size: 12px;
+	color: var(--everglow-font-color-3);
 }
 
 body {
@@ -84,11 +85,6 @@ button {
 *::selection {
 	background-color: var(--everglow-trans-blue-2);
 	color: var(--everglow-blue-5);
-}
-
-html {
-	font-family: var(--font-family);
-	color: var(--everglow-font-color-3);
 }
 
 article,
