@@ -15,7 +15,10 @@
 		<div class="about-content">
 			<div class="article">
 				<div class="article-title">
-					<img src="/images/everglow.jpg" />
+					<img
+						src="/images/everglow.jpg"
+						alt="A boss preview of Everglow mod"
+					/>
 					<div class="title-container">
 						<h1 class="text">
 							{{ page.title }}

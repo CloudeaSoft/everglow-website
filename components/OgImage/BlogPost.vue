@@ -123,6 +123,7 @@
 				<img
 					v-if="siteLogo"
 					:src="siteLogo"
+					alt="Site Logo"
 					height="100"
 				/>
 				<template v-else>

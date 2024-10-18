@@ -35,7 +35,10 @@
 							class="article-title"
 							@click="clearPageAnchor"
 						>
-							<img :src="page.image.toString()" />
+							<img
+								:src="page.image.toString()"
+								alt="News head image"
+							/>
 							<div class="title-container">
 								<h1
 									class="text"

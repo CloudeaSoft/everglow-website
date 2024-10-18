@@ -16,7 +16,7 @@
 		src="/icon.png"
 		:width="size"
 		:height="size"
-		alt="Everglow Logo"
+		alt="Site Logo"
 		aria-label="Everglow"
 	/>
 </template>
