@@ -23,7 +23,7 @@
 		},
 		{
 			name: 'wiki',
-			link: 'https://terraria.fandom.com/',
+			link: 'https://terrariamods.wiki.gg/wiki/Everglow',
 		},
 		{
 			name: 'docs',
