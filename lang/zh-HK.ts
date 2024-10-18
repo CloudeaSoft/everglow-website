@@ -9,6 +9,7 @@ export default {
 			'news': '新聞',
 			'wiki': '百科',
 			'docs': '文檔',
+			'playground': 'Playground',
 			'about': '關於',
 		},
 	},
@@ -19,6 +20,7 @@ export default {
 			'news': '新聞',
 			'wiki': '百科',
 			'docs': '文檔',
+			'playground': 'Playground',
 			'about': '關於',
 			'settings': {
 				'languages': {

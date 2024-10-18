@@ -214,6 +214,14 @@
 	background: transparent;
 }
 
+.markdown .shiki {
+	padding: 14px;
+
+	span {
+		font-size: 1.125rem;
+	}
+}
+
 .markdown blockquote {
 	position: relative;
 	padding-left: 40px;

@@ -1,50 +1,90 @@
 ---
 title: 'Introduction'
-description: 'Milkdown treats every feature as a plugin. With this pattern, developers can choose what they need in an editor instead of bundling all features even they won''t need. Developers can extend their plugins to satisfy their habits such as defining a vim keymap via a custom plugin.'
+description: "Milkdown treats every feature as a plugin. With this pattern, developers can choose what they need in an editor instead of bundling all features even they won't need. Developers can extend their plugins to satisfy their habits such as defining a vim keymap via a custom plugin."
 image: 'https://ts1.cn.mm.bing.net/th/id/R-C.12de8b3a8061a8e3851a8e18fe401124?rik=6j83F65gDsPMHg&riu=http%3a%2f%2fdimg06.c-ctrip.com%2fimages%2ftg%2f291%2f194%2f404%2f23e013988586496dbaa7486f48eb92b5.jpg&ehk=0DZ%2fl8uBmrE0jIlMFYUIsKu%2bKIka8qMWRhaRVPqvN1I%3d&risl=&pid=ImgRaw&r=0'
 date: '2024-10-12 09:51:11'
 ---
 
-### Plugins provided by `@milkdown/kit`:
+👋 Welcome to Milkdown. We are so glad to see you here!
 
-> 🙋‍♀️Why not all plugins are available in `@milkdown/kit`?
+💭 You may wonder, what is Milkdown? Please write something here.
+
+> ⚠️ **Not the right side!**
 >
-> `@milkdown/kit` is a collection of plugins that are commonly used in the editor.
-> If you want to use a plugin that is not in `@milkdown/kit`, you can install it separately.
-> The plugins in `@milkdown/kit` are also stable and well-tested.
+> Please try something on the left side.
 
-| Package Name                        | Description                             |
-| ----------------------------------- | --------------------------------------- |
-| [@milkdown/kit/preset/commonmark]() | Add [commonmark]() syntax support.      |
-| [@milkdown/kit/preset/gfm]()        | Add [gfm]() syntax support.             |
-| [@milkdown/kit/plugin/history]()    | Add undo & redo support.                |
-| [@milkdown/kit/plugin/clipboard]()  | Add markdown copy & paste support.      |
-| [@milkdown/kit/plugin/cursor]()     | Add drop & gap cursor.                  |
-| [@milkdown/kit/plugin/listener]()   | Add listener support.                   |
-| [@milkdown/kit/plugin/indent]()     | Add tab indent support.                 |
-| [@milkdown/kit/plugin/upload]()     | Add drop and upload support.            |
-| [@milkdown/kit/plugin/block]()      | Add a drag handle for every block node. |
-| [@milkdown/kit/plugin/tooltip]()    | Add universal tooltip support.          |
-| [@milkdown/kit/plugin/slash]()      | Add universal slash commands support.   |
+![1.00](https://ts1.cn.mm.bing.net/th/id/R-C.2378f30d7c2895dd7fa3cb34546c7e2a?rik=Y%2bcNAyfheuMYrQ&riu=http%3a%2f%2fmkaugaming.com%2fwp-content%2fuploads%2f2019%2f07%2f2019-07-02_00002.jpg&ehk=PkcSDRICwdjFXOgmv%2bqoKYJvzUHX1AC9gNFYe8FFLd0%3d&risl=&pid=ImgRaw&r=0)
 
-### Other Plugins:
+You're seeing this editor called **🥞Crepe**, which is an editor built on top of Milkdown.
 
-- [@milkdown/plugin-collab]()
+If you want to install this editor, you can run `npm install @milkdown/crepe`. Then you can use it like this:
 
-  Add collaborative editing support, powered by [yjs](https://docs.yjs.dev/).
+```javascript
+import { Crepe } from '@milkdown/crepe';
+import '@milkdown/crepe/theme/common/style.css';
 
-- [@milkdown/plugin-prism]()
+// We have some themes for you to choose, ex.
+import '@milkdown/crepe/theme/frame.css';
+// Or you can create your own theme
+import './your-theme.css';
 
-  Add [prism](https://prismjs.com/) support for code block highlight.
+const crepe = new Crepe({
+	root: '#app',
+	defaultValue: '# Hello, Milkdown!',
+});
 
-- [@milkdown/plugin-math]()
+crepe.create().then(() => {
+	console.log('Milkdown is ready!');
+});
 
-  Add [LaTeX](https://en.wikipedia.org/wiki/LaTeX) support for math, powered by [Katex](https://katex.org/).
+// Before unmount
+crepe.destroy();
+```
 
-- [@milkdown/plugin-emoji]()
+---
 
-  Add emoji shortcut support (something like `:+1:`), and use [twemoji](https://twemoji.twitter.com/) to display emoji.
+## Structure
 
-- [@milkdown/plugin-diagram]()
+> 🍼 [Milkdown](https://github.com/Milkdown/milkdown) is a WYSIWYG markdown editor framework.
+>
+> Which means you can build your own markdown editor with Milkdown.
 
-  Add [mermaid](https://mermaid-js.github.io/mermaid/#/) diagram support.
+In the real world, a typical milkdown editor is built on top of 3 layers:
+
+- [x] 🥛 Core: The core of Milkdown, which provides the plugin loading system with the editor concepts.
+- [x] 🧇 Plugins: A set of plugins that can be used to extend the functionalities of the editor.
+- [x] 🍮 Components: Some headless components that can be used to build your own editor.
+
+At the start, you may find it hard to understand all these concepts.
+But don't worry, we have this `@milkdown/crepe` editor for you to get started quickly.
+
+---
+
+## You can do more with Milkdown
+
+In Milkdown, you can extend the editor in many ways:
+
+| Feature      | Description                                          | Example                   |
+| ------------ | ---------------------------------------------------- | ------------------------- |
+| 🎨 Theme     | Create your own theme with CSS                       | Nord, Dracula             |
+| 🧩 Plugin    | Create your own plugin to extend the editor          | Search, Collab            |
+| 📦 Component | Create your own component to build your own editor   | Slash Menu, Toolbar       |
+| 📚 Syntax    | Create your own syntax to extend the markdown parser | Image with Caption, LaTex |
+
+We have provided a lot of plugins and components, with an out-of-the-box crepe editor for you to use and learn.
+
+---
+
+## Open Source
+
+- Milkdown is an open-source project under the MIT license.
+- Everyone is welcome to contribute to the project, and you can use it in your own project for free.
+- Please let me know what you are building with Milkdown, I would be so glad to see that!
+
+Maintaining Milkdown is a lot of work, and we are working on it in our spare time.
+If you like Milkdown, please consider supporting us by [sponsoring](https://github.com/sponsors/Saul-Mirone) the project.
+We'll be so grateful for your support.
+
+## Who built Milkdown?
+
+Milkdown is built by [Mirone](https://github.com/Saul-Mirone) and designed by [Meo](https://meo.cool).

@@ -9,6 +9,7 @@ export default {
 			news: 'News',
 			wiki: 'Wiki',
 			docs: 'Docs',
+			playground: 'Playground',
 			about: 'About',
 		},
 	},
@@ -19,6 +20,7 @@ export default {
 			news: 'News',
 			wiki: 'Wiki',
 			docs: 'Docs',
+			playground: 'Playground',
 			about: 'About',
 			settings: {
 				languages: {
