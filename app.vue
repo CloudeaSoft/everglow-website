@@ -5,7 +5,7 @@
 		titleTemplate: (titleChunk) => {
 			return titleChunk
 				? `${titleChunk} - ${i18n.t('head.title')}`
-				: `${i18n.t('head.title')}`;
+				: `${i18n.t('head.fulltitle')} | ${i18n.t('head.fulltitle2')}`;
 		},
 	});
 

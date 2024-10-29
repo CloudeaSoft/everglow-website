@@ -30,14 +30,14 @@
 			@click="handleClickLink"
 		></div>
 		<div class="news-item-content">
-			<h1
+			<h2
 				class="news-item-header"
 				@click="handleClickLink"
 			>
 				<NuxtLink :to="props._path">
 					<span>{{ title }}</span>
 				</NuxtLink>
-			</h1>
+			</h2>
 			<div class="news-item-body">
 				{{ description }}
 			</div>

@@ -62,7 +62,7 @@
 								<div class="article-head">
 									<div class="category">Everglow</div>
 									<div class="info">
-										<h1 class="title">{{ page.title }}</h1>
+										<h2 class="title">{{ page.title }}</h2>
 										<div class="description">{{ page.description }}</div>
 									</div>
 								</div>

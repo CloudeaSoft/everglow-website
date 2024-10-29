@@ -1,9 +1,12 @@
 export default {
-	nuxtSiteConfig: {
-		name: '流光無際',
-		description: '歡迎來到流光無際的世界!',
+	'nuxtSiteConfig': {
+		'name': '流光無際',
+		'description':
+			'歡迎來到流光無際的世界！ 流光無際係一個內容豐富嘅模組，擁有絕妙嘅視覺表現，為泰拉人們帶來令人耳目一新的體驗！',
 	},
 	'head': {
+		'fulltitle': '流光無際 - 泰拉瑞亚模組',
+		'fulltitle2': '官方網站',
 		'title': '流光無際',
 		'subtitles': {
 			'news': '新聞',
@@ -31,7 +34,7 @@ export default {
 			},
 		},
 	},
-	news: {
+	'news': {
 		'chevron-text': '更多',
 	},
 };

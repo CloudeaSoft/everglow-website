@@ -1,9 +1,12 @@
 export default {
 	nuxtSiteConfig: {
 		name: 'Everglow',
-		description: 'Welcome to Everglow no Sekai!',
+		description:
+			'Welcome to Everglow no Sekai! The Everglow Mod is a vast content mod with stunning visuals that creates a new and refreshing experience for Terrarians!',
 	},
 	head: {
+		fulltitle: 'Everglow - Terraria Mod',
+		fulltitle2: 'Official Website',
 		title: 'Everglow',
 		subtitles: {
 			news: 'News',

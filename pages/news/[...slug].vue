@@ -40,12 +40,12 @@
 								alt="News head image"
 							/>
 							<div class="title-container">
-								<h1
+								<h2
 									class="text"
 									@click.prevent.stop
 								>
 									{{ page.title }}
-								</h1>
+								</h2>
 							</div>
 						</div>
 						<div
@@ -135,7 +135,7 @@
 								width: 100%;
 								bottom: 0;
 
-								h1 {
+								h2 {
 									cursor: default;
 									font-size: 3rem;
 									user-select: all;

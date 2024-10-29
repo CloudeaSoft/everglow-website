@@ -56,12 +56,12 @@
 		]"
 	>
 		<div class="common-header-nav">
-			<div class="logo">
+			<h1 class="logo">
 				<NuxtLinkLocale to="/">
 					<EverglowLogo :size="30" />
 					<div class="logo-text">{{ $t('body.header.name') }}</div>
 				</NuxtLinkLocale>
-			</div>
+			</h1>
 			<ul :class="['main-menu', menuListVisible ? 'active' : '']">
 				<li
 					v-for="(item, index) in mainMenuItemList"

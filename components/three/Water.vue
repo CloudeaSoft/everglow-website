@@ -34,7 +34,7 @@
 	const sun = new Vector3();
 	const elevation = ref(1);
 	const { onBeforeRender } = useLoop();
-	onBeforeRender(({ delta, elapsed }) => {
+	onBeforeRender(({ delta }) => {
 		(water.material as ShaderMaterial).uniforms['time'].value += 1.0 / 60.0;
 
 		elevation.value = (elevation.value + 20 * delta) % 360;

@@ -20,9 +20,9 @@
 						alt="A boss preview of Everglow mod"
 					/>
 					<div class="title-container">
-						<h1 class="text">
+						<h2 class="text">
 							{{ page.title }}
-						</h1>
+						</h2>
 					</div>
 				</div>
 				<ContentRendererMarkdown
@@ -82,7 +82,7 @@
 						width: 100%;
 						bottom: 0;
 
-						h1 {
+						h2 {
 							font-size: 3rem;
 							user-select: all;
 							margin: 1.5rem;
