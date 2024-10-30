@@ -71,7 +71,7 @@
 }
 
 .markdown p > img {
-	margin: 28px auto;
+	border-radius: 0.5rem;
 }
 
 .markdown h1,
@@ -92,10 +92,23 @@
 	* {
 		text-decoration: none !important;
 	}
+
+	&::before {
+		content: '#';
+		position: absolute;
+		left: -2rem;
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+		color: currentColor;
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
 }
 
 .markdown h1 {
-	margin: 0 0 3rem;
+	margin: 3rem 0 3rem;
 	font-size: 36px;
 	line-height: 1.4;
 	letter-spacing: -0.02em;
