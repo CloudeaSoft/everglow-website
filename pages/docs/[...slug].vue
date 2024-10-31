@@ -26,15 +26,10 @@
 	);
 
 	const mapLocaleDocsNavigation = (navigation: NavItem[]): NavItem[] => {
-		if (i18n.locale.value === i18n.defaultLocale) {
-			return navigation.find((item) => item._path === '/docs').children;
-		} else {
-			return navigation
-				.find((item) => item._path === '/' + i18n.locale.value)
-				.children.find(
-					(item) => item._path === '/' + i18n.locale.value + '/docs',
-				).children;
-		}
+		return navigation
+			.find((item) => item._path === '/' + i18n.locale.value)
+			.children.find((item) => item._path === '/' + i18n.locale.value + '/docs')
+			.children;
 	};
 
 	const navLinks = computed(() => {
