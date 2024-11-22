@@ -58,11 +58,11 @@ export default defineNuxtConfig({
 				},
 				{
 					name: 'author',
-					content: 'everglow team',
+					content: 'Dream Chaser Group',
 				},
 				{
 					name: 'keywords',
-					content: 'everglow',
+					content: 'Everglow,流光无际',
 				},
 				{
 					name: 'keywords',
@@ -70,7 +70,29 @@ export default defineNuxtConfig({
 				},
 				{
 					name: 'keywords',
-					content: 'terraria',
+					content: 'Terraria,泰拉瑞亚',
+				},
+			],
+			link: [
+				{
+					rel: 'alternate',
+					hreflang: 'zh-cn',
+					href: 'https://everglow.cloudea.work/zh-cn',
+				},
+				{
+					rel: 'alternate',
+					hreflang: 'en-us',
+					href: 'https://everglow.cloudea.work/en-us',
+				},
+				{
+					rel: 'alternate',
+					hreflang: 'zh-hk',
+					href: 'https://everglow.cloudea.work/zh-hk',
+				},
+				{
+					rel: 'alternate',
+					hreflang: 'x-default',
+					href: 'https://everglow.cloudea.work/',
 				},
 			],
 			noscript: [
