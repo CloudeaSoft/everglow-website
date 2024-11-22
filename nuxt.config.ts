@@ -240,7 +240,7 @@ export default defineNuxtConfig({
 			},
 		],
 		defaultLocale: 'zh-cn',
-		strategy: 'prefix',
+		strategy: 'prefix_and_default',
 		detectBrowserLanguage: {
 			useCookie: true,
 			cookieKey: 'everglow-language',
