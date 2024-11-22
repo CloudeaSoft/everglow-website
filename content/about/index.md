@@ -1,49 +1,49 @@
 ---
-title: 'About'
-description: "Milkdown treats every feature as a plugin. With this pattern, developers can choose what they need in an editor instead of bundling all features even they won't need. Developers can extend their plugins to satisfy their habits such as defining a vim keymap via a custom plugin."
+title: '关于'
+description: '关于'
 date: '2024-10-12 09:51:11'
 ---
 
-## About Everglow Team
+## 关于逐梦孤舟制作组
 
-### Introduction
+### 介绍
 
-Introduction
+介绍
 
-### Join Us
+### 加入我们
 
-QQ Group For Developer Audit: 710341368
+程序审核 QQ 群: 710341368
 
-### Contact Us
+### 联系我们
 
-[Bilibili Official Account](https://space.bilibili.com/1079503056)
+[哔哩哔哩官方账号](https://space.bilibili.com/1079503056)
 
-## Our Community
+## 官方社区
 
-[Discord Server For Fans](https://discord.gg/pdXvp89Dbp)
+[Discord](https://discord.gg/pdXvp89Dbp)
 
-## Code of Conduct
+## 行为规范
 
-### Our Standards
+### 我们的标准
 
-Examples of behavior that contributes to creating a positive environment include:
+有助于创造积极环境的行为包括：
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for the community
-- Showing empathy towards other community members
+- 使用欢迎和包容的语言
+- 尊重不同的观点和经历
+- 优雅地接受建设性批评
+- 关注社区利益
+- 对其他社区成员表现出同理心
 
-Examples of unacceptable behavior by participants include:
+参与者不可接受的行为包括：
 
-- The use of sexualized language or imagery and unwelcome sexual attention or advances
-- Trolling, insulting/derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or electronic address, without explicit - permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+- 使用性相关的语言或图像以及令人反感的性关注或挑逗
+- 挑衅、侮辱性/贬损性评论、人身或政治攻击
+- 进行公开或私下的骚扰
+- 未经明确许可，公开他人的私人信息，如实际地址或电子地址
+- 其他在专业环境中可能被合理认为不合适的行为
 
-### Our Responsibilities
+### 我们的责任
 
-Project maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response to any instances of unacceptable behavior.
+项目维护人员负责明确可接受行为的标准，并有责任对任何不可接受的行为采取适当和公平的纠正措施。
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.
+项目维护者有权利和责任删除、编辑或拒绝不符合本行为准则的评论、提交、代码、wiki 编辑、问题和其他贡献，或暂时/永久禁止任何贡献者的其他他们认为不适当、威胁、冒犯或有害的行为。
