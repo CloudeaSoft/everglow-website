@@ -1,6 +1,5 @@
 <script setup lang="ts">
 	import { useSiteConfig } from '#imports';
-	import { useOgImageRuntimeConfig } from '#nuxt-og-image-utils';
 	import { computed, defineComponent, h, resolveComponent } from 'vue';
 
 	const props = withDefaults(
@@ -20,7 +19,7 @@
 
 	const HexRegex = /^#(?:[0-9a-f]{3}){1,2}$/i;
 
-	const runtimeConfig = useOgImageRuntimeConfig();
+	const runtimeConfig = useRuntimeConfig();
 
 	const colorMode = computed(() => {
 		return props.colorMode || runtimeConfig.colorPreference || 'light';

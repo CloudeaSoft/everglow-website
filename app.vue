@@ -14,14 +14,15 @@
 		twitterCard: 'summary_large_image',
 	});
 
-	defineOgImageComponent('BlogPost', {
+	defineOgImageComponent('Pergel', {
 		title: 'Everglow',
 		description: 'Welcome to Everglow no Sekai!',
+		headline: 'terraria mod',
 		colorMode: 'dark',
-		icon: 'lucide:waves',
+		icon: 'lucide:audio-waveform',
 		siteName: 'Everglow',
 		siteLogo: '/icon.png',
-		theme: '#1025ff',
+		theme: '#50a5ff',
 	});
 </script>
 
