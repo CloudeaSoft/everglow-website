@@ -11,7 +11,7 @@
 			? props.description
 			: 'Description';
 	const author =
-		props.author && props.author.trim() ? props.author : 'Everglow Team';
+		props.author && props.author.trim() ? props.author : 'Dream Chaser Group';
 	const date = props.date.toLocaleString('zh-CN');
 	const img = props.image ?? undefined;
 

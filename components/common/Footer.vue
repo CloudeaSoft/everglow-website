@@ -4,7 +4,7 @@
 			<div class="content">footer</div>
 			<div class="info">
 				<div class="copyright">
-					Copyright © 2024 Everglow Team All rights reserved.
+					Copyright © 2024 Dream Chaser Group All rights reserved.
 				</div>
 				<div class="links">
 					<ul class="link-list">

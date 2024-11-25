@@ -125,7 +125,7 @@ export default defineNuxtConfig({
 	schemaOrg: {
 		identity: {
 			type: 'Organization',
-			name: 'Everglow Team',
+			name: 'Dream Chaser Group',
 			url: 'https://everglow.cloudea.work',
 			logo: 'https://everglow.cloudea.work/logo.png',
 		},

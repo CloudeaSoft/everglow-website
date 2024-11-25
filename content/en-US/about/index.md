@@ -4,7 +4,7 @@ description: 'About'
 date: '2024-10-12 09:51:11'
 ---
 
-## About Everglow Team
+## About Dream Chaser Group
 
 ### Introduction
 
