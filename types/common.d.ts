@@ -1,3 +1,5 @@
+import type { NuxtLinkProps } from '#app';
+
 export interface NavigationLink {
 	icon: string;
 	label: string;

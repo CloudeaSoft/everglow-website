@@ -17,7 +17,6 @@
 			return {
 				label: link.label,
 				icon: link.icon,
-				slot: link.label.toLowerCase(),
 				disabled: link.disabled,
 				defaultOpen:
 					!defaultOpen ||
@@ -31,32 +30,23 @@
 
 <template>
 	<div class="navigation-accordion">
-		<div
+		<CommonContentNavigationAccordionItem
 			v-for="(item, index) in items"
 			:key="index"
-			class="navigation-accordion-item"
+			:open="defaultOpen"
+			:label="item.label"
+			:icon="item.icon"
+			:disabled="item.disabled"
+			:default-open="item.defaultOpen"
 		>
-			<button class="title">
-				<Icon
-					v-if="item.icon"
-					:name="item.icon"
+			<template #links>
+				<CommonContentNavigationTree
+					:level="level + 1"
+					:links="item.children"
+					:default-open="defaultOpen"
 				/>
-				<span>{{ item.label }}</span>
-				<Icon
-					v-if="!item.disabled"
-					name="lucide:chevron-right"
-				/>
-			</button>
-			<div class="links">
-				<div class="links-container">
-					<CommonContentNavigationTree
-						:level="level + 1"
-						:links="item.children"
-						:default-open="defaultOpen"
-					/>
-				</div>
-			</div>
-		</div>
+			</template>
+		</CommonContentNavigationAccordionItem>
 	</div>
 </template>
 
@@ -67,40 +57,7 @@
 		width: 100%;
 
 		& > *:not([hidden]) ~ :not([hidden]) {
-			margin-top: 1rem;
-		}
-
-		.navigation-accordion-item {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-
-			& > *:not([hidden]) ~ :not([hidden]) {
-				margin-top: 1rem;
-			}
-
-			button {
-				display: flex;
-				align-items: center;
-				width: 100%;
-				gap: 0.5rem;
-				color: var(--everglow-font-color-3);
-				font-size: 1.33rem;
-			}
-
-			.links {
-				height: auto;
-
-				.links-container {
-					& > nav {
-						margin-left: 0.75rem;
-						border-style: solid;
-						border-width: 0;
-						border-left-width: 1px;
-						border-color: var(--everglow-trans-black-3);
-					}
-				}
-			}
+			margin-top: 1.5rem;
 		}
 	}
 </style>

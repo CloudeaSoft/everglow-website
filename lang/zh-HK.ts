@@ -37,4 +37,10 @@ export default {
 	'news': {
 		'chevron-text': '更多',
 	},
+	'docs': {
+		'label': {
+			'Getting Started': '入門',
+			'Guide': '指南',
+		},
+	},
 };

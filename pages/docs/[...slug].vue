@@ -35,6 +35,7 @@
 	const navLinks = computed(() => {
 		return mapContentNavigation(mapLocaleDocsNavigation(navigation.value));
 	});
+
 	const tocLinks = computed(() => {
 		return page.value.body.toc.links;
 	});

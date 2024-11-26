@@ -3,6 +3,8 @@
 
 	const { links } = defineProps<{ links: NavigationTree[] }>();
 
+	console.log(links);
+
 	const route = useRoute();
 </script>
 
@@ -54,6 +56,8 @@
 			align-items: center;
 
 			cursor: pointer;
+
+			transition: color 0.2s ease;
 
 			&:hover {
 				color: var(--everglow-font-color-3);

@@ -34,7 +34,13 @@ export default {
 			},
 		},
 	},
-	news: {
+	'news': {
 		'chevron-text': 'Read More',
+	},
+	'docs': {
+		'label': {
+			'Getting Started': 'Get-Started',
+			'Guide': 'Guide',
+		},
 	},
 };
