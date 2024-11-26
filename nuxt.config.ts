@@ -77,17 +77,17 @@ export default defineNuxtConfig({
 				{
 					rel: 'alternate',
 					hreflang: 'zh-cn',
-					href: 'https://everglow.cloudea.work/zh-cn',
+					href: 'https://everglow.cloudea.work/zh-cn/',
 				},
 				{
 					rel: 'alternate',
 					hreflang: 'en-us',
-					href: 'https://everglow.cloudea.work/en-us',
+					href: 'https://everglow.cloudea.work/en-us/',
 				},
 				{
 					rel: 'alternate',
 					hreflang: 'zh-hk',
-					href: 'https://everglow.cloudea.work/zh-hk',
+					href: 'https://everglow.cloudea.work/zh-hk/',
 				},
 				{
 					rel: 'alternate',
