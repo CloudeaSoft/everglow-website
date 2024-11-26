@@ -4,8 +4,14 @@
 	const route = useRoute();
 
 	const { level, links, defaultOpen } = defineProps({
-		level: { type: Number, default: 0 },
-		links: { type: Array as PropType<NavigationTree[]>, default: () => [] },
+		level: {
+			type: Number,
+			default: 0,
+		},
+		links: {
+			type: Array as PropType<NavigationTree[]>,
+			default: () => [],
+		},
 		defaultOpen: {
 			type: [Boolean, Number],
 			default: undefined,

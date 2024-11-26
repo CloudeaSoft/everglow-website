@@ -2,8 +2,14 @@
 	import type { NavigationGroup, NavigationTree } from '~/types';
 
 	const { level, links, defaultOpen } = defineProps({
-		level: { type: Number, default: 0 },
-		links: { type: Array as PropType<NavigationTree[]>, default: () => [] },
+		level: {
+			type: Number,
+			default: 0,
+		},
+		links: {
+			type: Array as PropType<NavigationTree[]>,
+			default: () => [],
+		},
 		defaultOpen: {
 			type: [Boolean, Number],
 			default: undefined,
@@ -13,7 +19,10 @@
 	const groups = computed<NavigationGroup[]>(() => {
 		const groups: NavigationGroup[] = [];
 
-		let group: NavigationGroup = { type: undefined, children: [] };
+		let group: NavigationGroup = {
+			type: undefined,
+			children: [],
+		};
 
 		for (const link of links) {
 			const type = link.children?.length ? 'accordion' : 'link';
@@ -25,7 +34,10 @@
 				group.children.push(link);
 			} else {
 				groups.push(group);
-				group = { type, children: [link] };
+				group = {
+					type,
+					children: [link],
+				};
 			}
 		}
 

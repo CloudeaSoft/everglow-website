@@ -1,7 +1,13 @@
 <script setup lang="ts">
 	const { name, link } = defineProps({
-		name: String,
-		link: String,
+		name: {
+			type: String,
+			default: '',
+		},
+		link: {
+			type: String,
+			default: '',
+		},
 	});
 
 	const emit = defineEmits(['navigate']);
@@ -12,8 +18,8 @@
 		<NuxtLinkLocale
 			:to="link"
 			:target="link[0] !== '/' ? '_blank' : '_self'"
-			@click="emit('navigate')"
 			style="width: 100%"
+			@click="emit('navigate')"
 		>
 			<div class="text">
 				{{ $t(`body.header.${name}`) }}

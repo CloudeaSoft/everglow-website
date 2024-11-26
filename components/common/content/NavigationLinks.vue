@@ -3,8 +3,6 @@
 
 	const { links } = defineProps<{ links: NavigationTree[] }>();
 
-	console.log(links);
-
 	const route = useRoute();
 </script>
 

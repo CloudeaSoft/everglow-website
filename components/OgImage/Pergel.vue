@@ -4,22 +4,14 @@
 	 */
 	import { computed } from 'vue';
 
-	const props = withDefaults(
-		defineProps<{
-			title?: string;
-			description?: string;
-			headline?: string;
-			siteLogo?: string;
-			siteName?: string;
-			theme?: string;
-		}>(),
-		{
-			title: 'title',
-			description: 'description',
-			headline: 'headline',
-			theme: '#212121',
-		},
-	);
+	const props = defineProps<{
+		title: string;
+		description: string;
+		headline: string;
+		siteLogo: string;
+		siteName: string;
+		theme: string;
+	}>();
 
 	const color = {
 		A: '#FFA7A7',

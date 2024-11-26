@@ -1,6 +1,5 @@
 <script setup lang="ts">
 	const { locale, t } = useI18n();
-	const color = useColorMode();
 	const i18nHead = useLocaleHead();
 
 	const i18nTitle = (titleChunk: string) => {
