@@ -31,10 +31,7 @@
 				/>
 			</div>
 			<div class="toc">
-				<CommonContentToc
-					title="Table of Content"
-					:links="page.body.toc?.links"
-				/>
+				<CommonContentToc :links="page.body.toc?.links" />
 			</div>
 		</div>
 	</div>
@@ -68,6 +65,7 @@
 					backdrop-filter: blur(16px);
 					background-color: var(--everglow-trans-white-3);
 					overflow: hidden;
+					user-select: none;
 
 					img {
 						height: 100%;
@@ -87,11 +85,11 @@
 							user-select: all;
 							margin: 1.5rem;
 							padding: 0.75rem 1rem;
-
+							color: var(--everglow-font-color-3);
 							border: 1px solid var(--everglow-trans-blue-1);
 							border-radius: 1rem;
 							backdrop-filter: blur(16px);
-							background-color: var(--everglow-trans-white-3);
+							background-color: var(--everglow-trans-blue-0);
 						}
 					}
 				}

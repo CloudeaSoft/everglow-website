@@ -9,15 +9,15 @@
 			title?: string;
 			description?: string;
 			headline?: string;
-			theme?: string;
 			siteLogo?: string;
 			siteName?: string;
+			theme?: string;
 		}>(),
 		{
 			title: 'title',
 			description: 'description',
 			headline: 'headline',
-			theme: '#00dc82',
+			theme: '#212121',
 		},
 	);
 
@@ -35,7 +35,7 @@
 </script>
 
 <template>
-	<div class="w-full h-full flex flex-col justify-center bg-[#212121]">
+	<div :class="`w-full h-full flex flex-col justify-center bg-[${theme}]`">
 		<svg
 			class="absolute top-0 right-0"
 			width="1200"

@@ -3,9 +3,9 @@
 	import type { Docs } from '~/types';
 	import { mapContentNavigation } from '~/utils';
 
-	const i18n = useI18n();
+	const { t, locale } = useI18n();
 	useHead({
-		title: i18n.t('head.subtitles.docs'),
+		title: t('head.subtitles.docs'),
 	});
 
 	const route = useRoute();
@@ -27,8 +27,8 @@
 
 	const mapLocaleDocsNavigation = (navigation: NavItem[]): NavItem[] => {
 		return navigation
-			.find((item) => item._path === '/' + i18n.locale.value)
-			.children.find((item) => item._path === '/' + i18n.locale.value + '/docs')
+			.find((item) => item._path === '/' + locale.value)
+			.children.find((item) => item._path === '/' + locale.value + '/docs')
 			.children;
 	};
 

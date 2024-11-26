@@ -37,6 +37,11 @@ export default {
 			},
 		},
 	},
+	'common': {
+		'toc': {
+			'title': 'Table of Contents',
+		},
+	},
 	'news': {
 		'chevron-text': 'Read More',
 	},

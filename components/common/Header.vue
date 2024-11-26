@@ -66,20 +66,16 @@
 				<li
 					v-for="(item, index) in mainMenuItemList"
 					:key="index"
-					class="main-menu-item"
+					style="width: 100%"
 				>
-					<NuxtLinkLocale
-						:to="item.link"
-						:target="item.link[0] !== '/' ? '_blank' : '_self'"
-						@click="closeMenu()"
+					<CommonHeaderMenuItem
+						:key="index"
+						:name="item.name"
+						:link="item.link"
+						@navigate="closeMenu()"
 					>
-						<div class="text">
-							{{ $t(`body.header.${item.name}`) }}
-						</div>
-					</NuxtLinkLocale>
-					<div class="chevron">
-						<Icon name="line-md:chevron-small-right" />
-					</div>
+					</CommonHeaderMenuItem>
+					<CommonHeaderSubMenuDocs v-if="item.name == 'docs'" />
 				</li>
 			</ul>
 			<ul class="user-actions">
@@ -144,10 +140,7 @@
 <style lang="scss" scoped>
 	.common-header {
 		position: fixed;
-		// position: sticky;
 		top: 0;
-		// left: 0;
-		// right: 0;
 		width: 100%;
 		z-index: 4000;
 		display: -webkit-box;
@@ -245,31 +238,6 @@
 				font-weight: var(--font-weight--normal);
 				font-size: 1.125rem;
 				column-gap: 3rem;
-
-				.main-menu-item {
-					line-height: 1.5rem;
-
-					.text {
-						transition: color 0.3s;
-					}
-
-					.chevron {
-						display: none;
-						align-items: center;
-						opacity: 0;
-						transform-origin: center;
-						animation: globalnav-chevron-hover-off 0.24s
-							cubic-bezier(0.4, 0, 0.6, 1) both;
-					}
-
-					&:hover {
-						cursor: pointer;
-
-						.text {
-							color: var(--everglow-blue-5) !important;
-						}
-					}
-				}
 			}
 
 			.user-actions {
@@ -339,34 +307,14 @@
 					height: 0;
 					opacity: 0;
 					overflow: hidden;
-					transition: all 0.3s ease-in-out;
+					transition:
+						all 0.3s ease-in-out,
+						background-color 0s;
 
 					&.active {
 						display: flex;
 						opacity: 1;
 						height: calc(100dvh - var(--header-height));
-					}
-
-					.main-menu-item {
-						width: 100%;
-						height: var(--header-height);
-						line-height: var(--header-height);
-						font-size: 2rem;
-
-						display: flex;
-						justify-content: space-between;
-
-						.chevron {
-							display: flex;
-						}
-
-						&:hover {
-							.chevron {
-								opacity: 1;
-								animation: globalnav-chevron-slide-in-hover 0.24s
-									cubic-bezier(0.4, 0, 0.6, 1) both;
-							}
-						}
 					}
 				}
 
@@ -378,30 +326,6 @@
 						display: flex;
 					}
 				}
-			}
-		}
-
-		@keyframes globalnav-chevron-slide-in-hover {
-			0% {
-				opacity: 0;
-				transform: translate(-4px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translate(0);
-			}
-		}
-
-		@keyframes globalnav-chevron-hover-off {
-			0% {
-				opacity: 1;
-				transform: scale(1);
-			}
-
-			100% {
-				opacity: 0;
-				transform: scale(0.8);
 			}
 		}
 	}

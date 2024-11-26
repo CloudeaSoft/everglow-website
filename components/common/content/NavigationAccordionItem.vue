@@ -103,18 +103,8 @@
 		}
 	}
 
-	.expand-leave-active,
-	.expand-enter-active {
-		transition: all 0.2s ease;
-	}
-
 	.expand-enter-to,
 	.expand-leave-from {
 		max-height: v-bind(contentHeight);
-	}
-
-	.expand-enter-from,
-	.expand-leave-to {
-		max-height: 0;
 	}
 </style>

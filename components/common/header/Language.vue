@@ -110,15 +110,4 @@
 			}
 		}
 	}
-
-	.bottom-enter-active,
-	.bottom-leave-active {
-		transition: all 0.2s ease-in-out;
-	}
-
-	.bottom-enter-from,
-	.bottom-leave-to {
-		transform: translateY(-10px);
-		opacity: 0;
-	}
 </style>

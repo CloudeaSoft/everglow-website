@@ -37,6 +37,11 @@ export default {
 			},
 		},
 	},
+	'common': {
+		'toc': {
+			'title': '目录',
+		},
+	},
 	'news': {
 		'chevron-text': '更多',
 	},

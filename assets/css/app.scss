@@ -32,3 +32,28 @@ body {
 .everglow-light-mode .shiki span {
 	color: var(--shiki-light) !important;
 }
+
+/* ----------------- Vue Transition ----------------- */
+
+// expand
+.expand-leave-active,
+.expand-enter-active {
+	transition: all 0.2s ease;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+	max-height: 0;
+}
+
+// bottom
+.bottom-enter-active,
+.bottom-leave-active {
+	transition: all 0.2s ease-in-out;
+}
+
+.bottom-enter-from,
+.bottom-leave-to {
+	transform: translateY(-10px);
+	opacity: 0;
+}
