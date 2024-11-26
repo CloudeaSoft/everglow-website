@@ -88,6 +88,7 @@
 		.links {
 			overflow: hidden;
 			height: auto;
+			transition: all 0.3s ease;
 
 			.links-container {
 				margin-left: 0.75rem;

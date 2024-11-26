@@ -1,5 +1,7 @@
 <script setup lang="ts">
-	const { name, link } = defineProps({
+	const subMenuVisible = ref(false);
+
+	const { name, link, visible } = defineProps({
 		name: {
 			type: String,
 			default: '',
@@ -8,32 +10,58 @@
 			type: String,
 			default: '',
 		},
+		visible: {
+			type: Boolean,
+			default: true,
+		},
 	});
 
-	const emit = defineEmits(['navigate']);
+	const emit = defineEmits(['navigate', 'showMenu', 'hideMenu']);
+
+	const handleClickItem = () => {
+		if (name !== 'docs') {
+			emit('navigate');
+		} else {
+			subMenuVisible.value = true;
+			emit('hideMenu');
+		}
+	};
+
+	const handleReturnToMenu = () => {
+		subMenuVisible.value = false;
+		emit('showMenu');
+	};
 </script>
 
 <template>
-	<div class="main-menu-item">
-		<NuxtLinkLocale
-			:to="link"
-			:target="link[0] !== '/' ? '_blank' : '_self'"
-			style="width: 100%"
-			@click="emit('navigate')"
-		>
-			<div class="text">
-				{{ $t(`body.header.${name}`) }}
+	<li :class="['main-menu-item', visible ? '' : 'hide']">
+		<div class="main-menu-item-content">
+			<NuxtLinkLocale
+				:to="link"
+				:target="link[0] !== '/' ? '_blank' : '_self'"
+				style="width: 100%"
+				@click="handleClickItem"
+			>
+				<div class="text">
+					{{ $t(`body.header.${name}`) }}
+				</div>
+			</NuxtLinkLocale>
+			<div class="chevron">
+				<Icon name="line-md:chevron-small-right" />
 			</div>
-		</NuxtLinkLocale>
-		<div class="chevron">
-			<Icon name="line-md:chevron-small-right" />
 		</div>
-	</div>
+		<CommonHeaderSubMenuDocs
+			v-if="name == 'docs'"
+			:sub-menu-visible="subMenuVisible"
+			@return="handleReturnToMenu"
+		/>
+	</li>
 </template>
 
 <style lang="scss" scoped>
 	.main-menu-item {
 		line-height: 1.5rem;
+		width: 100%;
 
 		.text {
 			transition: color 0.3s;
@@ -58,49 +86,55 @@
 	}
 	@media only screen and (max-width: 833px) {
 		.main-menu-item {
-			width: 100%;
-			height: var(--header-height);
-			line-height: var(--header-height);
-			font-size: 2rem;
-
-			display: flex;
-			justify-content: space-between;
-
-			.chevron {
-				display: flex;
+			&.hide {
+				visibility: hidden;
+				pointer-events: none;
 			}
 
-			&:hover {
+			.main-menu-item-content {
+				height: var(--header-height);
+				line-height: var(--header-height);
+				font-size: 2rem;
+
+				display: flex;
+				justify-content: space-between;
+
 				.chevron {
-					opacity: 1;
-					animation: globalnav-chevron-slide-in-hover 0.24s
-						cubic-bezier(0.4, 0, 0.6, 1) both;
+					display: flex;
+				}
+
+				&:hover {
+					.chevron {
+						opacity: 1;
+						animation: globalnav-chevron-slide-in-hover 0.24s
+							cubic-bezier(0.4, 0, 0.6, 1) both;
+					}
 				}
 			}
 		}
+	}
 
-		@keyframes globalnav-chevron-slide-in-hover {
-			0% {
-				opacity: 0;
-				transform: translate(-4px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translate(0);
-			}
+	@keyframes globalnav-chevron-slide-in-hover {
+		0% {
+			opacity: 0;
+			transform: translate(-4px);
 		}
 
-		@keyframes globalnav-chevron-hover-off {
-			0% {
-				opacity: 1;
-				transform: scale(1);
-			}
+		to {
+			opacity: 1;
+			transform: translate(0);
+		}
+	}
 
-			100% {
-				opacity: 0;
-				transform: scale(0.8);
-			}
+	@keyframes globalnav-chevron-hover-off {
+		0% {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		100% {
+			opacity: 0;
+			transform: scale(0.8);
 		}
 	}
 </style>

@@ -62,22 +62,11 @@
 					<div class="logo-text">{{ $t('body.header.name') }}</div>
 				</NuxtLinkLocale>
 			</h1>
-			<ul :class="['main-menu', menuListVisible ? 'active' : '']">
-				<li
-					v-for="(item, index) in mainMenuItemList"
-					:key="index"
-					style="width: 100%"
-				>
-					<CommonHeaderMenuItem
-						:key="index"
-						:name="item.name"
-						:link="item.link"
-						@navigate="closeMenu()"
-					>
-					</CommonHeaderMenuItem>
-					<CommonHeaderSubMenuDocs v-if="item.name == 'docs'" />
-				</li>
-			</ul>
+			<CommonHeaderMenu
+				:menu-list-visible="menuListVisible"
+				:menu-list="mainMenuItemList"
+				@close="closeMenu()"
+			/>
 			<ul class="user-actions">
 				<li class="user-actions-item language">
 					<CommonHeaderLanguage />
@@ -231,15 +220,6 @@
 				}
 			}
 
-			.main-menu {
-				display: flex;
-				align-items: center;
-				font-family: Public Sans;
-				font-weight: var(--font-weight--normal);
-				font-size: 1.125rem;
-				column-gap: 3rem;
-			}
-
 			.user-actions {
 				display: flex;
 				margin-right: 40px;
@@ -291,33 +271,6 @@
 	@media only screen and (max-width: 833px) {
 		.common-header {
 			.common-header-nav {
-				.main-menu {
-					position: absolute;
-					top: var(--header-height);
-					flex-direction: column;
-
-					width: 100%;
-
-					background-color: var(--everglow-white);
-
-					align-items: baseline;
-					justify-content: center;
-					padding: 0 40px;
-
-					height: 0;
-					opacity: 0;
-					overflow: hidden;
-					transition:
-						all 0.3s ease-in-out,
-						background-color 0s;
-
-					&.active {
-						display: flex;
-						opacity: 1;
-						height: calc(100dvh - var(--header-height));
-					}
-				}
-
 				.user-actions {
 					margin-right: 0;
 
