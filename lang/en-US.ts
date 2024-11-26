@@ -4,6 +4,9 @@ export default {
 		description:
 			'Welcome to Everglow no Sekai! The Everglow Mod is a vast content mod with stunning visuals that creates a new and refreshing experience for Terrarians!',
 	},
+	'meta': {
+		'team': 'Dream Chaser Group',
+	},
 	head: {
 		fulltitle: 'Everglow - Terraria Mod',
 		fulltitle2: 'Official Website',

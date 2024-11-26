@@ -1,7 +1,7 @@
 <template>
 	<footer class="common-footer">
 		<div class="footer-container">
-			<div class="content">footer</div>
+			<div class="content">Hang on to your dreams.</div>
 			<div class="info">
 				<div class="copyright">
 					Copyright © 2024 Dream Chaser Group All rights reserved.

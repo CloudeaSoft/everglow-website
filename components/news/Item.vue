@@ -43,7 +43,7 @@
 			</div>
 			<div class="news-item-footer">
 				<div class="info">
-					<div class="author">{{ `By ${author}` }}</div>
+					<div class="author">{{ `By ${$t('meta.team')}` }}</div>
 					<div class="divider"></div>
 					<div class="date">
 						<Icon name="line-md:calendar" />
