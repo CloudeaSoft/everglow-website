@@ -54,6 +54,7 @@
 			v-if="name == 'docs'"
 			:sub-menu-visible="subMenuVisible"
 			@return="handleReturnToMenu"
+			@navigate="emit('navigate')"
 		/>
 	</li>
 </template>

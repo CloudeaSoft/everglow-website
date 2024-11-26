@@ -7,7 +7,7 @@
 		subMenuVisible: Boolean,
 	});
 
-	const emit = defineEmits(['return']);
+	const emit = defineEmits(['return', 'navigate']);
 
 	const { data: navigation } = await useAsyncData('navigation', () =>
 		fetchContentNavigation(),
@@ -36,7 +36,10 @@
 			@click="emit('return')"
 		>
 		</Icon>
-		<CommonContentNavigationTree :links="navLinks" />
+		<CommonContentNavigationTree
+			:links="navLinks"
+			@click="emit('navigate')"
+		/>
 	</div>
 </template>
 
