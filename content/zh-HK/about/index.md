@@ -21,6 +21,7 @@ date: '2024-10-12 09:51:11'
 ## 官方社區
 
 [Discord](https://discord.gg/pdXvp89Dbp)
+QQ 群: [318736428]()
 
 ## 行為規範
 
