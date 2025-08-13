@@ -53,5 +53,9 @@ export default {
 			'Mechanics': '游戏机制',
 			'Drawcode': '图形绘制',
 		},
+		'empty': {
+			'title': '未知领域',
+			'description': '你来到了一片未知的地带',
+		},
 	},
 };

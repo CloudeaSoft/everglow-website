@@ -50,5 +50,9 @@ export default {
 			'Getting Started': 'Get-Started',
 			'Guide': 'Guide',
 		},
+		'empty': {
+			'title': 'Unknown Field',
+			'description': "Here's nothing...",
+		},
 	},
 };

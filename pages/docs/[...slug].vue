@@ -11,13 +11,10 @@
 		queryCollection(docsCollectionKey(locale.value)).path(route.path).first(),
 	);
 
-	if (!page.value) {
-		throw createError({
-			statusCode: 404,
-			statusMessage: 'Page not found',
-			fatal: true,
-		});
-	}
+	const {
+		title = t('docs.empty.title'),
+		description = t('docs.empty.description'),
+	} = page.value ?? {};
 
 	const { data: navigation } = await useAsyncData(
 		getDocsNavRequestKey(locale.value),
@@ -31,7 +28,7 @@
 	});
 
 	const tocLinks = computed(() => {
-		return page.value.body.toc.links;
+		return page.value?.body.toc.links ?? [];
 	});
 </script>
 
@@ -52,15 +49,20 @@
 								<div class="article-head">
 									<div class="category">Everglow</div>
 									<div class="info">
-										<h2 class="title">{{ page.title }}</h2>
-										<div class="description">{{ page.description }}</div>
+										<h2 class="title">{{ title }}</h2>
+										<div class="description">{{ description }}</div>
 									</div>
 								</div>
 								<div class="article-body">
-									<ContentRenderer
-										class="markdown"
-										:value="page"
-									/>
+									<template v-if="page">
+										<ContentRenderer
+											class="markdown"
+											:value="page"
+										/>
+									</template>
+									<template v-else>
+										<DocsEmpty />
+									</template>
 								</div>
 							</div>
 						</div>

@@ -50,5 +50,9 @@ export default {
 			'Getting Started': '入門',
 			'Guide': '指南',
 		},
+		'empty': {
+			'title': '未知领域',
+			'description': '你来到了一片未知的地带',
+		},
 	},
 };
