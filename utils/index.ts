@@ -1,15 +1,15 @@
-import type { NavItem } from '@nuxt/content';
+import type { ContentNavigationItem } from '@nuxt/content';
 import type { NavigationTree } from '~/types';
 
 export const mapContentNavigation = (
-	navigation: NavItem[],
+	navigation: ContentNavigationItem[],
 ): NavigationTree[] => {
 	const navMap = {
 		'title': 'label',
-		'_path': 'to',
+		'path': 'to',
 	};
 
-	return navigation.map((navLink: NavItem) => {
+	return navigation.map((navLink: ContentNavigationItem) => {
 		const link = {} as NavigationTree;
 		for (const key in navLink) {
 			if (key === 'children') {

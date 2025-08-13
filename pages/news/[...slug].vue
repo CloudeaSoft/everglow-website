@@ -1,14 +1,13 @@
 <script setup lang="ts">
-	import type { News } from '~/types/news';
-
 	const i18n = useI18n();
-	const route = useRoute();
 	useHead({
 		title: i18n.t('head.subtitles.news'),
 	});
 
+	const route = useRoute();
+
 	const { data: page } = await useAsyncData(route.path, () =>
-		queryContent<News>(route.path).findOne(),
+		queryCollection('content').path(route.path).first(),
 	);
 
 	if (!page.value) {

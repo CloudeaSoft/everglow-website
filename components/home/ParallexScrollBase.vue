@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	const { src = null } = defineProps<{
+	const { src } = defineProps<{
 		src: string;
 	}>();
 </script>

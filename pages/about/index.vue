@@ -6,7 +6,7 @@
 	});
 
 	const { data: page } = await useAsyncData(route.path, () =>
-		queryContent(route.path).findOne(),
+		queryCollection('content').path(route.path).first(),
 	);
 </script>
 
@@ -25,7 +25,7 @@
 						</h2>
 					</div>
 				</div>
-				<ContentRendererMarkdown
+				<ContentRenderer
 					:value="page"
 					class="markdown"
 				/>

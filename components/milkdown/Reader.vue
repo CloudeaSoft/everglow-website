@@ -20,24 +20,24 @@
 	import { math } from '@milkdown/plugin-math';
 	import { emoji } from '@milkdown/plugin-emoji';
 
-	import c from 'refractor/lang/c';
-	import cpp from 'refractor/lang/cpp';
-	import csharp from 'refractor/lang/csharp';
-	import css from 'refractor/lang/css';
-	import go from 'refractor/lang/go';
-	import haskell from 'refractor/lang/haskell';
-	import python from 'refractor/lang/python';
-	import java from 'refractor/lang/java';
-	import javascript from 'refractor/lang/javascript';
-	import typescript from 'refractor/lang/typescript';
-	import jsx from 'refractor/lang/jsx';
-	import kotlin from 'refractor/lang/kotlin';
-	import r from 'refractor/lang/r';
-	import rust from 'refractor/lang/rust';
-	import scala from 'refractor/lang/scala';
-	import sql from 'refractor/lang/sql';
-	import tsx from 'refractor/lang/tsx';
-	import markdown from 'refractor/lang/markdown';
+	import c from 'refractor/c';
+	import cpp from 'refractor/cpp';
+	import csharp from 'refractor/csharp';
+	import css from 'refractor/css';
+	import go from 'refractor/go';
+	import haskell from 'refractor/haskell';
+	import python from 'refractor/python';
+	import java from 'refractor/java';
+	import javascript from 'refractor/javascript';
+	import typescript from 'refractor/typescript';
+	import jsx from 'refractor/jsx';
+	import kotlin from 'refractor/kotlin';
+	import r from 'refractor/r';
+	import rust from 'refractor/rust';
+	import scala from 'refractor/scala';
+	import sql from 'refractor/sql';
+	import tsx from 'refractor/tsx';
+	import markdown from 'refractor/markdown';
 
 	const tootip = tooltipFactory('Tooltip');
 

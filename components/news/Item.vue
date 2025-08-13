@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	import type { News } from '~/types/news';
+	import type { ContentCollectionItem } from '@nuxt/content';
 
 	const { newsItem: props } = defineProps<{
-		newsItem: News;
+		newsItem: ContentCollectionItem;
 	}>();
 
 	const title = props.title && props.title.trim() ? props.title : 'Title';
@@ -10,12 +10,12 @@
 		props.description && props.description.trim()
 			? props.description
 			: 'Description';
-	const date = props.date.toLocaleString('zh-CN');
+	const date = props.date.toLocaleString();
 	const img = props.image ?? undefined;
 
 	const handleClickLink = () => {
 		const localePath = useLocalePath();
-		navigateTo(localePath(props._path));
+		navigateTo(localePath(props.path));
 	};
 </script>
 
@@ -32,7 +32,7 @@
 				class="news-item-header"
 				@click="handleClickLink"
 			>
-				<NuxtLink :to="props._path">
+				<NuxtLink :to="props.path">
 					<span>{{ title }}</span>
 				</NuxtLink>
 			</h2>
@@ -50,7 +50,7 @@
 				</div>
 				<NuxtLink
 					class="btn"
-					:to="props._path"
+					:to="props.path"
 				>
 					<span class="btn-text">{{ $t('news.chevron-text') }}</span>
 					<Icon name="lucide:chevron-right" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import type { NavItem } from '@nuxt/content';
+	import type { ContentNavigationItem } from '@nuxt/content';
 
 	const { locale } = useI18n();
 
@@ -10,14 +10,20 @@
 	const emit = defineEmits(['return', 'navigate']);
 
 	const { data: navigation } = await useAsyncData('navigation', () =>
-		fetchContentNavigation(),
+		queryCollectionNavigation('content'),
 	);
 
-	const mapLocaleDocsNavigation = (navigation: NavItem[]): NavItem[] => {
-		return navigation
-			.find((item) => item._path === '/' + locale.value)
-			.children.find((item) => item._path === '/' + locale.value + '/docs')
-			.children;
+	const mapLocaleDocsNavigation = (
+		navigation: ContentNavigationItem[],
+	): ContentNavigationItem[] => {
+		if (locale.value === 'zh-cn') {
+			return navigation.find((item) => item.path === '/docs').children;
+		} else {
+			return navigation
+				.find((item) => item.path === '/' + locale.value)
+				.children.find((item) => item.path === '/' + locale.value + '/docs')
+				.children;
+		}
 	};
 
 	const navLinks = computed(() => {

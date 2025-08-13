@@ -1,19 +1,15 @@
 <script setup lang="ts">
-	import type { News } from '~/types/news';
-
 	const route = useRoute();
 	const i18n = useI18n();
 	useHead({
 		title: i18n.t('head.subtitles.news'),
 	});
 
-	const { data: list } = await useAsyncData('content', () =>
-		queryContent<News>(route.path)
-			.sort({
-				date: -1,
-				$numeric: true,
-			})
-			.find(),
+	const { data: list } = await useAsyncData(route.path, () =>
+		queryCollection('content')
+			.where('path', 'LIKE', route.path + '%')
+			.order('date', 'DESC')
+			.all(),
 	);
 </script>
 

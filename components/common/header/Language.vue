@@ -3,7 +3,7 @@
 
 	const isShowOptions = ref(false);
 
-	const setLanguage = (code: string) => {
+	const setLanguage = (code: 'zh-cn' | 'zh-hk' | 'en-us') => {
 		setLocale(code);
 		isShowOptions.value = false;
 	};

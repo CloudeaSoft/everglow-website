@@ -36,7 +36,7 @@ export default defineNuxtConfig({
 		css: {
 			preprocessorOptions: {
 				scss: {
-					api: 'modern',
+					// api: 'modern', // @BreakingChanges
 				},
 			},
 		},
@@ -97,7 +97,7 @@ export default defineNuxtConfig({
 			],
 			noscript: [
 				{
-					children: 'JavaScript is required',
+					// children: 'JavaScript is required', // @BreakingChanges
 				},
 			],
 		},
@@ -120,7 +120,7 @@ export default defineNuxtConfig({
 		url: 'https://everglow.cloudea.work',
 	},
 	sitemap: {
-		strictNuxtContentPaths: true,
+		// strictNuxtContentPaths: true, // Unavailable in @nuxt/content v3 @BreakingChanges
 	},
 	schemaOrg: {
 		identity: {
@@ -131,28 +131,46 @@ export default defineNuxtConfig({
 		},
 	},
 	content: {
-		highlight: {
-			theme: {
-				default: 'github-dark',
-				light: 'github-light',
-				dark: 'github-dark',
+		build: {
+			markdown: {
+				toc: {
+					depth: 5,
+				},
+				remarkPlugins: {
+					'remark-emoji': {
+						options: {
+							emoticon: true,
+						},
+					},
+				},
+				highlight: {
+					theme: {
+						default: 'github-dark',
+						light: 'github-light',
+						dark: 'github-dark',
+						sepia: 'monokai',
+					},
+					langs: [
+						'json',
+						'js',
+						'ts',
+						'html',
+						'css',
+						'vue',
+						'shell',
+						'mdc',
+						'md',
+						'yaml',
+						'c',
+						'cpp',
+						'java',
+						'csharp',
+					],
+				},
 			},
-			langs: [
-				'json',
-				'js',
-				'ts',
-				'html',
-				'css',
-				'vue',
-				'shell',
-				'mdc',
-				'md',
-				'yaml',
-				'c',
-				'cpp',
-				'java',
-				'csharp',
-			],
+		},
+		experimental: {
+			sqliteConnector: 'native',
 		},
 	},
 	fonts: {
@@ -215,11 +233,11 @@ export default defineNuxtConfig({
 				'latin',
 			],
 		},
-		fallbacks: {
-			'serif': ['Times New Roman'],
-			'sans-serif': ['Arial'],
-			'monospace': ['Courier New'],
-		},
+		// fallbacks: { // @BreakingChanges
+		// 	'serif': ['Times New Roman'],
+		// 	'sans-serif': ['Arial'],
+		// 	'monospace': ['Courier New'],
+		// },
 		providers: {
 			google: false,
 			googleicons: false,
@@ -243,7 +261,8 @@ export default defineNuxtConfig({
 		storageKey: process.env.COLOR_MODE_STORAGE_KEY,
 	},
 	i18n: {
-		langDir: './lang',
+		baseUrl: process.env.BASE_URL,
+		// langDir: './lang', // @BreakingChanges
 		locales: [
 			{
 				code: 'zh-cn',
@@ -265,7 +284,7 @@ export default defineNuxtConfig({
 		strategy: 'prefix_and_default',
 		detectBrowserLanguage: {
 			useCookie: true,
-			cookieKey: 'everglow-language',
+			cookieKey: process.env.LANGUAGE_STORAGE_KEY,
 			redirectOn: 'root',
 			alwaysRedirect: false,
 		},

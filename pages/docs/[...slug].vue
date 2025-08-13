@@ -1,6 +1,5 @@
 <script setup lang="ts">
-	import type { NavItem } from '@nuxt/content';
-	import type { Docs } from '~/types';
+	import type { ContentNavigationItem } from '@nuxt/content';
 	import { mapContentNavigation } from '~/utils';
 
 	const { t, locale } = useI18n();
@@ -10,7 +9,7 @@
 
 	const route = useRoute();
 	const { data: page } = await useAsyncData(route.path, () =>
-		queryContent<Docs>(route.path).findOne(),
+		queryCollection('content').path(route.path).first(),
 	);
 
 	if (!page.value) {
@@ -22,14 +21,20 @@
 	}
 
 	const { data: navigation } = await useAsyncData('navigation', () =>
-		fetchContentNavigation(),
+		queryCollectionNavigation('content'),
 	);
 
-	const mapLocaleDocsNavigation = (navigation: NavItem[]): NavItem[] => {
-		return navigation
-			.find((item) => item._path === '/' + locale.value)
-			.children.find((item) => item._path === '/' + locale.value + '/docs')
-			.children;
+	const mapLocaleDocsNavigation = (
+		navigation: ContentNavigationItem[],
+	): ContentNavigationItem[] => {
+		if (locale.value === 'zh-cn') {
+			return navigation.find((item) => item.path === '/docs').children;
+		} else {
+			return navigation
+				.find((item) => item.path === '/' + locale.value)
+				.children.find((item) => item.path === '/' + locale.value + '/docs')
+				.children;
+		}
 	};
 
 	const navLinks = computed(() => {
