@@ -1,6 +1,4 @@
 <script setup lang="ts">
-	import { getMobileDocsNavRequestKey } from '~/utils';
-
 	const { subMenuVisible } = defineProps({
 		subMenuVisible: Boolean,
 	});
@@ -8,10 +6,7 @@
 	const emit = defineEmits(['return', 'navigate']);
 
 	const { locale } = useI18n();
-	const { data: navigation } = await useAsyncData(
-		getMobileDocsNavRequestKey(locale.value),
-		() => queryCollectionNavigation(docsCollectionKey(locale.value)),
-	);
+	const { data: navigation } = await useDocsNav();
 
 	const navLinks = computed(() => {
 		return mapContentNavigation(

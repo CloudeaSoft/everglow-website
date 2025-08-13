@@ -75,5 +75,3 @@ export const docsCollectionKey = (locale: Langs): DocsContentKey => {
 			return 'docs';
 	}
 };
-
-export * from './net';

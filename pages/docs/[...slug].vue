@@ -1,6 +1,4 @@
 <script setup lang="ts">
-	import { getDocsNavRequestKey } from '~/utils';
-
 	const { t, locale } = useI18n();
 	useHead({
 		title: t('head.subtitles.docs'),
@@ -16,11 +14,7 @@
 		description = t('docs.empty.description'),
 	} = page.value ?? {};
 
-	const { data: navigation } = await useAsyncData(
-		getDocsNavRequestKey(locale.value),
-		() => queryCollectionNavigation(docsCollectionKey(locale.value)),
-	);
-
+	const { data: navigation } = await useDocsNav();
 	const navLinks = computed(() => {
 		return mapContentNavigation(
 			mapLocaleDocsNavigation(navigation.value, locale.value),
