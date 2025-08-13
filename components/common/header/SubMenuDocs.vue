@@ -1,7 +1,5 @@
 <script setup lang="ts">
-	import type { ContentNavigationItem } from '@nuxt/content';
-
-	const { locale } = useI18n();
+	import { getMobileDocsNavRequestKey } from '~/utils';
 
 	const { subMenuVisible } = defineProps({
 		subMenuVisible: Boolean,
@@ -9,25 +7,16 @@
 
 	const emit = defineEmits(['return', 'navigate']);
 
-	const { data: navigation } = await useAsyncData('navigation', () =>
-		queryCollectionNavigation('content'),
+	const { locale } = useI18n();
+	const { data: navigation } = await useAsyncData(
+		getMobileDocsNavRequestKey(locale.value),
+		() => queryCollectionNavigation(docsCollectionKey(locale.value)),
 	);
 
-	const mapLocaleDocsNavigation = (
-		navigation: ContentNavigationItem[],
-	): ContentNavigationItem[] => {
-		if (locale.value === 'zh-cn') {
-			return navigation.find((item) => item.path === '/docs').children;
-		} else {
-			return navigation
-				.find((item) => item.path === '/' + locale.value)
-				.children.find((item) => item.path === '/' + locale.value + '/docs')
-				.children;
-		}
-	};
-
 	const navLinks = computed(() => {
-		return mapContentNavigation(mapLocaleDocsNavigation(navigation.value));
+		return mapContentNavigation(
+			mapLocaleDocsNavigation(navigation.value, locale.value),
+		);
 	});
 </script>
 

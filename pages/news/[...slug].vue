@@ -5,9 +5,9 @@
 	});
 
 	const route = useRoute();
-
+	const { locale } = useI18n();
 	const { data: page } = await useAsyncData(route.path, () =>
-		queryCollection('content').path(route.path).first(),
+		queryCollection(newsCollectionKey(locale.value)).path(route.path).first(),
 	);
 
 	if (!page.value) {

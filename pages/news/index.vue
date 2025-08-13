@@ -1,13 +1,13 @@
 <script setup lang="ts">
-	const route = useRoute();
-	const i18n = useI18n();
+	const { t, locale } = useI18n();
 	useHead({
-		title: i18n.t('head.subtitles.news'),
+		title: t('head.subtitles.news'),
 	});
 
-	const { data: list } = await useAsyncData(route.path, () =>
-		queryCollection('content')
-			.where('path', 'LIKE', route.path + '%')
+	const { path } = useRoute();
+	const { data: list } = await useAsyncData(path, () =>
+		queryCollection(newsCollectionKey(locale.value))
+			.where('path', 'LIKE', path + '%')
 			.order('date', 'DESC')
 			.all(),
 	);

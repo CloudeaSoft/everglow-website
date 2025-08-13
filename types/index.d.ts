@@ -1,3 +1,2 @@
 export * from './common';
-export * from './news';
-export * from './docs';
+export * from './i18n';

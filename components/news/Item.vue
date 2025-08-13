@@ -1,8 +1,8 @@
 <script setup lang="ts">
-	import type { ContentCollectionItem } from '@nuxt/content';
+	import type { NewsCollectionItem } from '@nuxt/content';
 
 	const { newsItem: props } = defineProps<{
-		newsItem: ContentCollectionItem;
+		newsItem: NewsCollectionItem;
 	}>();
 
 	const title = props.title && props.title.trim() ? props.title : 'Title';

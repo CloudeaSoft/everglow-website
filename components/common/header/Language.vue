@@ -1,9 +1,11 @@
 <script setup lang="ts">
+	import type { Langs } from '~/types';
+
 	const { availableLocales, setLocale } = useI18n();
 
 	const isShowOptions = ref(false);
 
-	const setLanguage = (code: 'zh-cn' | 'zh-hk' | 'en-us') => {
+	const setLanguage = (code: Langs) => {
 		setLocale(code);
 		isShowOptions.value = false;
 	};
