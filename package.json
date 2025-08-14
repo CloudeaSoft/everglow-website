@@ -32,7 +32,6 @@
 		"@nuxtjs/i18n": "^10.0.5",
 		"@nuxtjs/seo": "3.1.0",
 		"@prosemirror-adapter/vue": "^0.4.1",
-		"better-sqlite3": "^12.2.0",
 		"nuxt": "^4.0.3",
 		"prism-themes": "^1.9.0",
 		"refractor": "^5.0.0",
@@ -52,5 +51,10 @@
 		"typescript": "^5.9.2",
 		"vite-plugin-eslint2": "5.0.4",
 		"vue-tsc": "^3.0.5"
+	},
+	"pnpm": {
+		"overrides": {
+			"sharp": "0.33.4"
+		}
 	}
 }
