@@ -1,4 +1,6 @@
 <script setup lang="ts">
+	import type { TocLink } from '@nuxt/content';
+
 	const i18n = useI18n();
 	useHead({
 		title: i18n.t('head.subtitles.news'),
@@ -18,6 +20,9 @@
 		});
 	}
 
+	const { title = null, image = null, date = null } = page.value ?? {};
+	const links: TocLink[] = page.value?.body.toc?.links ?? [];
+
 	const clearPageAnchor = () => {
 		navigateTo('#');
 	};
@@ -30,12 +35,12 @@
 				<div class="article">
 					<div class="article-content">
 						<div
-							v-if="page.image"
+							v-if="image"
 							class="article-title"
 							@click="clearPageAnchor"
 						>
 							<img
-								:src="page.image.toString()"
+								:src="image"
 								alt="News head image"
 							/>
 							<div class="title-container">
@@ -43,7 +48,7 @@
 									class="text"
 									@click.prevent.stop
 								>
-									{{ page.title }}
+									{{ title }}
 								</h2>
 							</div>
 						</div>
@@ -51,7 +56,7 @@
 							v-else
 							class="article-title-noimage"
 						>
-							{{ page.title }}
+							{{ title }}
 						</div>
 						<div class="article-head">
 							<div class="avatar">
@@ -65,7 +70,7 @@
 								<div class="meta-info">
 									<div class="date">
 										<Icon name="line-md:pencil" />
-										<span class="text">{{ page.date }}</span>
+										<span class="text">{{ date }}</span>
 									</div>
 								</div>
 							</div>
@@ -79,7 +84,7 @@
 					</div>
 				</div>
 				<div class="toc">
-					<CommonContentToc :links="page.body.toc?.links" />
+					<CommonContentToc :links />
 				</div>
 			</div>
 		</div>

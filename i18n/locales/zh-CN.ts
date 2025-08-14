@@ -1,3 +1,5 @@
+import type { I18nLocale } from '~/types';
+
 export default {
 	'nuxtSiteConfig': {
 		'name': '流光无际',
@@ -58,4 +60,4 @@ export default {
 			'description': '你来到了一片未知的地带',
 		},
 	},
-};
+} satisfies I18nLocale;

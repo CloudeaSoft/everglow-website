@@ -1,3 +1,5 @@
+import type { I18nLocale } from '~/types';
+
 export default {
 	nuxtSiteConfig: {
 		name: 'Everglow',
@@ -49,10 +51,13 @@ export default {
 		'label': {
 			'Getting Started': 'Get-Started',
 			'Guide': 'Guide',
+			'Netcode': 'Netcode',
+			'Mechanics': 'Mechanics',
+			'Drawcode': 'Drawcode',
 		},
 		'empty': {
 			'title': 'Unknown Field',
 			'description': "Here's nothing...",
 		},
 	},
-};
+} satisfies I18nLocale;

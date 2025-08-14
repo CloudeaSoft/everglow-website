@@ -9,10 +9,10 @@
 		queryCollection(docsCollectionKey(locale.value)).path(route.path).first(),
 	);
 
-	const {
-		title = t('docs.empty.title'),
-		description = t('docs.empty.description'),
-	} = page.value ?? {};
+	const title = computed(() => page.value?.title ?? t('docs.empty.title'));
+	const description = computed(
+		() => page.value?.description ?? t('docs.empty.description'),
+	);
 
 	const { data: navigation } = await useDocsNav();
 	const navLinks = computed(() => {

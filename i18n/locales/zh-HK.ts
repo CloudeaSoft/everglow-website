@@ -1,3 +1,5 @@
+import type { I18nLocale } from '~/types';
+
 export default {
 	'nuxtSiteConfig': {
 		'name': '流光無際',
@@ -47,12 +49,15 @@ export default {
 	},
 	'docs': {
 		'label': {
-			'Getting Started': '入門',
-			'Guide': '指南',
+			'Getting Started': '新手入門',
+			'Guide': '使用指南',
+			'Netcode': '網絡同步',
+			'Mechanics': '遊戲機制',
+			'Drawcode': '圖形繪製',
 		},
 		'empty': {
-			'title': '未知领域',
-			'description': '你来到了一片未知的地带',
+			'title': '未知領域',
+			'description': '此處暫無內容',
 		},
 	},
-};
+} satisfies I18nLocale;
