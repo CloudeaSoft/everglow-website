@@ -145,9 +145,9 @@ export default defineNuxtConfig({
 				},
 				highlight: {
 					theme: {
-						default: 'github-dark',
-						light: 'github-light',
-						dark: 'github-dark',
+						default: 'dark-plus',
+						light: 'light-plus',
+						dark: 'dark-plus',
 						sepia: 'monokai',
 					},
 					langs: [
