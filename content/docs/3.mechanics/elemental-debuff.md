@@ -6,4 +6,4 @@ navigation:
   icon: 'lucide:atom'
 ---
 
-Everglow内加入了元素伤害系统，该系统参考自[_明日方舟_](https://prts.wiki/w/%E5%85%83%E7%B4%A0){:target="\_blank"}。相关代码位于`Everglow.Function/Mechanics/ElementalDebuff`路径下。
+Everglow内加入了元素伤害系统，该系统参考自[_明日方舟_](https://prts.wiki/w/%E5%85%83%E7%B4%A0)。相关代码位于`Everglow.Function/Mechanics/ElementalDebuff`路径下。
