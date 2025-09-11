@@ -54,6 +54,8 @@ export default {
 			'Netcode': '网络同步',
 			'Mechanics': '游戏机制',
 			'Drawcode': '图形绘制',
+			'Templates': '内容模板',
+			'Weapons': '武器',
 		},
 		'empty': {
 			'title': '未知领域',

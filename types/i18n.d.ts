@@ -55,6 +55,8 @@ export type I18nLocale = {
 			'Netcode': string;
 			'Mechanics': string;
 			'Drawcode': string;
+			'Templates': string;
+			'Weapons': string;
 		};
 		empty: {
 			title: string;

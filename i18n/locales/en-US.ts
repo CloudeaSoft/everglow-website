@@ -54,6 +54,8 @@ export default {
 			'Netcode': 'Netcode',
 			'Mechanics': 'Mechanics',
 			'Drawcode': 'Drawcode',
+			'Templates': 'Templates',
+			'Weapons': 'Weapons',
 		},
 		'empty': {
 			'title': 'Unknown Field',
