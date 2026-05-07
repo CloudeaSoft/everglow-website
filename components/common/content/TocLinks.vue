@@ -28,7 +28,7 @@
 		<li
 			v-for="(link, index) in links"
 			:key="index"
-			:class="['content-toc-link-wrapper', link.depth === 3 && 'children']"
+			:class="['content-toc-link-wrapper', link.depth > 2 && 'children']"
 		>
 			<a
 				:href="`#${link.id}`"
